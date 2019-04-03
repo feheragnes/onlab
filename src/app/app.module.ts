@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { HttpClientModule }    from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,9 @@ import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { PlayerDashboardComponent } from './player-dashboard/player-dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { TeamsComponent } from './teams/teams.component';
+import { TeamDetailComponent } from './team-detail/team-detail.component';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,17 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     PlayersComponent,
     PlayerDetailComponent,
     PlayerDashboardComponent,
-    BarChartComponent
+    BarChartComponent,
+    TeamsComponent,
+    TeamDetailComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

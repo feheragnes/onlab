@@ -3,6 +3,7 @@ import { Player } from '../player';
 import { PLAYERS } from '../mock-players';
 import { PlayerService } from '../player.service';
 
+
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
@@ -10,23 +11,20 @@ import { PlayerService } from '../player.service';
 })
 export class PlayersComponent implements OnInit {
 
-  players: Player[];
+  public players;
 
-  // constructor() { }
   constructor(private playerService: PlayerService) { }
 
-  ngOnInit() {
-    this.getPlayers();
-  }
+    ngOnInit() {
+      this.getPlayers();
+    }
 
-/*   selectedPlayer: Player;
-  onSelect(player: Player): void {
-    this.selectedPlayer = player;
-  } */
-  
-  getPlayers(): void {
-    this.playerService.getPlayers()
-        .subscribe(players => this.players = players);
-  }
-
+  getPlayers() :void {
+    this.playerService.getPlayers().subscribe(
+      data => { this.players = data},
+      err => console.error(err),
+      () => console.log('done loading foods')
+     );
+   }
+   
 }
