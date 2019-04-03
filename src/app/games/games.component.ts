@@ -10,6 +10,8 @@ export class GamesComponent implements OnInit {
 
   public games;
 
+  private isOpen = {}
+  
   constructor(private gamesService: GamesService) { }
 
     ngOnInit() {
@@ -20,7 +22,7 @@ export class GamesComponent implements OnInit {
     this.gamesService.getGames().subscribe(
       data => { this.games = data},
       err => console.error(err),
-      () => console.log('done loading foods')
+      () => console.log('done loading games')
      );
    }
 

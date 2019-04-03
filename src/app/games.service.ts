@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
-import { GAMES } from './mock-games';
 import { Observable, of } from 'rxjs';
 import { Game } from './game';
+import { HttpClient } from '@angular/common/http/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GamesService {
 
-  constructor() { }
+  private gamesURL = 'https://localhost:44360/games';
 
-  
+  constructor(private http: HttpClient) { }
+
+
   getGames(): Observable<Game[]> {
-    return of(GAMES);
+    return this.http.get<Game[]>(this.gamesURL)
   }
 
   getGame(id: number): Observable<Game> {
-    return of(GAMES.find(game => game.gameId === id));
+      const url = `${this.gamesURL}/${id}`;
+      return this.http.get<Game>(url)
   }
 }

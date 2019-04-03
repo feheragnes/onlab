@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Player } from './player';
-import { PLAYERS } from './mock-players';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,16 @@ import { Observable, of } from 'rxjs';
 
 export class PlayerService {
 
-  constructor() { }
+  private playersURL = 'https://localhost:44360/players'
+
+  constructor(private http: HttpClient) { }
 
   getPlayers(): Observable<Player[]> {
-    return of(PLAYERS);
+    return this.http.get<Player[]>(this.playersURL)
   }
 
-  getPlayer(id: number): Observable<Player> {
-    return of(PLAYERS.find(player => player.id === id));
+  getPlayer(id: string): Observable<Player> {
+    const url = `${this.playersURL}/${id}`;
+    return this.http.get<Player>(url)
   }
 }

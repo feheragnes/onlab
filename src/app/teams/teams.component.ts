@@ -20,7 +20,7 @@ getTeams() :void {
   this.teamService.getTeams().subscribe(
     data => { this.teams = data},
     err => console.error(err),
-    () => console.log('done loading foods')
+    () => console.log('done loading teams')
    );
  }
 }

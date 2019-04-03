@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Team } from './team';
 import { Observable, of } from 'rxjs';
-import { TEAMS } from './mock-teams';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -19,6 +18,7 @@ export class TeamService {
   }
 
   getTeam(ab: string): Observable<Team> {
-    return of(TEAMS.find(team => team.abbrevation === ab));
+      const url = `${this.teamsUrl}/${ab}`;
+      return this.http.get<Team>(url)
   }
 }

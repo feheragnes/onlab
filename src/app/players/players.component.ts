@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../player';
-import { PLAYERS } from '../mock-players';
 import { PlayerService } from '../player.service';
 
 
@@ -23,7 +22,7 @@ export class PlayersComponent implements OnInit {
     this.playerService.getPlayers().subscribe(
       data => { this.players = data},
       err => console.error(err),
-      () => console.log('done loading foods')
+      () => console.log('done loading players')
      );
    }
    
