@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Team } from './team';
+import { Team } from './classes/team';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Head2Head } from './classes/head2head';
 
 
 @Injectable({

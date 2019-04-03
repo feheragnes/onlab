@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Player } from './player';
+import { Player } from './classes/player';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 

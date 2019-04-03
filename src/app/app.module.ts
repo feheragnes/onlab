@@ -13,6 +13,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { GamesComponent } from './games/games.component';
+import { Head2headComponent } from './head2head/head2head.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GamesComponent } from './games/games.component';
     BarChartComponent,
     TeamsComponent,
     TeamDetailComponent,
-    GamesComponent
+    GamesComponent,
+    Head2headComponent
   ],
   imports: [
     BrowserModule,

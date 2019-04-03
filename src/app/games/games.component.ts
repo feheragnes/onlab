@@ -26,4 +26,12 @@ export class GamesComponent implements OnInit {
      );
    }
 
+   getHead2Head() :void {
+    this.gamesService.getGames().subscribe(
+      data => { this.games = data},
+      err => console.error(err),
+      () => console.log('done loading games')
+     );
+   }
+
 }

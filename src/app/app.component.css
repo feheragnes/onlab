@@ -27,3 +27,11 @@ h1 {
   nav a.active {
     color: #039be5;
   }
+
+  .page{
+    margin: 2em;
+  }
+
+  nav{
+    margin-bottom: 2em;
+  }

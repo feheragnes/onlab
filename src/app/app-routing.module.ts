@@ -7,6 +7,7 @@ import { BarChartComponent }  from './bar-chart/bar-chart.component';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { GamesComponent } from './games/games.component';
+import { Head2headComponent } from './head2head/head2head.component';
 
 const routes: Routes = [
   { path: 'players', component: PlayersComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'team-detail/:ab', component: TeamDetailComponent },
   { path: 'teams', component: TeamsComponent },
   { path: 'games', component: GamesComponent },
+  { path: 'head2head/:id', component: Head2headComponent },
   { path: 'bar-chart', component: BarChartComponent},
   { path: '', redirectTo: '/player-dashboard', pathMatch: 'full' }
 ];
