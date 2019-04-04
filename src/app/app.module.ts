@@ -2,6 +2,18 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms"; // <-- NgModel lives here
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatListModule,
+  MatIconModule,
+  MatBadgeModule,
+  MatExpansionModule,
+  MatSelectModule,
+  MatFormFieldModule
+} from "@angular/material";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -32,7 +44,16 @@ import { Head2headComponent } from "./components/head2head/head2head.component";
     AppRoutingModule,
     FormsModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatListModule,
+    MatIconModule,
+    MatBadgeModule,
+    MatExpansionModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

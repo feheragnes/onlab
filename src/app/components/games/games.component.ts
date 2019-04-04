@@ -9,7 +9,8 @@ import { GamesService } from "../../services/games.service";
 export class GamesComponent implements OnInit {
   public games;
 
-  private isOpen = {};
+  seasons = [2018, 2017];
+  selectedSeason = 2018;
 
   constructor(private gamesService: GamesService) {}
 
@@ -17,8 +18,13 @@ export class GamesComponent implements OnInit {
     this.getGames();
   }
 
+  onSeasonChanged(season: number): void {
+    this.selectedSeason = season;
+    this.getGames();
+  }
+
   getGames(): void {
-    this.gamesService.getGames().subscribe(
+    this.gamesService.getGamesBySeason(this.selectedSeason).subscribe(
       data => {
         this.games = data;
       },

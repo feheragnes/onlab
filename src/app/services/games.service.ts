@@ -9,12 +9,17 @@ import { Head2Head } from "../interfaces/head2head";
 })
 export class GamesService {
   private gamesURL = "https://localhost:5001/games";
+  private gamesSeasonURL = "https://localhost:5001/games/season";
   private head2headUrl = "https://localhost:5001/head2head";
 
   constructor(private http: HttpClient) {}
 
   getGames(): Observable<Game[]> {
     return this.http.get<Game[]>(this.gamesURL);
+  }
+
+  getGamesBySeason(season: number): Observable<Game[]> {
+    return this.http.get<Game[]>(`${this.gamesSeasonURL}/${season}`);
   }
 
   getGame(id: number): Observable<Game> {

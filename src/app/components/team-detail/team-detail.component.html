@@ -1,7 +1,10 @@
-<div *ngIf="team">
-  <h4>{{ team.name | uppercase }} Details</h4>
-  <div><span>abbrevation: </span>{{ team.abbrevation }}</div>
-  <div><span>name: </span>{{ team.name }}</div>
-  <div><span>players: </span>{{ team.players }}</div>
-  <a href="/teams">Back</a>
+<div class="team-container">
+  <h1
+    class="mat-h1"
+    [matBadge]="team?.abbreviation"
+    matBadgeOverlap="false"
+    matBadgePosition="after"
+  >
+    {{ team?.name }}
+  </h1>
 </div>

@@ -1,8 +1,7 @@
-<ul class="teams">
-  <li *ngFor="let team of teams">
-    <a routerLink="/team-detail/{{ team.abbreviation }}">
-      <span class="badge">{{ team.abbreviation }}</span>
+<mat-nav-list>
+  <mat-list-item *ngFor="let team of teams">
+    <a matLine href="/team-detail/{{ team.abbreviation }}">
       {{ team.name }}
     </a>
-  </li>
-</ul>
+  </mat-list-item>
+</mat-nav-list>
