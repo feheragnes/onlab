@@ -4,7 +4,7 @@ import { GamesService } from "../../services/games.service";
 @Component({
   selector: "app-games",
   templateUrl: "./games.component.html",
-  styleUrls: ["./games.component.css"]
+  styleUrls: ["./games.component.scss"]
 })
 export class GamesComponent implements OnInit {
   public games;

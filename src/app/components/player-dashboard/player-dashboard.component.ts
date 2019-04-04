@@ -5,7 +5,7 @@ import { PlayerService } from "../../services/player.service";
 @Component({
   selector: "app-player-dashboard",
   templateUrl: "./player-dashboard.component.html",
-  styleUrls: ["./player-dashboard.component.css"]
+  styleUrls: ["./player-dashboard.component.scss"]
 })
 export class PlayerDashboardComponent implements OnInit {
   players: Player[] = [];
