@@ -1,5 +1,5 @@
 export interface Team {
-  abbrevation: string;
+  abbreviation: string;
   name: string;
   players: string;
 }

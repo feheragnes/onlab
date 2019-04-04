@@ -8,8 +8,8 @@ import { Head2Head } from "../interfaces/head2head";
   providedIn: "root"
 })
 export class GamesService {
-  private gamesURL = "https://localhost:44360/games";
-  private head2headUrl = "https://localhost:44360/head2head";
+  private gamesURL = "https://localhost:5001/games";
+  private head2headUrl = "https://localhost:5001/head2head";
 
   constructor(private http: HttpClient) {}
 

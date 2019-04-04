@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class TeamService {
-  private teamsUrl = "https://localhost:44360/teams";
+  private teamsUrl = "https://localhost:5001/teams";
 
   constructor(private http: HttpClient) {}
 

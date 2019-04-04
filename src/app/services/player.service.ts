@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class PlayerService {
-  private playersURL = "https://localhost:44360/players";
+  private playersURL = "https://localhost:5001/players";
 
   constructor(private http: HttpClient) {}
 
