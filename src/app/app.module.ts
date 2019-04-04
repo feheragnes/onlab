@@ -1,19 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
-import { HttpClientModule }    from '@angular/common/http';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms"; // <-- NgModel lives here
+import { HttpClientModule } from "@angular/common/http";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PlayersComponent } from './players/players.component';
-import { PlayerDetailComponent } from './player-detail/player-detail.component';
-import { PlayerDashboardComponent } from './player-dashboard/player-dashboard.component';
-import { ChartsModule } from 'ng2-charts';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
-import { TeamsComponent } from './teams/teams.component';
-import { TeamDetailComponent } from './team-detail/team-detail.component';
-import { GamesComponent } from './games/games.component';
-import { Head2headComponent } from './head2head/head2head.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { PlayersComponent } from "./components/players/players.component";
+import { PlayerDetailComponent } from "./components/player-detail/player-detail.component";
+import { PlayerDashboardComponent } from "./components/player-dashboard/player-dashboard.component";
+import { ChartsModule } from "ng2-charts";
+import { BarChartComponent } from "./components/charts/bar-chart/bar-chart.component";
+import { TeamsComponent } from "./components/teams/teams.component";
+import { TeamDetailComponent } from "./components/team-detail/team-detail.component";
+import { GamesComponent } from "./components/games/games.component";
+import { Head2headComponent } from "./components/head2head/head2head.component";
 
 @NgModule({
   declarations: [
@@ -37,4 +37,4 @@ import { Head2headComponent } from './head2head/head2head.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
