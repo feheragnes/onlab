@@ -7,4 +7,19 @@
   >
     {{ team?.name }}
   </h1>
+  <p>
+  </p>
+  <mat-form-field>
+    <mat-label>Season</mat-label>
+    <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+      <mat-option *ngFor="let season of seasons" [value]="season">
+        {{ season.season }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-nav-list dense>
+      <a mat-list-item href="/player-detail/{{ player.id }}" *ngFor="let player of players">   {{ player.name }} </a>
+   </mat-nav-list>
+  
 </div>

@@ -1,9 +1,8 @@
 <mat-form-field>
   <mat-label>Season</mat-label>
-
   <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
     <mat-option *ngFor="let season of seasons" [value]="season">
-      {{ season }}
+      {{ season.season }}
     </mat-option>
   </mat-select>
 </mat-form-field>
@@ -12,12 +11,17 @@
   <mat-expansion-panel *ngFor="let game of games">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{ game.homeTeam }}
+        {{ game.homeTeam }} - {{ game.awayTeam }}
       </mat-panel-title>
       <mat-panel-description>
-        {{ game.awayTeam }}
+        {{ game.gameDate | date:'yyyy.MM.dd.' }}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    asd
+    <mat-list dense>
+      <mat-list-item> Home Score: {{game.homeScore}} </mat-list-item>
+      <mat-list-item> Away Score: {{game.awayScore}} </mat-list-item>
+      <mat-list-item> Home Yards: {{game.homeYards}} </mat-list-item>
+      <mat-list-item> Away Yards: {{game.awayYards}} </mat-list-item>     
+     </mat-list>
   </mat-expansion-panel>
 </mat-accordion>

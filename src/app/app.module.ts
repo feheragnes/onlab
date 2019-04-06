@@ -12,7 +12,8 @@ import {
   MatBadgeModule,
   MatExpansionModule,
   MatSelectModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatChipsModule
 } from "@angular/material";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -53,7 +54,8 @@ import { Head2headComponent } from "./components/head2head/head2head.component";
     MatBadgeModule,
     MatExpansionModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

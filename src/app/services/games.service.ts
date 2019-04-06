@@ -3,14 +3,15 @@ import { Observable, of } from "rxjs";
 import { Game } from "../interfaces/game";
 import { HttpClient } from "@angular/common/http/";
 import { Head2Head } from "../interfaces/head2head";
+import { Season } from '../interfaces/season';
 
 @Injectable({
   providedIn: "root"
 })
 export class GamesService {
-  private gamesURL = "https://localhost:5001/games";
-  private gamesSeasonURL = "https://localhost:5001/games/season";
-  private head2headUrl = "https://localhost:5001/head2head";
+  private gamesURL = "https://localhost:44360/games";
+  private gamesSeasonURL = "https://localhost:44360/games/season";
+  private head2headUrl = "https://localhost:44360/head2head";
 
   constructor(private http: HttpClient) {}
 
@@ -29,5 +30,10 @@ export class GamesService {
   getHead2Head(id: number): Observable<Head2Head> {
     const url = `${this.head2headUrl}/${id}`;
     return this.http.get<Head2Head>(url);
+  }
+
+  getSeasons(): Observable<Season[]>{
+    const url = "https://localhost:44360/seasons/years";
+    return this.http.get<Season[]>(url);
   }
 }

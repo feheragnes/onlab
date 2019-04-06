@@ -7,7 +7,8 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class PlayerService {
-  private playersURL = "https://localhost:5001/players";
+  private playersURL = "https://localhost:44360/players";
+  private playersTeamSeasonURL = "https://localhost:44360/players/by-team-and-season"
 
   constructor(private http: HttpClient) {}
 
@@ -19,4 +20,10 @@ export class PlayerService {
     const url = `${this.playersURL}/${id}`;
     return this.http.get<Player>(url);
   }
+
+  getPlayersByTeamSeason(ab: string, season: number){
+    const url = `${this.playersTeamSeasonURL}/${ab}/${season}`;
+    return this.http.get<Player>(url);
+  }
+
 }
