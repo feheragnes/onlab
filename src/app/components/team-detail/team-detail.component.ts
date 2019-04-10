@@ -35,8 +35,8 @@ export class TeamDetailComponent implements OnInit {
     this.getPlayers();
   }
 
-  onSeasonChanged(season: Season): void {
-    this.selectedSeason = season.season;
+  onSeasonChanged(season: number): void {
+    this.selectedSeason = season;
     this.getPlayers();
   }
 

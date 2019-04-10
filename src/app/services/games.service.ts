@@ -32,8 +32,8 @@ export class GamesService {
     return this.http.get<Head2Head>(url);
   }
 
-  getSeasons(): Observable<Season[]>{
+  getSeasons(): Observable<number[]>{
     const url = "https://localhost:44360/seasons/years";
-    return this.http.get<Season[]>(url);
+    return  this.http.get<number[]>(url);
   }
 }

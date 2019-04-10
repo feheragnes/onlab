@@ -1,18 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { GamesService } from "../../services/games.service";
-import { Season } from 'src/app/interfaces/season';
+import { Component, OnInit } from '@angular/core';
+import { GamesService } from '../../services/games.service';
 
 @Component({
-  selector: "app-games",
-  templateUrl: "./games.component.html",
-  styleUrls: ["./games.component.scss"]
+  selector: 'app-games',
+  templateUrl: './games.component.html',
+  styleUrls: ['./games.component.scss']
 })
 export class GamesComponent implements OnInit {
   public games;
 
   seasons = [];
 
-  selectedSeason : number =  2018;
+  selectedSeason = 2018;
 
   constructor(private gamesService: GamesService) {}
 
@@ -21,8 +20,8 @@ export class GamesComponent implements OnInit {
     this.getGames();
   }
 
-  onSeasonChanged(season: Season): void {
-    this.selectedSeason = season.season;
+  onSeasonChanged(season: number): void {
+    this.selectedSeason = season;
     this.getGames();
   }
 
@@ -32,7 +31,7 @@ export class GamesComponent implements OnInit {
         this.games = data;
       },
       err => console.error(err),
-      () => console.log("done loading games")
+      () => console.log('done loading games')
     );
   }
 
@@ -42,7 +41,7 @@ export class GamesComponent implements OnInit {
         this.seasons = data;
       },
       err => console.error(err),
-      () => console.log("done loading seasons")
+      () => console.log('done loading seasons')
     );
   }
 
@@ -52,7 +51,7 @@ export class GamesComponent implements OnInit {
         this.games = data;
       },
       err => console.error(err),
-      () => console.log("done loading head2head")
+      () => console.log('done loading head2head')
     );
   }
 }

@@ -2,10 +2,14 @@
   <mat-label>Season</mat-label>
   <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
     <mat-option *ngFor="let season of seasons" [value]="season">
-      {{ season.season }}
+      {{ season }}
     </mat-option>
   </mat-select>
 </mat-form-field>
+
+<mat-chip-list class ="season">
+  <mat-chip>{{selectedSeason}}</mat-chip>
+</mat-chip-list>
 
 <mat-accordion>
   <mat-expansion-panel *ngFor="let game of games">

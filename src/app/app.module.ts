@@ -27,6 +27,7 @@ import { TeamsComponent } from "./components/teams/teams.component";
 import { TeamDetailComponent } from "./components/team-detail/team-detail.component";
 import { GamesComponent } from "./components/games/games.component";
 import { Head2headComponent } from "./components/head2head/head2head.component";
+import { ThirddownChartComponent } from './components/charts/thirddown-chart/thirddown-chart.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { Head2headComponent } from "./components/head2head/head2head.component";
     TeamsComponent,
     TeamDetailComponent,
     GamesComponent,
-    Head2headComponent
+    Head2headComponent,
+    ThirddownChartComponent
   ],
   imports: [
     BrowserModule,

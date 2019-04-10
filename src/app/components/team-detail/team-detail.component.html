@@ -13,7 +13,7 @@
     <mat-label>Season</mat-label>
     <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
       <mat-option *ngFor="let season of seasons" [value]="season">
-        {{ season.season }}
+        {{ season }}
       </mat-option>
     </mat-select>
   </mat-form-field>
