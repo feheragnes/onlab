@@ -46,7 +46,7 @@ export class ThirddownChartComponent implements OnInit {
   }
 
   getThirdDowns(): void {
-    this.chartService.getThirdDown(this.selectedSeason).subscribe(
+    this.chartService.getThirdDowns(this.selectedSeason).subscribe(
       data => {
         this.barChartLabels = data.map(x => x.team);
         this.barChartData = [

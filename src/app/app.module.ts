@@ -33,6 +33,7 @@ import { Head2headComponent } from './components/head2head/head2head.component';
 import { ThirddownChartComponent } from './components/charts/thirddown-chart/thirddown-chart.component';
 import { DlinesChartComponent } from './components/charts/dlines-chart/dlines-chart.component';
 import { SecondariesChartComponent } from './components/charts/secondaries-chart/secondaries-chart.component';
+import { FirstdownChartComponent } from './components/charts/firstdown-chart/firstdown-chart.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SecondariesChartComponent } from './components/charts/secondaries-chart
     Head2headComponent,
     ThirddownChartComponent,
     DlinesChartComponent,
-    SecondariesChartComponent
+    SecondariesChartComponent,
+    FirstdownChartComponent
   ],
   imports: [
     BrowserModule,
