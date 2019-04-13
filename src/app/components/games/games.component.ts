@@ -7,13 +7,12 @@ import { GamesService } from '../../services/games.service';
   styleUrls: ['./games.component.scss']
 })
 export class GamesComponent implements OnInit {
+  constructor(private gamesService: GamesService) {}
   public games;
 
   seasons = [];
 
   selectedSeason = 2018;
-
-  constructor(private gamesService: GamesService) {}
 
   ngOnInit() {
     this.getSeasons();

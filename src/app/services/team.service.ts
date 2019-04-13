@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { Team } from "../interfaces/team";
-import { Observable, of } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { Team } from '../interfaces/team';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class TeamService {
-  private teamsUrl = "https://localhost:44360/teams";
+  private teamsUrl = 'https://apiv2dev.nkelemen.hu/teams';
 
   constructor(private http: HttpClient) {}
 

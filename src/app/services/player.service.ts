@@ -1,14 +1,15 @@
-import { Injectable } from "@angular/core";
-import { Player } from "../interfaces/player";
-import { Observable, of } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { Player } from '../interfaces/player';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class PlayerService {
-  private playersURL = "https://localhost:44360/players";
-  private playersTeamSeasonURL = "https://localhost:44360/players/by-team-and-season"
+  private playersURL = 'https://apiv2dev.nkelemen.hu/players';
+  private playersTeamSeasonURL =
+    'https://apiv2dev.nkelemen.hu/players/by-team-and-season';
 
   constructor(private http: HttpClient) {}
 
@@ -21,9 +22,8 @@ export class PlayerService {
     return this.http.get<Player>(url);
   }
 
-  getPlayersByTeamSeason(ab: string, season: number){
+  getPlayersByTeamSeason(ab: string, season: number) {
     const url = `${this.playersTeamSeasonURL}/${ab}/${season}`;
     return this.http.get<Player>(url);
   }
-
 }

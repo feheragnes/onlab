@@ -7,8 +7,8 @@
   </mat-select>
 </mat-form-field>
 
-<mat-chip-list class ="season">
-  <mat-chip>{{selectedSeason}}</mat-chip>
+<mat-chip-list class="season">
+  <mat-chip>{{ selectedSeason }}</mat-chip>
 </mat-chip-list>
 
 <mat-accordion>
@@ -18,14 +18,14 @@
         {{ game.homeTeam }} - {{ game.awayTeam }}
       </mat-panel-title>
       <mat-panel-description>
-        {{ game.gameDate | date:'yyyy.MM.dd.' }}
+        {{ game.gameDate | date: "yyyy.MM.dd." }}
       </mat-panel-description>
     </mat-expansion-panel-header>
     <mat-list dense>
-      <mat-list-item> Home Score: {{game.homeScore}} </mat-list-item>
-      <mat-list-item> Away Score: {{game.awayScore}} </mat-list-item>
-      <mat-list-item> Home Yards: {{game.homeYards}} </mat-list-item>
-      <mat-list-item> Away Yards: {{game.awayYards}} </mat-list-item>     
-     </mat-list>
+      <mat-list-item> Home Score: {{ game.homeScore }} </mat-list-item>
+      <mat-list-item> Away Score: {{ game.awayScore }} </mat-list-item>
+      <mat-list-item> Home Yards: {{ game.homeYards }} </mat-list-item>
+      <mat-list-item> Away Yards: {{ game.awayYards }} </mat-list-item>
+    </mat-list>
   </mat-expansion-panel>
 </mat-accordion>

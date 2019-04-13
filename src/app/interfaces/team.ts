@@ -1,5 +1,6 @@
 export interface Team {
   abbreviation: string;
   name: string;
-  players: string;
+  conference: string;
+  division: string;
 }
