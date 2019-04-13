@@ -32,6 +32,7 @@ import { GamesComponent } from './components/games/games.component';
 import { Head2headComponent } from './components/head2head/head2head.component';
 import { ThirddownChartComponent } from './components/charts/thirddown-chart/thirddown-chart.component';
 import { DlinesChartComponent } from './components/charts/dlines-chart/dlines-chart.component';
+import { SecondariesChartComponent } from './components/charts/secondaries-chart/secondaries-chart.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DlinesChartComponent } from './components/charts/dlines-chart/dlines-ch
     GamesComponent,
     Head2headComponent,
     ThirddownChartComponent,
-    DlinesChartComponent
+    DlinesChartComponent,
+    SecondariesChartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartOptions, ChartDataSets, ChartType } from 'chart.js';
+import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { Secondary } from 'src/app/interfaces/secondary';
 import { ChartService } from 'src/app/services/chart.service';
 import { GamesService } from 'src/app/services/games.service';
-import { Dline } from 'src/app/interfaces/dline';
 
 @Component({
-  selector: 'app-dlines-chart',
-  templateUrl: './dlines-chart.component.html',
-  styleUrls: ['./dlines-chart.component.css']
+  selector: 'app-secondaries-chart',
+  templateUrl: './secondaries-chart.component.html',
+  styleUrls: ['./secondaries-chart.component.css']
 })
-export class DlinesChartComponent implements OnInit {
+export class SecondariesChartComponent implements OnInit {
   public scatterChartOptions: ChartOptions = {
     responsive: true,
     tooltips: {
@@ -19,9 +19,9 @@ export class DlinesChartComponent implements OnInit {
           const label = data.labels[tooltipItem.index];
           return (
             label +
-            ': Sacks:' +
+            ': Interceptions:' +
             tooltipItem.xLabel +
-            ', Qbhits:' +
+            ', Fumbles:' +
             tooltipItem.yLabel
           );
         }
@@ -34,19 +34,19 @@ export class DlinesChartComponent implements OnInit {
   public scatterChartLabels: Label[] = [];
   public scatterChartLegend = true;
 
-  public sacks: number[] = [];
-  public qbhits: number[] = [];
+  public interceptions: number[] = [];
+  public fumbles: number[] = [];
 
   public scatterChartData = [
     {
       data: [],
       pointRadius: 7,
-      label: 'D-lines',
-      backgroundColor: '#77E3EC'
+      label: 'Secondaries',
+      backgroundColor: '#64D189'
     }
   ];
 
-  dlines: Dline[] = [];
+  secondaries: Secondary[] = [];
   seasons = [];
   selectedSeason = 2018;
 
@@ -57,9 +57,9 @@ export class DlinesChartComponent implements OnInit {
 
   ngOnInit() {
     this.gamesService.getSeasons().subscribe(
-      data => {
-        this.seasons = data;
-        this.getDlines();
+      d => {
+        this.seasons = d;
+        this.getSecondaries();
       },
       err => console.error(err),
       () => console.log('done loading seasons')
@@ -68,35 +68,35 @@ export class DlinesChartComponent implements OnInit {
 
   onSeasonChanged(season: number): void {
     this.selectedSeason = season;
-    this.getDlines();
+    this.getSecondaries();
   }
 
   getScatter(
-    qbhits: number[],
-    sacks: number[],
+    interceptions: number[],
+    fumbles: number[],
     scatterdata: { x: number; y: number }[]
   ): { x: number; y: number }[] {
     scatterdata = [];
-    sacks.forEach(function(value, i) {
-      scatterdata.push({ x: value, y: qbhits[i] });
+    interceptions.forEach(function(value, i) {
+      scatterdata.push({ x: value, y: fumbles[i] });
     });
     return scatterdata;
   }
 
-  getDlines(): void {
-    this.chartService.getDlines(this.selectedSeason).subscribe(
+  getSecondaries(): void {
+    this.chartService.getSecondaries(this.selectedSeason).subscribe(
       d => {
         this.scatterChartData[0].data = [];
         this.scatterChartLabels = d.map(x => x.team);
-        this.qbhits = d.map(x => x.qb_hits);
-        this.sacks = d.map(x => x.sacks);
+        this.interceptions = d.map(x => x.interceptions);
+        this.fumbles = d.map(x => x.fumbles);
       },
       err => console.error(err),
       () => {
-        console.log('done loading dlines');
+        console.log('done loading secondaries');
         this.scatterChartData[0].data = this.getScatter(
-          this.qbhits,
-          this.sacks,
+          this.interceptions,
+          this.fumbles,
           this.scatterChartData[0].data
         );
       }
