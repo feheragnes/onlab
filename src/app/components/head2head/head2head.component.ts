@@ -1,18 +1,19 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { Head2Head } from "../../interfaces/head2head";
-import { ActivatedRoute } from "@angular/router";
-import { GamesService } from "../../services/games.service";
-import { Location } from "@angular/common";
+import { Component, OnInit, Input } from '@angular/core';
+import { Head2Head } from '../../interfaces/head2head';
+import { ActivatedRoute } from '@angular/router';
+import { GamesService } from '../../services/games.service';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: "app-head2head",
-  templateUrl: "./head2head.component.html",
-  styleUrls: ["./head2head.component.css"]
+  selector: 'app-head2head',
+  templateUrl: './head2head.component.html',
+  styleUrls: ['./head2head.component.css']
 })
 export class Head2headComponent implements OnInit {
   @Input() head2head: Head2Head;
 
   width: any;
+  @Input() id: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,9 +26,9 @@ export class Head2headComponent implements OnInit {
   }
 
   getHead2Head(): void {
-    const id = +this.route.snapshot.paramMap.get("id");
+    // const id = +this.route.snapshot.paramMap.get("id");
     this.gamesService
-      .getHead2Head(id)
+      .getHead2Head(this.id)
       .subscribe(head2head => (this.head2head = head2head));
   }
 

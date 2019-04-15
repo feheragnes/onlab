@@ -1,96 +1,26 @@
 <div *ngIf="head2head">
   <h3>Head 2 Head - Game:{{ head2head.gameId }}</h3>
   <h5>Allowed Points</h5>
-  <div class="progress">
-    <div
-      class="progress-bar"
-      role="progressbar"
-      style="width: 50%;"
-      attr.aria-valuenow="{{ head2head.homeAllowedPoints }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      {{ head2head.homeAllowedPoints }}
-    </div>
-    <div
-      class="progress-bar  bg-warning"
-      role="progressbar"
-      style="width: 50%;"
-      attr.aria-valuenow="{{ head2head.awayAllowedPoints }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      {{ head2head.awayAllowedPoints }}
-    </div>
-  </div>
+
+  {{ head2head.homeAllowedPoints }}
+
+  {{ head2head.awayAllowedPoints }}
+
   <h5>Scored Points</h5>
-  <div class="progress">
-    <div
-      class="progress-bar"
-      role="progressbar"
-      style="width: 50%;"
-      attr.aria-valuenow="{{ head2head.homeScoredPoints }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      {{ head2head.homeScoredPoints }}
-    </div>
-    <div
-      class="progress-bar  bg-warning"
-      role="progressbar"
-      style="width: 50%;"
-      attr.aria-valuenow="{{ head2head.awayScoredPoints }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      {{ head2head.awayScoredPoints }}
-    </div>
-  </div>
+
+  {{ head2head.homeScoredPoints }}
+
+  {{ head2head.awayScoredPoints }}
+
   <h5>Allowed Yards</h5>
-  <div class="progress">
-    <div
-      class="progress-bar"
-      role="progressbar"
-      style="width: 50%;"
-      attr.aria-valuenow="{{ head2head.homeAllowedYards }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      {{ head2head.homeAllowedYards }}
-    </div>
-    <div
-      class="progress-bar  bg-warning"
-      role="progressbar"
-      style="width: 50%;"
-      attr.aria-valuenow="{{ head2head.awayAllowedYards }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      {{ head2head.awayAllowedYards }}
-    </div>
-  </div>
+
+  {{ head2head.homeAllowedYards }}
+
+  {{ head2head.awayAllowedYards }}
+
   <h5>Scored Yards</h5>
-  <div class="progress">
-    <div
-      class="progress-bar"
-      role="progressbar"
-      style="width: 50%;"
-      attr.aria-valuenow="{{ head2head.homeScoredYards }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      {{ head2head.homeScoredYards }}
-    </div>
-    <div
-      class="progress-bar  bg-warning"
-      role="progressbar"
-      style="width: 50%;"
-      attr.aria-valuenow="{{ head2head.awayScoredYards }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      {{ head2head.awayAllowedPoints }}
-    </div>
-  </div>
-  <button (click)="goBack()">Back</button>
+
+  {{ head2head.homeScoredYards }}
+
+  {{ head2head.awayAllowedPoints }}
 </div>
