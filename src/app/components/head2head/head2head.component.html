@@ -1,26 +1,61 @@
 <div *ngIf="head2head">
-  <h3>Head 2 Head - Game:{{ head2head.gameId }}</h3>
-  <h5>Allowed Points</h5>
-
-  {{ head2head.homeAllowedPoints }}
-
-  {{ head2head.awayAllowedPoints }}
-
-  <h5>Scored Points</h5>
-
-  {{ head2head.homeScoredPoints }}
-
-  {{ head2head.awayScoredPoints }}
-
-  <h5>Allowed Yards</h5>
-
-  {{ head2head.homeAllowedYards }}
-
-  {{ head2head.awayAllowedYards }}
-
-  <h5>Scored Yards</h5>
-
-  {{ head2head.homeScoredYards }}
-
-  {{ head2head.awayAllowedPoints }}
+  <mat-grid-list cols="2" rowHeight="200px">
+    <mat-grid-tile
+      ><div style="display: block; width: 300px; height: 150px">
+        <canvas
+          baseChart
+          [datasets]="allowedPointsData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="barChartColors"
+        >
+        </canvas></div
+    ></mat-grid-tile>
+    <mat-grid-tile
+      ><div style="display: block; width: 300px; height: 150px">
+        <canvas
+          baseChart
+          [datasets]="scoredPointsData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="barChartColors"
+        >
+        </canvas></div
+    ></mat-grid-tile>
+    <mat-grid-tile
+      ><div style="display: block; width: 300px; height: 150px">
+        <canvas
+          baseChart
+          [datasets]="allowedYardsData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="barChartColors"
+        >
+        </canvas>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      ><div style="display: block; width: 300px; height: 150px">
+        <canvas
+          baseChart
+          [datasets]="scoredYardsData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="barChartColors"
+        >
+        </canvas></div
+    ></mat-grid-tile>
+  </mat-grid-list>
 </div>

@@ -3,6 +3,8 @@ import { Head2Head } from '../../interfaces/head2head';
 import { ActivatedRoute } from '@angular/router';
 import { GamesService } from '../../services/games.service';
 import { Location } from '@angular/common';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-head2head',
@@ -14,6 +16,33 @@ export class Head2headComponent implements OnInit {
 
   width: any;
   @Input() id: number;
+  @Input() home: string;
+  @Input() away: string;
+
+  public barChartOptions: ChartOptions = {
+    responsive: true
+  };
+  public barChartLabels: Label[] = [];
+  public barChartType: ChartType = 'horizontalBar';
+  public barChartLegend = true;
+  public barChartColors = [
+    {
+      backgroundColor: ['#1a237e', '#d32f2f']
+    }
+  ];
+
+  public allowedPointsData: ChartDataSets[] = [
+    { data: [], label: 'Allowed Points' }
+  ];
+  public scoredPointsData: ChartDataSets[] = [
+    { data: [], label: 'Scored Points' }
+  ];
+  public allowedYardsData: ChartDataSets[] = [
+    { data: [], label: 'Allowed Yards' }
+  ];
+  public scoredYardsData: ChartDataSets[] = [
+    { data: [], label: 'Scored Yards' }
+  ];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,9 +56,38 @@ export class Head2headComponent implements OnInit {
 
   getHead2Head(): void {
     // const id = +this.route.snapshot.paramMap.get("id");
-    this.gamesService
-      .getHead2Head(this.id)
-      .subscribe(head2head => (this.head2head = head2head));
+    this.gamesService.getHead2Head(this.id).subscribe(
+      data => {
+        this.head2head = data;
+        this.barChartLabels = [this.home, this.away];
+        this.allowedPointsData = [
+          {
+            data: [data.homeAllowedPoints, data.awayAllowedPoints],
+            label: 'Allowed Points'
+          }
+        ];
+        this.scoredPointsData = [
+          {
+            data: [data.homeScoredPoints, data.awayScoredPoints],
+            label: 'Scored Points'
+          }
+        ];
+        this.allowedYardsData = [
+          {
+            data: [data.homeAllowedYards, data.awayAllowedYards],
+            label: 'Allowed Yards'
+          }
+        ];
+        this.scoredYardsData = [
+          {
+            data: [data.homeScoredYards, data.awayScoredYards],
+            label: 'Scored Yards'
+          }
+        ];
+      },
+      err => console.error(err),
+      () => console.log('done loading head2head')
+    );
   }
 
   goBack(): void {

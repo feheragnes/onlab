@@ -21,12 +21,23 @@
         {{ game.gameDate | date: "yyyy.MM.dd." }}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-list dense>
-      <mat-list-item> Home Score: {{ game.homeScore }} </mat-list-item>
-      <mat-list-item> Away Score: {{ game.awayScore }} </mat-list-item>
-      <mat-list-item> Home Yards: {{ game.homeYards }} </mat-list-item>
-      <mat-list-item> Away Yards: {{ game.awayYards }} </mat-list-item>
-    </mat-list>
-    <app-head2head id="{{ game.gameId }}"></app-head2head>
+    <div class="list">
+      <mat-list dense>
+        <mat-list-item> Home Score: {{ game.homeScore }} </mat-list-item>
+        <mat-list-item> Away Score: {{ game.awayScore }} </mat-list-item>
+        <mat-list-item> Home Yards: {{ game.homeYards }} </mat-list-item>
+        <mat-list-item> Away Yards: {{ game.awayYards }} </mat-list-item>
+      </mat-list>
+    </div>
+
+    <div class="head2head">
+      <ng-template matExpansionPanelContent>
+        <app-head2head
+          id="{{ game.gameId }}"
+          home="{{ game.homeTeam }}"
+          away="{{ game.awayTeam }}"
+        ></app-head2head>
+      </ng-template>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>

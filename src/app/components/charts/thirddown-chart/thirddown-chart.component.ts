@@ -20,6 +20,12 @@ export class ThirddownChartComponent implements OnInit {
 
   public barChartData: ChartDataSets[] = [{ data: [], label: 'Thirddowns' }];
 
+  public barChartColors = [
+    {
+      backgroundColor: '#7986cb'
+    }
+  ];
+
   thirddowns: ThirdDown[] = [];
   seasons = [];
   selectedSeason = 2018;
