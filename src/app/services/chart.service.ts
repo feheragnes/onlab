@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Dline } from '../interfaces/dline';
 import { Secondary } from '../interfaces/secondary';
 import { FirstDown } from '../interfaces/firstdown';
+import { TdYpg } from '../interfaces/tdypg';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class ChartService {
   private firstdownUrl = 'https://apiv2dev.nkelemen.hu/league/firstdowns';
   private dlineUrl = 'https://apiv2dev.nkelemen.hu/league/dlines';
   private secondaryUrl = 'https://apiv2dev.nkelemen.hu/league/secondaries';
+  private tdypgUrl = 'https://apiv2dev.nkelemen.hu/league/tdypg';
 
   constructor(private http: HttpClient) {}
 
@@ -28,5 +30,8 @@ export class ChartService {
   }
   getSecondaries(season: number): Observable<Secondary[]> {
     return this.http.get<Secondary[]>(`${this.secondaryUrl}/${season}`);
+  }
+  getTdYpg(season: number): Observable<TdYpg[]> {
+    return this.http.get<TdYpg[]>(`${this.tdypgUrl}/${season}`);
   }
 }

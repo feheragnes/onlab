@@ -34,6 +34,7 @@ import { ThirddownChartComponent } from './components/charts/thirddown-chart/thi
 import { DlinesChartComponent } from './components/charts/dlines-chart/dlines-chart.component';
 import { SecondariesChartComponent } from './components/charts/secondaries-chart/secondaries-chart.component';
 import { FirstdownChartComponent } from './components/charts/firstdown-chart/firstdown-chart.component';
+import { TdYpgChartComponent } from './components/charts/td-ypg-chart/td-ypg-chart.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FirstdownChartComponent } from './components/charts/firstdown-chart/fir
     ThirddownChartComponent,
     DlinesChartComponent,
     SecondariesChartComponent,
-    FirstdownChartComponent
+    FirstdownChartComponent,
+    TdYpgChartComponent
   ],
   imports: [
     BrowserModule,

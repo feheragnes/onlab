@@ -1,0 +1,45 @@
+<mat-form-field>
+  <mat-label>Season</mat-label>
+  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+    <mat-option *ngFor="let season of seasons" [value]="season">
+      {{ season }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <!-- <mat-label>Season</mat-label> -->
+  <mat-select
+    [value]="selectedAllowedScored"
+    (valueChange)="onAllowedScoredChanged($event)"
+  >
+    <mat-option value="allowed">Allowed</mat-option>
+    <mat-option value="scored">Scored</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <!-- <mat-label>Season</mat-label> -->
+  <mat-select [value]="selectedType" (valueChange)="onTypeChanged($event)">
+    <mat-option value="all">All</mat-option>
+    <mat-option value="receiving">Receiving</mat-option>
+    <mat-option value="rushing">Rushing</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-chip-list class="chips">
+  <mat-chip>{{ selectedSeason }}</mat-chip>
+  <mat-chip>{{ selectedAllowedScored }}</mat-chip>
+  <mat-chip>{{ selectedType }}</mat-chip>
+</mat-chip-list>
+
+<div style="display: block">
+  <canvas
+    baseChart
+    [datasets]="scatterChartData"
+    [options]="scatterChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+  >
+  </canvas>
+</div>
