@@ -18,7 +18,8 @@ import {
   MatPaginatorModule,
   MatGridListModule,
   MatProgressSpinnerModule,
-  MatCardModule
+  MatCardModule,
+  MatMenuModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +38,10 @@ import { DlinesChartComponent } from './components/charts/dlines-chart/dlines-ch
 import { SecondariesChartComponent } from './components/charts/secondaries-chart/secondaries-chart.component';
 import { FirstdownChartComponent } from './components/charts/firstdown-chart/firstdown-chart.component';
 import { TdYpgChartComponent } from './components/charts/td-ypg-chart/td-ypg-chart.component';
+import { DefenseStatsComponent } from './components/defense-stats/defense-stats.component';
+import { WrStatsComponent } from './components/wr-stats/wr-stats.component';
+import { RbStatsComponent } from './components/rb-stats/rb-stats.component';
+import { QbStatsComponent } from './components/qb-stats/qb-stats.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +58,11 @@ import { TdYpgChartComponent } from './components/charts/td-ypg-chart/td-ypg-cha
     DlinesChartComponent,
     SecondariesChartComponent,
     FirstdownChartComponent,
-    TdYpgChartComponent
+    TdYpgChartComponent,
+    DefenseStatsComponent,
+    WrStatsComponent,
+    RbStatsComponent,
+    QbStatsComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +84,8 @@ import { TdYpgChartComponent } from './components/charts/td-ypg-chart/td-ypg-cha
     NgbModule,
     MatGridListModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
