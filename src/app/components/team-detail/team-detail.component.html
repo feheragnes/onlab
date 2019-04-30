@@ -1,25 +1,113 @@
-<div class="team-container">
-  <h1
-    class="mat-h1"
-    [matBadge]="team?.abbreviation"
-    matBadgeOverlap="false"
-    matBadgePosition="after"
-  >
-    {{ team?.name }}
+<div class="team-container" *ngIf="team">
+  <h1>
+    {{ team?.team }}
   </h1>
-  <p>
-  </p>
-  <mat-form-field>
-    <mat-label>Season</mat-label>
-    <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
-      <mat-option *ngFor="let season of seasons" [value]="season">
-        {{ season }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <mat-chip-list>
+    <mat-chip color="primary" selected>{{ team.abbreviation }}</mat-chip>
+    <mat-chip>{{ team.division }}</mat-chip>
+  </mat-chip-list>
+  <mat-card class="data">
+    <mat-list>
+      <mat-list-item
+        >Win: {{ team.win }} Lose: {{ team.lose }} Draw:
+        {{ team.draw }}</mat-list-item
+      >
+      <mat-list-item>
+        Allowed Average Points: {{ team.allowedAvgPoints }}
+      </mat-list-item>
+      <mat-list-item>
+        Scored Average Points: {{ team.scoredAvgPoints }}
+      </mat-list-item>
+      <mat-list-item> Allowed All Ypg: {{ team.allowedAllYpg }} </mat-list-item>
+      <mat-list-item> Scored All Ypg: {{ team.scoredAllYpg }} </mat-list-item>
+    </mat-list>
+  </mat-card>
 
-  <mat-nav-list dense>
-      <a mat-list-item href="/player-detail/{{ player.id }}" *ngFor="let player of players">   {{ player.name }} </a>
-   </mat-nav-list>
-  
+  <mat-card
+    ><mat-list>
+      <h3 matSubheader>Quarter Backs</h3>
+      <mat-list-item *ngFor="let qb of team.quarterBacks">
+        <h4 mat-line>{{ qb.name }}</h4>
+        <h6 mat-line>Yards: {{ qb.passYards }}</h6>
+        <h6 mat-line>Tds: {{ qb.passTds }}</h6>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 matSubheader>RunningBacks</h3>
+      <mat-list-item *ngFor="let rb of team.runningBacks">
+        <h4 mat-line>{{ rb.name }}</h4>
+        <h6 mat-line>Yards: {{ rb.rushYards }}</h6>
+        <h6 mat-line>Tds: {{ rb.rushTds }}</h6>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 matSubheader>WideReceivers</h3>
+      <mat-list-item *ngFor="let wr of team.wideReceivers">
+        <h4 mat-line>{{ wr.name }}</h4>
+        <h6 mat-line>Yards: {{ wr.recYards }}</h6>
+        <h6 mat-line>Tds: {{ wr.recTds }}</h6>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 matSubheader>Top Sacks</h3>
+      <mat-list-item *ngFor="let ts of team.topSacks">
+        <h4 mat-line>{{ ts.name }}</h4>
+        <h6 mat-line>Sacks: {{ ts.sacks }}</h6>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 matSubheader>Top Tackles</h3>
+      <mat-list-item *ngFor="let tt of team.topTackles">
+        <h4 mat-line>{{ tt.name }}</h4>
+        <h6 mat-line>Tackles: {{ tt.tackles }}</h6>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 matSubheader>Top Interceptions</h3>
+      <mat-list-item *ngFor="let ti of team.topInterceptions">
+        <h4 mat-line>{{ ti.name }}</h4>
+        <h6 mat-line>Interceptions: {{ ti.interceptions }}</h6>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+
+  <mat-card>
+    <mat-form-field>
+      <mat-select
+        [value]="selectedAllowedScored"
+        (valueChange)="onAllowedScoredChanged($event)"
+      >
+        <mat-option value="allowed">Allowed</mat-option>
+        <mat-option value="scored">Scored</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [value]="selectedType" (valueChange)="onTypeChanged($event)">
+        <mat-option value="all">All</mat-option>
+        <mat-option value="receiving">Receiving</mat-option>
+        <mat-option value="rushing">Rushing</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p></p>
+
+    <div class="graph">
+      <canvas
+        baseChart
+        [datasets]="lineChartDataTd"
+        [options]="lineChartOptions"
+        [labels]="lineChartLabels"
+        [chartType]="lineChartType"
+        [colors]="lineChartColors"
+      >
+      </canvas>
+    </div>
+    <div class="graph">
+      <canvas
+        baseChart
+        [datasets]="lineChartDataYard"
+        [options]="lineChartOptions"
+        [labels]="lineChartLabels"
+        [chartType]="lineChartType"
+        [colors]="lineChartColors"
+      >
+      </canvas>
+    </div>
+  </mat-card>
 </div>
+
+<mat-spinner *ngIf="loading"></mat-spinner>

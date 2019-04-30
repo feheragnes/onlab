@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Team } from '../interfaces/team';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -17,6 +17,10 @@ export class TeamService {
 
   getTeam(ab: string): Observable<Team> {
     const url = `${this.teamsUrl}/${ab}`;
+    return this.http.get<Team>(url);
+  }
+  getOneTeam(ab: string): Observable<Team> {
+    const url = `https://apiv2dev.nkelemen.hu/oneteam//${ab}`;
     return this.http.get<Team>(url);
   }
 }

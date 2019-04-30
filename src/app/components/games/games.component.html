@@ -1,43 +1,50 @@
-<mat-form-field>
-  <mat-label>Season</mat-label>
-  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
-    <mat-option *ngFor="let season of seasons" [value]="season">
-      {{ season }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<div *ngIf="games">
+  <mat-form-field>
+    <mat-label>Season</mat-label>
+    <mat-select
+      [value]="selectedSeason"
+      (valueChange)="onSeasonChanged($event)"
+    >
+      <mat-option *ngFor="let season of seasons" [value]="season">
+        {{ season }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-<mat-chip-list class="season">
-  <mat-chip>{{ selectedSeason }}</mat-chip>
-</mat-chip-list>
+  <mat-chip-list class="season">
+    <mat-chip>{{ selectedSeason }}</mat-chip>
+  </mat-chip-list>
 
-<mat-accordion>
-  <mat-expansion-panel *ngFor="let game of games">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ game.homeTeam }} - {{ game.awayTeam }}
-      </mat-panel-title>
-      <mat-panel-description>
-        {{ game.gameDate | date: "yyyy.MM.dd." }}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div class="list">
-      <mat-list dense>
-        <mat-list-item> Home Score: {{ game.homeScore }} </mat-list-item>
-        <mat-list-item> Away Score: {{ game.awayScore }} </mat-list-item>
-        <mat-list-item> Home Yards: {{ game.homeYards }} </mat-list-item>
-        <mat-list-item> Away Yards: {{ game.awayYards }} </mat-list-item>
-      </mat-list>
-    </div>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let game of games">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ game.homeTeam }} - {{ game.awayTeam }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ game.gameDate | date: "yyyy.MM.dd." }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="list">
+        <mat-list dense>
+          <mat-list-item> Home Score: {{ game.homeScore }} </mat-list-item>
+          <mat-list-item> Away Score: {{ game.awayScore }} </mat-list-item>
+          <mat-list-item> Home Yards: {{ game.homeYards }} </mat-list-item>
+          <mat-list-item> Away Yards: {{ game.awayYards }} </mat-list-item>
+        </mat-list>
+      </div>
 
-    <div class="head2head">
-      <ng-template matExpansionPanelContent>
-        <app-head2head
-          id="{{ game.gameId }}"
-          home="{{ game.homeTeam }}"
-          away="{{ game.awayTeam }}"
-        ></app-head2head>
-      </ng-template>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion>
+      <div class="head2head">
+        <ng-template matExpansionPanelContent>
+          <app-head2head
+            id="{{ game.gameId }}"
+            home="{{ game.homeTeam }}"
+            away="{{ game.awayTeam }}"
+          ></app-head2head>
+        </ng-template>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<mat-spinner *ngIf="loading"></mat-spinner>

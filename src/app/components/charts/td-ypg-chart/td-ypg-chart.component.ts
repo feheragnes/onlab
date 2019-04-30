@@ -235,21 +235,6 @@ export class TdYpgChartComponent implements OnInit {
       err => console.error(err),
       () => {
         console.log('done loading secondaries');
-        // this.scatterChartData[0].data = this.getScatter(
-        //   this.allowedAllTd,
-        //   this.scoredAllTd,
-        //   this.allowedRushingTd,
-        //   this.scoredRushingTd,
-        //   this.allowedReceivingTd,
-        //   this.scoredReceivingTd,
-        //   this.allowedAllYpg,
-        //   this.scoredAllYpg,
-        //   this.allowedRushingYpg,
-        //   this.scoredRushingYpg,
-        //   this.allowedReceivingYpg,
-        //   this.scoredReceivingYpg,
-        //   this.scatterChartData[0].data
-        // );
         if (
           this.selectedAllowedScored == 'allowed' &&
           this.selectedType == 'all'

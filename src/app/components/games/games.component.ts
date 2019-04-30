@@ -13,6 +13,7 @@ export class GamesComponent implements OnInit {
   seasons = [];
 
   selectedSeason = 2018;
+  loading = true;
 
   ngOnInit() {
     this.getSeasons();
@@ -30,7 +31,10 @@ export class GamesComponent implements OnInit {
         this.games = data;
       },
       err => console.error(err),
-      () => console.log('done loading games')
+      () => {
+        console.log('done loading games');
+        this.loading = false;
+      }
     );
   }
 

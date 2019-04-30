@@ -16,7 +16,9 @@ import {
   MatFormFieldModule,
   MatChipsModule,
   MatPaginatorModule,
-  MatGridListModule
+  MatGridListModule,
+  MatProgressSpinnerModule,
+  MatCardModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -71,7 +73,9 @@ import { TdYpgChartComponent } from './components/charts/td-ypg-chart/td-ypg-cha
     MatChipsModule,
     MatPaginatorModule,
     NgbModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
