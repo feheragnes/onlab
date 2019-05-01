@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'qb-stats', component: QbStatsComponent },
   { path: 'rb-stats', component: RbStatsComponent },
   { path: 'wr-stats', component: WrStatsComponent },
-  { path: '', redirectTo: '/player-dashboard', pathMatch: 'full' }
+  { path: '', redirectTo: '/teams', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import { Secondary } from '../interfaces/secondary';
 import { FirstDown } from '../interfaces/firstdown';
 import { TdYpg } from '../interfaces/tdypg';
 import { Tackle, Sack, Interception } from '../interfaces/defense';
+import { Rb } from '../interfaces/rb';
 
 @Injectable({
   providedIn: 'root'
@@ -54,8 +55,8 @@ export class ChartService {
     );
   }
 
-  getRb(season: number): Observable<[]> {
-    return this.http.get<[]>(`https://apiv2dev.nkelemen.hu/rb/${season}`);
+  getRbs(season: number): Observable<Rb[]> {
+    return this.http.get<Rb[]>(`https://apiv2dev.nkelemen.hu/rb/${season}`);
   }
 
   getQb(season: number): Observable<[]> {

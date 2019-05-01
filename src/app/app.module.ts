@@ -19,7 +19,8 @@ import {
   MatGridListModule,
   MatProgressSpinnerModule,
   MatCardModule,
-  MatMenuModule
+  MatMenuModule,
+  MatSliderModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -85,7 +86,8 @@ import { QbStatsComponent } from './components/qb-stats/qb-stats.component';
     MatGridListModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
