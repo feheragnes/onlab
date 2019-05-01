@@ -26,7 +26,7 @@
   (input)="onGamesSliderChanged($event)"
 ></mat-slider> -->
 
-<div style="display: block">
+<div class="chart" style="display: block">
   <canvas
     baseChart
     [datasets]="barChartData"
@@ -39,17 +39,14 @@
   >
   </canvas>
 </div>
-<div>
-  <div>
-    <div style="display: block">
-      <canvas
-        baseChart
-        [datasets]="scatterChartData"
-        [options]="scatterChartOptions"
-        [labels]="scatterChartLabels"
-        [chartType]="scatterChartType"
-      >
-      </canvas>
-    </div>
-  </div>
+
+<div class="chart" style="display: block">
+  <canvas
+    baseChart
+    [datasets]="scatterChartData"
+    [options]="scatterChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+  >
+  </canvas>
 </div>

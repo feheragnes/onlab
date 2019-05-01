@@ -1,3 +1,41 @@
-<p>
-  qb-stats works!
-</p>
+<mat-form-field>
+  <mat-label>Season</mat-label>
+  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+    <mat-option *ngFor="let season of seasons" [value]="season">
+      {{ season }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="chart" style="display: block">
+  <canvas
+    baseChart
+    [datasets]="piChartData"
+    [options]="piChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+  >
+  </canvas>
+</div>
+
+<div class="chart" style="display: block">
+  <canvas
+    baseChart
+    [datasets]="ppChartData"
+    [options]="ppChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+  >
+  </canvas>
+</div>
+
+<div class="chart" style="display: block">
+  <canvas
+    baseChart
+    [datasets]="ayChartData"
+    [options]="ayChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+  >
+  </canvas>
+</div>
