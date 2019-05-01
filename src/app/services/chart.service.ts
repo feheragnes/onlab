@@ -9,6 +9,7 @@ import { TdYpg } from '../interfaces/tdypg';
 import { Tackle, Sack, Interception } from '../interfaces/defense';
 import { Rb } from '../interfaces/rb';
 import { Qb } from '../interfaces/qb';
+import { Wr } from '../interfaces/wr';
 
 @Injectable({
   providedIn: 'root'
@@ -62,5 +63,8 @@ export class ChartService {
 
   getQb(season: number): Observable<Qb[]> {
     return this.http.get<Qb[]>(`https://apiv2dev.nkelemen.hu/qb/${season}`);
+  }
+  getWrs(season: number): Observable<Wr[]> {
+    return this.http.get<Wr[]>(`https://apiv2dev.nkelemen.hu/wr/${season}`);
   }
 }

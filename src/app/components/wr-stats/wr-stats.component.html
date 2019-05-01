@@ -1,3 +1,34 @@
-<p>
-  wr-stats works!
-</p>
+<h1>Wr stats</h1>
+<mat-form-field>
+  <mat-label>Season</mat-label>
+  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+    <mat-option *ngFor="let season of seasons" [value]="season">
+      {{ season }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="chart" style="display: block">
+  <canvas
+    baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="barChartColors"
+  >
+  </canvas>
+</div>
+
+<div class="chart" style="display: block">
+  <canvas
+    baseChart
+    [datasets]="scatterChartData"
+    [options]="scatterChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+  >
+  </canvas>
+</div>

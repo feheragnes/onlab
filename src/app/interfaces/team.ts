@@ -16,6 +16,9 @@ export interface Team {
   scoredRushingYardsByMatch: number[];
   allowedReceivingYardsByMatch: number[];
   scoredReceivingYardsByMatch: number[];
+  win: number;
+  lose: number;
+  draw: number;
 }
 
 // win : number;

@@ -8,10 +8,6 @@
   </mat-chip-list>
   <mat-card class="data">
     <mat-list>
-      <mat-list-item
-        >Win: {{ team.win }} Lose: {{ team.lose }} Draw:
-        {{ team.draw }}</mat-list-item
-      >
       <mat-list-item>
         Allowed Average Points: {{ team.allowedAvgPoints }}
       </mat-list-item>
@@ -21,6 +17,19 @@
       <mat-list-item> Allowed All Ypg: {{ team.allowedAllYpg }} </mat-list-item>
       <mat-list-item> Scored All Ypg: {{ team.scoredAllYpg }} </mat-list-item>
     </mat-list>
+    <div class="chart" style="display: block; width: 300px;">
+      <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        [colors]="barChartColors"
+      >
+      </canvas>
+    </div>
   </mat-card>
 
   <mat-card

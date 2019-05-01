@@ -5,7 +5,7 @@ import { TeamService } from '../../services/team.service';
 import { Location } from '@angular/common';
 import { PlayerService } from 'src/app/services/player.service';
 import { GamesService } from 'src/app/services/games.service';
-import { ChartOptions, ChartType } from 'chart.js';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 
 @Component({
@@ -46,6 +46,20 @@ export class TeamDetailComponent implements OnInit {
 
   public lineChartDataTd = [{ data: [], label: 'Td' }];
   public lineChartDataYard = [{ data: [], label: 'Yards' }];
+
+  public barChartOptions: ChartOptions = {
+    responsive: true
+  };
+  public barChartLabels: Label[] = ['Win', 'Lose', 'Draw'];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = false;
+  public barChartColors = [
+    {
+      backgroundColor: ['#006600', '#d32f2f', '#1a237e']
+    }
+  ];
+
+  public barChartData: ChartDataSets[] = [{ data: [] }];
 
   selectedAllowedScored = 'allowed';
   selectedType = 'all';
@@ -88,6 +102,7 @@ export class TeamDetailComponent implements OnInit {
       this.scoredReceivingYardsByMatch = team.scoredReceivingYardsByMatch;
       this.lineChartDataTd[0].data = this.allowedAllTdsByMatch;
       this.lineChartDataYard[0].data = this.allowedAllYardsByMatch;
+      this.barChartData[0].data = [team.win, team.lose, team.draw];
     });
   }
 
