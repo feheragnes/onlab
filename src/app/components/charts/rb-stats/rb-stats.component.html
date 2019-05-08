@@ -27,6 +27,7 @@
     [min]="minRa"
     [max]="maxRa"
     step="1"
+    [value]="selectedRushAttempts"
     (input)="onRaSliderChanged($event)"
   ></mat-slider>
   <mat-label>Minimum games:</mat-label>
@@ -36,6 +37,7 @@
     [min]="minGames"
     [max]="maxGames"
     step="1"
+    [value]="selectedGames"
     (input)="onGamesSliderChanged($event)"
   ></mat-slider>
 </div>
