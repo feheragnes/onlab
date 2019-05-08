@@ -8,3 +8,8 @@ mat-drawer-content * {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.big {
+  background: #1a237e;
+  color: white;
+}
