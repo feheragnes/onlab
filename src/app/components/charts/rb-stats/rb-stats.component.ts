@@ -13,7 +13,16 @@ import { filterQueryId } from '@angular/core/src/view/util';
 })
 export class RbStatsComponent implements OnInit {
   public barChartOptions: ChartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';

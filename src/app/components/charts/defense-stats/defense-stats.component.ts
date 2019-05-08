@@ -11,7 +11,16 @@ import { GamesService } from 'src/app/services/games.service';
 })
 export class DefenseStatsComponent implements OnInit {
   public barChartOptions: ChartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
   };
   public sacksChartLabels: Label[] = [];
   public tacklesChartLabels: Label[] = [];

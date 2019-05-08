@@ -11,7 +11,16 @@ import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 })
 export class WrStatsComponent implements OnInit {
   public barChartOptions: ChartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';

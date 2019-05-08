@@ -12,7 +12,16 @@ import { Label } from 'ng2-charts';
 })
 export class ThirddownChartComponent implements OnInit {
   public barChartOptions: ChartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';

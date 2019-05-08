@@ -20,14 +20,23 @@ export class Head2headComponent implements OnInit {
   @Input() away: string;
 
   public barChartOptions: ChartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      xAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'horizontalBar';
   public barChartLegend = true;
   public barChartColors = [
     {
-      backgroundColor: ['#1a237e', '#d32f2f']
+      backgroundColor: ['#1a237e', '#5c6bc0']
     }
   ];
 

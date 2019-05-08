@@ -48,7 +48,16 @@ export class TeamDetailComponent implements OnInit {
   public lineChartDataYard = [{ data: [], label: 'Yards' }];
 
   public barChartOptions: ChartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      xAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
   };
   public barChartLabels: Label[] = ['Win', 'Lose', 'Draw'];
   public barChartType: ChartType = 'bar';
@@ -83,7 +92,6 @@ export class TeamDetailComponent implements OnInit {
     console.log(ab);
     this.teamService.getOneTeam(ab).subscribe(team => {
       this.team = team;
-      console.log(team);
       this.loading = false;
       this.lineChartDataTd[0].data = [];
       this.lineChartDataYard[0].data = [];
