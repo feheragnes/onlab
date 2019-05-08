@@ -66,7 +66,7 @@ export class ThirddownChartComponent implements OnInit {
         this.barChartLabels = data.map(x => x.team);
         this.barChartData = [
           {
-            data: data.map(x => x.thirdDown),
+            data: data.map(x => Math.round(x.thirdDown * 100) / 100),
             label: 'Thirddowns'
           }
         ];

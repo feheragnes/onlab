@@ -69,8 +69,8 @@ export class RbStatsComponent implements OnInit {
   minRa: number;
   maxGames: number;
   minGames: number;
-  selectedRushAttempts: number;
-  selectedGames: number;
+  selectedRushAttempts = 0;
+  selectedGames = 0;
   rbs: Rb[];
   filteredRbs: Rb[];
 
@@ -84,7 +84,9 @@ export class RbStatsComponent implements OnInit {
   ];
 
   seasons = [];
+  teams = [];
   selectedSeason = 2018;
+  selectedTeam = 'All';
 
   constructor(
     private chartService: ChartService,
@@ -107,19 +109,40 @@ export class RbStatsComponent implements OnInit {
     this.getRbs();
   }
 
-  // onGamesSliderChanged(ra: number): void {
-  //   // this.selectedRushAttempts = ra;
-  //   this.filterData();
-  // }
-  // onRaSliderChanged(g: number): void {
-  //   // this.selectedGames = g;
-  //   this.filterData();
-  // }
+  onTeamChanged(team: string): void {
+    this.selectedTeam = team;
+    this.filterData(
+      this.selectedGames,
+      this.selectedRushAttempts,
+      this.selectedTeam
+    );
+  }
+
+  onRaSliderChanged(event: any): void {
+    this.selectedRushAttempts = event.value;
+    console.log(this.selectedRushAttempts);
+    this.filterData(
+      this.selectedGames,
+      this.selectedRushAttempts,
+      this.selectedTeam
+    );
+  }
+  onGamesSliderChanged(event: any): void {
+    this.selectedGames = event.value;
+    console.log(this.selectedGames);
+    this.filterData(
+      this.selectedGames,
+      this.selectedRushAttempts,
+      this.selectedTeam
+    );
+  }
 
   getRbs(): void {
     this.chartService.getRbs(this.selectedSeason).subscribe(
       data => {
         this.rbs = data;
+        this.teams = Array.from(new Set(data.map((item: any) => item.team)));
+        this.teams.push('All');
         this.rushAttempts = data.map(x => x.rushAttempts);
         this.maxRa = Math.max.apply(null, this.rushAttempts);
         this.minRa = Math.min.apply(null, this.rushAttempts);
@@ -161,25 +184,25 @@ export class RbStatsComponent implements OnInit {
     return scatterdata;
   }
 
-  // filterData() {
-  //   this.filteredRbs = this.rbs.filter(
-  //     x =>
-  //       x.games > this.selectedGames &&
-  //       x.rushAttempts > this.selectedRushAttempts
-  //   );
-  //   console.log(this.filteredRbs);
-  //   this.barChartData[0].data = this.filteredRbs.map(x => x.yardsPerCarrys);
-  //   this.barChartData[1].data = this.filteredRbs.map(x => x.yardsPerGames);
-  //   this.scatterChartLabels = this.filteredRbs.map(
-  //     x => x.name + ' (' + x.team + ')'
-  //   );
-  //   this.scatterChartData[0].data = [];
-  //   this.touchdowns = this.filteredRbs.map(x => x.touchdowns);
-  //   this.yards = this.filteredRbs.map(x => x.yards);
-  //   this.scatterChartData[0].data = this.getScatter(
-  //     this.yards,
-  //     this.touchdowns,
-  //     this.scatterChartData[0].data
-  //   );
-  // }
+  filterData(g: number, ra: number, t: string) {
+    this.filteredRbs = this.rbs.filter(
+      x => x.games >= g && x.rushAttempts >= ra && (x.team == t || t == 'All')
+    );
+    this.barChartLabels = this.filteredRbs.map(
+      x => x.name + ' (' + x.team + ')'
+    );
+    this.barChartData[0].data = this.filteredRbs.map(x => x.yardsPerCarrys);
+    this.barChartData[1].data = this.filteredRbs.map(x => x.yardsPerGames);
+    this.scatterChartLabels = this.filteredRbs.map(
+      x => x.name + ' (' + x.team + ')'
+    );
+    this.scatterChartData[0].data = [];
+    this.touchdowns = this.filteredRbs.map(x => x.touchdowns);
+    this.yards = this.filteredRbs.map(x => x.yards);
+    this.scatterChartData[0].data = this.getScatter(
+      this.yards,
+      this.touchdowns,
+      this.scatterChartData[0].data
+    );
+  }
 }
