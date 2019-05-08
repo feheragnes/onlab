@@ -1,179 +1,94 @@
-<mat-grid-list cols="2" rowHeight="70px">
-  <mat-grid-tile><h2>NFC</h2></mat-grid-tile>
-  <mat-grid-tile><h2>AFC</h2></mat-grid-tile>
-</mat-grid-list>
-
-<mat-grid-list cols="2" rowHeight="350px" gutterSize="40px">
-  <mat-grid-tile>
-    <mat-grid-tile-header><h3>NFC West</h3></mat-grid-tile-header>
+<mat-card class="big">
+  <mat-card-header><mat-card-title>NFC</mat-card-title></mat-card-header>
+  <mat-card class="small">
+    <mat-card-header>
+      <mat-card-title>NFC West</mat-card-title>
+    </mat-card-header>
     <mat-nav-list>
       <mat-list-item *ngFor="let team of nfcWestTeams">
         <a matLine href="/team-detail/{{ team.abbreviation }}">
           {{ team.name }}
         </a>
       </mat-list-item>
-    </mat-nav-list></mat-grid-tile
-  >
-  <mat-grid-tile>
-    <mat-grid-tile-header><h3>AFC West</h3></mat-grid-tile-header>
-    <div>
-      <mat-nav-list>
-        <mat-list-item *ngFor="let team of afcWestTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
-            {{ team.name }}
-          </a>
-        </mat-list-item>
-      </mat-nav-list>
-    </div></mat-grid-tile
-  >
-
-  <mat-grid-tile>
-    <mat-nav-list>
-      <mat-grid-tile-header><h3>NFC East</h3> </mat-grid-tile-header>
+    </mat-nav-list>
+  </mat-card>
+  <mat-card class="small"
+    ><mat-card-header><mat-card-title>NFC East</mat-card-title></mat-card-header
+    ><mat-nav-list>
       <mat-list-item *ngFor="let team of nfcEastTeams">
         <a matLine href="/team-detail/{{ team.abbreviation }}">
           {{ team.name }}
         </a>
       </mat-list-item>
-    </mat-nav-list></mat-grid-tile
-  >
-
-  <mat-grid-tile>
-    <mat-grid-tile-header><h3>AFC East</h3> </mat-grid-tile-header>
-    <mat-nav-list>
-      <mat-list-item *ngFor="let team of afcEastTeams">
-        <a matLine href="/team-detail/{{ team.abbreviation }}">
-          {{ team.name }}
-        </a>
-      </mat-list-item>
-    </mat-nav-list></mat-grid-tile
-  >
-
-  <mat-grid-tile>
-    <mat-grid-tile-header><h3>NFC South</h3> </mat-grid-tile-header>
-    <mat-nav-list>
+    </mat-nav-list>
+  </mat-card>
+  <mat-card class="small"
+    ><mat-card-header
+      ><mat-card-title>NFC South</mat-card-title></mat-card-header
+    ><mat-nav-list>
       <mat-list-item *ngFor="let team of nfcSouthTeams">
         <a matLine href="/team-detail/{{ team.abbreviation }}">
           {{ team.name }}
         </a>
       </mat-list-item>
-    </mat-nav-list>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-grid-tile-header><h3>AFC South</h3> </mat-grid-tile-header>
-    <mat-nav-list>
-      <mat-list-item *ngFor="let team of afcSouthTeams">
-        <a matLine href="/team-detail/{{ team.abbreviation }}">
-          {{ team.name }}
-        </a>
-      </mat-list-item>
-    </mat-nav-list></mat-grid-tile
+    </mat-nav-list></mat-card
   >
-
-  <mat-grid-tile>
-    <mat-grid-tile-header><h3>NFC North</h3> </mat-grid-tile-header>
+  <mat-card class="small"
+    ><mat-card-header
+      ><mat-card-title>NFC North</mat-card-title></mat-card-header
+    >
     <mat-nav-list>
       <mat-list-item *ngFor="let team of nfcNorthTeams">
         <a matLine href="/team-detail/{{ team.abbreviation }}">
           {{ team.name }}
         </a>
       </mat-list-item>
-    </mat-nav-list>
-  </mat-grid-tile>
+    </mat-nav-list></mat-card
+  >
+</mat-card>
 
-  <mat-grid-tile>
-    <mat-grid-tile-header><h3>AFC North</h3> </mat-grid-tile-header>
-    <mat-nav-list>
-      <mat-list-item *ngFor="let team of afcNorthTeams">
+<mat-card class="big">
+  <mat-card-header><mat-card-title>AFC</mat-card-title></mat-card-header>
+  <mat-card class="small">
+    <mat-card-header><mat-card-title>AFC West</mat-card-title></mat-card-header
+    ><mat-nav-list>
+      <mat-list-item *ngFor="let team of afcWestTeams">
         <a matLine href="/team-detail/{{ team.abbreviation }}">
           {{ team.name }}
         </a>
       </mat-list-item>
-    </mat-nav-list></mat-grid-tile
+    </mat-nav-list></mat-card
   >
-</mat-grid-list>
-
-<!-- <mat-grid-list cols="4" rowHeight="300px">
-  <mat-grid-tile><h3>NFC West</h3> </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-nav-list>
-      <mat-list-item *ngFor="let team of nfcWestTeams">
-        <a matLine href="/team-detail/{{ team.abbreviation }}">
-          {{ team.name }}
-        </a>
-      </mat-list-item>
-    </mat-nav-list></mat-grid-tile
-  >
-  <mat-grid-tile><h3>AFC West</h3> </mat-grid-tile>
-  <mat-grid-tile>
-    <div>
-      <mat-nav-list>
-        <mat-list-item *ngFor="let team of afcWestTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
-            {{ team.name }}
-          </a>
-        </mat-list-item>
-      </mat-nav-list>
-    </div></mat-grid-tile
-  >
-  <mat-grid-tile><h3>NFC East</h3> </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-nav-list>
-      <mat-list-item *ngFor="let team of nfcEastTeams">
-        <a matLine href="/team-detail/{{ team.abbreviation }}">
-          {{ team.name }}
-        </a>
-      </mat-list-item>
-    </mat-nav-list></mat-grid-tile
-  >
-  <mat-grid-tile><h3>AFC East</h3> </mat-grid-tile>
-  <mat-grid-tile>
+  <mat-card class="small">
+    <mat-card-header><mat-card-title>AFC East</mat-card-title></mat-card-header>
     <mat-nav-list>
       <mat-list-item *ngFor="let team of afcEastTeams">
         <a matLine href="/team-detail/{{ team.abbreviation }}">
           {{ team.name }}
         </a>
       </mat-list-item>
-    </mat-nav-list></mat-grid-tile
+    </mat-nav-list></mat-card
   >
-  <mat-grid-tile><h3>NFC South</h3> </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-nav-list>
-      <mat-list-item *ngFor="let team of nfcSouthTeams">
-        <a matLine href="/team-detail/{{ team.abbreviation }}">
-          {{ team.name }}
-        </a>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-grid-tile>
-  <mat-grid-tile><h3>AFC South</h3> </mat-grid-tile>
-  <mat-grid-tile>
+  <mat-card class="small">
+    <mat-card-header
+      ><mat-card-title>AFC South</mat-card-title></mat-card-header
+    >
     <mat-nav-list>
       <mat-list-item *ngFor="let team of afcSouthTeams">
         <a matLine href="/team-detail/{{ team.abbreviation }}">
           {{ team.name }}
         </a>
       </mat-list-item>
-    </mat-nav-list></mat-grid-tile
+    </mat-nav-list></mat-card
   >
-  <mat-grid-tile><h3>NFC North</h3> </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-nav-list>
-      <mat-list-item *ngFor="let team of nfcNorthTeams">
-        <a matLine href="/team-detail/{{ team.abbreviation }}">
-          {{ team.name }}
-        </a>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-grid-tile>
-  <mat-grid-tile><h3>AFC North</h3> </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-nav-list>
+  <mat-card class="small">
+    <mat-card-header><mat-card-title>AFC North</mat-card-title></mat-card-header
+    ><mat-nav-list>
       <mat-list-item *ngFor="let team of afcNorthTeams">
         <a matLine href="/team-detail/{{ team.abbreviation }}">
           {{ team.name }}
         </a>
       </mat-list-item>
-    </mat-nav-list></mat-grid-tile
+    </mat-nav-list></mat-card
   >
-</mat-grid-list> -->
+</mat-card>
