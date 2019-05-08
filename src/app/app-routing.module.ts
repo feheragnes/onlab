@@ -1,27 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlayersComponent } from './components/players/players.component';
-import { PlayerDashboardComponent } from './components/player-dashboard/player-dashboard.component';
-import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
-import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
+import { StatsComponent } from './components/stats/stats.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamDetailComponent } from './components/team-detail/team-detail.component';
 import { GamesComponent } from './components/games/games.component';
 import { Head2headComponent } from './components/head2head/head2head.component';
-import { DefenseStatsComponent } from './components/defense-stats/defense-stats.component';
-import { QbStatsComponent } from './components/qb-stats/qb-stats.component';
-import { RbStatsComponent } from './components/rb-stats/rb-stats.component';
-import { WrStatsComponent } from './components/wr-stats/wr-stats.component';
+import { DefenseStatsComponent } from './components/charts/defense-stats/defense-stats.component';
+import { QbStatsComponent } from './components/charts/qb-stats/qb-stats.component';
+import { RbStatsComponent } from './components/charts/rb-stats/rb-stats.component';
+import { WrStatsComponent } from './components/charts/wr-stats/wr-stats.component';
 
 const routes: Routes = [
   { path: 'players', component: PlayersComponent },
-  { path: 'player-dashboard', component: PlayerDashboardComponent },
-  { path: 'player-detail/:id', component: PlayerDetailComponent },
   { path: 'team-detail/:ab', component: TeamDetailComponent },
   { path: 'teams', component: TeamsComponent },
   { path: 'games', component: GamesComponent },
   { path: 'head2head/:id', component: Head2headComponent },
-  { path: 'bar-chart', component: BarChartComponent },
+  { path: 'stats', component: StatsComponent },
   { path: 'defense-stats', component: DefenseStatsComponent },
   { path: 'qb-stats', component: QbStatsComponent },
   { path: 'rb-stats', component: RbStatsComponent },

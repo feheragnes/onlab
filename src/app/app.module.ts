@@ -20,16 +20,15 @@ import {
   MatProgressSpinnerModule,
   MatCardModule,
   MatMenuModule,
-  MatSliderModule
+  MatSliderModule,
+  MatSidenavModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayersComponent } from './components/players/players.component';
-import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
-import { PlayerDashboardComponent } from './components/player-dashboard/player-dashboard.component';
 import { ChartsModule } from 'ng2-charts';
-import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
+import { StatsComponent } from './components/stats/stats.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamDetailComponent } from './components/team-detail/team-detail.component';
 import { GamesComponent } from './components/games/games.component';
@@ -39,18 +38,16 @@ import { DlinesChartComponent } from './components/charts/dlines-chart/dlines-ch
 import { SecondariesChartComponent } from './components/charts/secondaries-chart/secondaries-chart.component';
 import { FirstdownChartComponent } from './components/charts/firstdown-chart/firstdown-chart.component';
 import { TdYpgChartComponent } from './components/charts/td-ypg-chart/td-ypg-chart.component';
-import { DefenseStatsComponent } from './components/defense-stats/defense-stats.component';
-import { WrStatsComponent } from './components/wr-stats/wr-stats.component';
-import { RbStatsComponent } from './components/rb-stats/rb-stats.component';
-import { QbStatsComponent } from './components/qb-stats/qb-stats.component';
+import { DefenseStatsComponent } from './components/charts/defense-stats/defense-stats.component';
+import { WrStatsComponent } from './components/charts/wr-stats/wr-stats.component';
+import { RbStatsComponent } from './components/charts/rb-stats/rb-stats.component';
+import { QbStatsComponent } from './components/charts/qb-stats/qb-stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayersComponent,
-    PlayerDetailComponent,
-    PlayerDashboardComponent,
-    BarChartComponent,
+    StatsComponent,
     TeamsComponent,
     TeamDetailComponent,
     GamesComponent,
@@ -87,7 +84,8 @@ import { QbStatsComponent } from './components/qb-stats/qb-stats.component';
     MatProgressSpinnerModule,
     MatCardModule,
     MatMenuModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

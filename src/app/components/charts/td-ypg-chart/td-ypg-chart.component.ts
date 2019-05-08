@@ -190,18 +190,6 @@ export class TdYpgChartComponent implements OnInit {
     }
   }
 
-  // allowedAllTd: number[],
-  //   scoredAllTd: number[],
-  //   allowedRushingTd: number[],
-  //   scoredRushingTd: number[],
-  //   allowedReceivingTd: number[],
-  //   scoredReceivingTd: number[],
-  //   allowedAllYpg: number[],
-  //   scoredAllYpg: number[],
-  //   allowedRushingYpg: number[],
-  //   scoredRushingYpg: number[],
-  //   allowedReceivingYpg: number[],
-  //   scoredReceivingYpg: number[],
   getScatter(
     td: number[],
     ypg: number[],
@@ -234,7 +222,7 @@ export class TdYpgChartComponent implements OnInit {
       },
       err => console.error(err),
       () => {
-        console.log('done loading secondaries');
+        console.log('done loading tdypg');
         if (
           this.selectedAllowedScored == 'allowed' &&
           this.selectedType == 'all'

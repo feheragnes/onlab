@@ -101,7 +101,7 @@ export class WrStatsComponent implements OnInit {
       },
       err => console.error(err),
       () => {
-        console.log('done loading rbs');
+        console.log('done loading wrs');
         this.scatterChartData[0].data = this.getScatter(
           this.yards,
           this.touchdowns,

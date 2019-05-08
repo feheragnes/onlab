@@ -5,14 +5,7 @@
     <nav>
       <a mat-button routerLink="/teams">Teams</a>
       <a mat-button routerLink="/games">Games</a>
-      <button mat-button [matMenuTriggerFor]="menu">Stats</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/bar-chart">Season stats</button>
-        <button mat-menu-item routerLink="/qb-stats">Qb stats</button>
-        <button mat-menu-item routerLink="/wr-stats">Wr stats</button>
-        <button mat-menu-item routerLink="/rb-stats">Rb stats</button>
-        <button mat-menu-item routerLink="/defense-stats">Defense stats</button>
-      </mat-menu>
+      <a mat-button routerLink="/stats">Stats</a>
     </nav>
   </mat-toolbar>
 

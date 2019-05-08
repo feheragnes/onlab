@@ -140,7 +140,7 @@ export class QbStatsComponent implements OnInit {
       },
       err => console.error(err),
       () => {
-        console.log('done loading rbs');
+        console.log('done loading qbs');
         this.piChartData[0].data = this.getScatter(
           this.passTouchdowns,
           this.interceptions,
