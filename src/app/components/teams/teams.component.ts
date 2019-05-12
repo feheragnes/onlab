@@ -15,7 +15,8 @@ export class TeamsComponent implements OnInit {
   public afcEastTeams;
   public afcNorthTeams;
   public afcSouthTeams;
-
+  public teams;
+  loading = true;
   constructor(private teamService: TeamService) {}
 
   ngOnInit() {
@@ -33,6 +34,8 @@ export class TeamsComponent implements OnInit {
         this.afcEastTeams = data.filter(x => x.division == 'AFC East');
         this.afcNorthTeams = data.filter(x => x.division == 'AFC North');
         this.afcSouthTeams = data.filter(x => x.division == 'AFC South');
+        this.teams = data;
+        this.loading = false;
       },
       err => console.error(err),
       () => console.log('done loading teams')

@@ -10,6 +10,8 @@ import { DefenseStatsComponent } from './components/charts/defense-stats/defense
 import { QbStatsComponent } from './components/charts/qb-stats/qb-stats.component';
 import { RbStatsComponent } from './components/charts/rb-stats/rb-stats.component';
 import { WrStatsComponent } from './components/charts/wr-stats/wr-stats.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: 'players', component: PlayersComponent },
@@ -22,7 +24,9 @@ const routes: Routes = [
   { path: 'qb-stats', component: QbStatsComponent },
   { path: 'rb-stats', component: RbStatsComponent },
   { path: 'wr-stats', component: WrStatsComponent },
-  { path: '', redirectTo: '/teams', pathMatch: 'full' }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({

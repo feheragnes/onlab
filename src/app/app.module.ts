@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -21,7 +21,8 @@ import {
   MatCardModule,
   MatMenuModule,
   MatSliderModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatInputModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +43,8 @@ import { DefenseStatsComponent } from './components/charts/defense-stats/defense
 import { WrStatsComponent } from './components/charts/wr-stats/wr-stats.component';
 import { RbStatsComponent } from './components/charts/rb-stats/rb-stats.component';
 import { QbStatsComponent } from './components/charts/qb-stats/qb-stats.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,9 @@ import { QbStatsComponent } from './components/charts/qb-stats/qb-stats.componen
     DefenseStatsComponent,
     WrStatsComponent,
     RbStatsComponent,
-    QbStatsComponent
+    QbStatsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +90,9 @@ import { QbStatsComponent } from './components/charts/qb-stats/qb-stats.componen
     MatCardModule,
     MatMenuModule,
     MatSliderModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
