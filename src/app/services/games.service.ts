@@ -3,14 +3,15 @@ import {Observable} from 'rxjs';
 import {Game} from '../interfaces/game';
 import {HttpClient} from '@angular/common/http/';
 import {Head2Head} from '../interfaces/head2head';
+import {environment} from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class GamesService {
-    private gamesURL = 'https://apiv2dev.nkelemen.hu/games';
-    private gamesSeasonURL = 'https://apiv2dev.nkelemen.hu/games/season';
-    private head2headUrl = 'https://apiv2dev.nkelemen.hu/head2head';
+    private gamesURL = environment.api_URI + 'games';
+    private gamesSeasonURL = environment.api_URI + '/games/season';
+    private head2headUrl = environment.api_URI + 'head2head';
 
     constructor(private http: HttpClient) {
     }
@@ -34,7 +35,7 @@ export class GamesService {
     }
 
     getSeasons(): Observable<number[]> {
-        const url = 'https://apiv2dev.nkelemen.hu/seasons/years';
+        const url = environment.api_URI + 'seasons/years';
         return this.http.get<number[]>(url);
     }
 }

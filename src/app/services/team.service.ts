@@ -2,12 +2,13 @@ import {Injectable} from '@angular/core';
 import {Team} from '../interfaces/team';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TeamService {
-    private teamsUrl = 'https://apiv2dev.nkelemen.hu/teams';
+    private teamsUrl = environment.api_URI + 'teams';
 
     constructor(private http: HttpClient) {
     }
@@ -23,7 +24,7 @@ export class TeamService {
     }
 
     getOneTeam(ab: string, season: number): Observable<Team> {
-        const url = `https://apiv2dev.nkelemen.hu/oneteam/${season}/${ab}`;
+        const url = environment.api_URI + `oneteam/${season}/${ab}`;
         return this.http.get<Team>(url);
     }
 }

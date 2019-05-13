@@ -10,16 +10,17 @@ import {Interception, Sack, Tackle} from '../interfaces/defense';
 import {Rb} from '../interfaces/rb';
 import {Qb} from '../interfaces/qb';
 import {Wr} from '../interfaces/wr';
+import {environment} from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ChartService {
-    private thirddownUrl = 'https://apiv2dev.nkelemen.hu/league/thirddowns';
-    private firstdownUrl = 'https://apiv2dev.nkelemen.hu/league/firstdowns';
-    private dlineUrl = 'https://apiv2dev.nkelemen.hu/league/dlines';
-    private secondaryUrl = 'https://apiv2dev.nkelemen.hu/league/secondaries';
-    private tdypgUrl = 'https://apiv2dev.nkelemen.hu/league/tdypg';
+    private thirddownUrl = environment.api_URI + 'league/thirddowns';
+    private firstdownUrl = environment.api_URI + 'league/firstdowns';
+    private dlineUrl = environment.api_URI + 'league/dlines';
+    private secondaryUrl = environment.api_URI + 'league/secondaries';
+    private tdypgUrl = environment.api_URI + 'league/tdypg';
 
     constructor(private http: HttpClient) {
     }
@@ -45,32 +46,26 @@ export class ChartService {
     }
 
     getSacks(season: number): Observable<Sack[]> {
-        return this.http.get<Sack[]>(
-            `https://apiv2dev.nkelemen.hu/sacks/${season}`
-        );
+        return this.http.get<Sack[]>(environment.api_URI + `sacks/${season}`);
     }
 
     getTackles(season: number): Observable<Tackle[]> {
-        return this.http.get<Tackle[]>(
-            `https://apiv2dev.nkelemen.hu/tackles/${season}`
-        );
+        return this.http.get<Tackle[]>(environment.api_URI + `tackles/${season}`);
     }
 
     getInterceptions(season: number): Observable<Interception[]> {
-        return this.http.get<Interception[]>(
-            `https://apiv2dev.nkelemen.hu/interceptions/${season}`
-        );
+        return this.http.get<Interception[]>(environment.api_URI + `interceptions/${season}`);
     }
 
     getRbs(season: number): Observable<Rb[]> {
-        return this.http.get<Rb[]>(`https://apiv2dev.nkelemen.hu/rb/${season}`);
+        return this.http.get<Rb[]>(environment.api_URI + `rb/${season}`);
     }
 
     getQb(season: number): Observable<Qb[]> {
-        return this.http.get<Qb[]>(`https://apiv2dev.nkelemen.hu/qb/${season}`);
+        return this.http.get<Qb[]>(environment.api_URI + `qb/${season}`);
     }
 
     getWrs(season: number): Observable<Wr[]> {
-        return this.http.get<Wr[]>(`https://apiv2dev.nkelemen.hu/wr/${season}`);
+        return this.http.get<Wr[]>(environment.api_URI + `wr/${season}`);
     }
 }
