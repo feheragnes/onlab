@@ -8,6 +8,13 @@
   margin-bottom: 20px;
   border: 2px solid #1a237e;
 }
+
+.big,
+.medium,
+.small {
+  opacity: 0.95;
+}
+
 mat-spinner {
   display: block;
   margin-left: auto;

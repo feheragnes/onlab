@@ -13,3 +13,7 @@ mat-drawer-content * {
   background: #1a237e;
   color: white;
 }
+
+mat-card {
+  opacity: 0.95;
+}

@@ -12,3 +12,8 @@ $nfl-app-theme: mat-light-theme($nfl-app-primary, $nfl-app-accent);
 body {
   margin: 0;
 }
+
+html {
+  background: url("assets/bg2.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
