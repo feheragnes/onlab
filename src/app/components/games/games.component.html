@@ -13,13 +13,24 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-form-field>
+        <mat-label>Week</mat-label>
+        <mat-select
+          [value]="selectedWeek"
+          (valueChange)="onWeekChanged($event)"
+        >
+          <mat-option *ngFor="let week of weeks" [value]="week">
+            {{ week }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <mat-chip-list class="season">
         <mat-chip>{{ selectedSeason }}</mat-chip>
       </mat-chip-list>
 
       <mat-accordion>
-        <mat-expansion-panel *ngFor="let game of games">
+        <mat-expansion-panel *ngFor="let game of filteredGames">
           <mat-expansion-panel-header class="right-aligned-header">
             <mat-panel-title>
               {{ game.homeTeam }} - {{ game.awayTeam }}

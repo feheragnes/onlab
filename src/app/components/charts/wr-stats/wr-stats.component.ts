@@ -113,7 +113,6 @@ export class WrStatsComponent implements OnInit {
 
   onGamesSliderChanged(event: any): void {
     this.selectedGames = event.value;
-    console.log(this.selectedGames);
     this.filterData(this.selectedGames, this.selectedTeam);
   }
 
