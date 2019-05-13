@@ -1,5 +1,4 @@
 export interface ThirdDown {
-    team : string;
-    thirdDown : number;
-  }
-  
+    team: string;
+    thirdDown: number;
+}

@@ -1,65 +1,65 @@
 <h1>Quarterback stats</h1>
 <div class="filter">
-  <mat-form-field>
-    <mat-label>Season</mat-label>
-    <mat-select
-      [value]="selectedSeason"
-      (valueChange)="onSeasonChanged($event)"
+    <mat-form-field>
+        <mat-label>Season</mat-label>
+        <mat-select
+                [value]="selectedSeason"
+                (valueChange)="onSeasonChanged($event)"
+        >
+            <mat-option *ngFor="let season of seasons" [value]="season">
+                {{ season }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Team</mat-label>
+        <mat-select [value]="selectedTeam" (valueChange)="onTeamChanged($event)">
+            <mat-option *ngFor="let team of teams" [value]="team">
+                {{ team }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-label>Minimum games:</mat-label>
+    <mat-slider
+            thumbLabel
+            tickInterval="1"
+            [min]="minGames"
+            [max]="maxGames"
+            step="1"
+            [value]="selectedGames"
+            (input)="onGamesSliderChanged($event)"
+    ></mat-slider>
+</div>
+
+<div class="chart" style="display: block">
+    <canvas
+            baseChart
+            [datasets]="piChartData"
+            [options]="piChartOptions"
+            [labels]="scatterChartLabels"
+            [chartType]="scatterChartType"
     >
-      <mat-option *ngFor="let season of seasons" [value]="season">
-        {{ season }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Team</mat-label>
-    <mat-select [value]="selectedTeam" (valueChange)="onTeamChanged($event)">
-      <mat-option *ngFor="let team of teams" [value]="team">
-        {{ team }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-label>Minimum games:</mat-label>
-  <mat-slider
-    thumbLabel
-    tickInterval="1"
-    [min]="minGames"
-    [max]="maxGames"
-    step="1"
-    [value]="selectedGames"
-    (input)="onGamesSliderChanged($event)"
-  ></mat-slider>
+    </canvas>
 </div>
 
 <div class="chart" style="display: block">
-  <canvas
-    baseChart
-    [datasets]="piChartData"
-    [options]="piChartOptions"
-    [labels]="scatterChartLabels"
-    [chartType]="scatterChartType"
-  >
-  </canvas>
+    <canvas
+            baseChart
+            [datasets]="ppChartData"
+            [options]="ppChartOptions"
+            [labels]="scatterChartLabels"
+            [chartType]="scatterChartType"
+    >
+    </canvas>
 </div>
 
 <div class="chart" style="display: block">
-  <canvas
-    baseChart
-    [datasets]="ppChartData"
-    [options]="ppChartOptions"
-    [labels]="scatterChartLabels"
-    [chartType]="scatterChartType"
-  >
-  </canvas>
-</div>
-
-<div class="chart" style="display: block">
-  <canvas
-    baseChart
-    [datasets]="ayChartData"
-    [options]="ayChartOptions"
-    [labels]="scatterChartLabels"
-    [chartType]="scatterChartType"
-  >
-  </canvas>
+    <canvas
+            baseChart
+            [datasets]="ayChartData"
+            [options]="ayChartOptions"
+            [labels]="scatterChartLabels"
+            [chartType]="scatterChartType"
+    >
+    </canvas>
 </div>

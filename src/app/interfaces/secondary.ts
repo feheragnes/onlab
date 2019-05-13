@@ -1,5 +1,5 @@
 export interface Secondary {
-  team: string;
-  interceptions: number;
-  fumbles: number;
+    team: string;
+    interceptions: number;
+    fumbles: number;
 }

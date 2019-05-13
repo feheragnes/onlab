@@ -1,73 +1,76 @@
-import { Component, OnInit } from '@angular/core';
-import { GamesService } from '../../services/games.service';
+import {Component, OnInit} from '@angular/core';
+import {GamesService} from '../../services/games.service';
 
 @Component({
-  selector: 'app-games',
-  templateUrl: './games.component.html',
-  styleUrls: ['./games.component.scss']
+    selector: 'app-games',
+    templateUrl: './games.component.html',
+    styleUrls: ['./games.component.scss']
 })
 export class GamesComponent implements OnInit {
-  constructor(private gamesService: GamesService) {}
-  public games;
-  public filteredGames;
+    constructor(private gamesService: GamesService) {
+    }
 
-  seasons = [];
-  weeks = [];
+    public games;
+    public filteredGames;
 
-  selectedSeason = 2018;
-  selectedWeek = 1;
-  loading = true;
+    seasons = [];
+    weeks = [];
 
-  ngOnInit() {
-    this.getSeasons();
-    this.getGames();
-  }
+    selectedSeason = 2018;
+    selectedWeek = 1;
+    loading = true;
 
-  onSeasonChanged(season: number): void {
-    this.selectedSeason = season;
-    this.getGames();
-  }
-  onWeekChanged(week: number): void {
-    this.selectedWeek = week;
-    this.filterData();
-  }
+    ngOnInit() {
+        this.getSeasons();
+        this.getGames();
+    }
 
-  getGames(): void {
-    this.gamesService.getGamesBySeason(this.selectedSeason).subscribe(
-      data => {
-        this.games = data;
-        this.weeks = Array.from(new Set(data.map((item: any) => item.week)));
+    onSeasonChanged(season: number): void {
+        this.selectedSeason = season;
+        this.getGames();
+    }
+
+    onWeekChanged(week: number): void {
+        this.selectedWeek = week;
         this.filterData();
-      },
-      err => console.error(err),
-      () => {
-        console.log('done loading games');
-        this.loading = false;
-      }
-    );
-  }
+    }
 
-  getSeasons(): void {
-    this.gamesService.getSeasons().subscribe(
-      data => {
-        this.seasons = data;
-      },
-      err => console.error(err),
-      () => console.log('done loading seasons')
-    );
-  }
+    getGames(): void {
+        this.gamesService.getGamesBySeason(this.selectedSeason).subscribe(
+            data => {
+                this.games = data;
+                this.weeks = Array.from(new Set(data.map((item: any) => item.week)));
+                this.filterData();
+            },
+            err => console.error(err),
+            () => {
+                console.log('done loading games');
+                this.loading = false;
+            }
+        );
+    }
 
-  getHead2Head(): void {
-    this.gamesService.getGames().subscribe(
-      data => {
-        this.games = data;
-      },
-      err => console.error(err),
-      () => console.log('done loading head2head')
-    );
-  }
+    getSeasons(): void {
+        this.gamesService.getSeasons().subscribe(
+            data => {
+                this.seasons = data;
+            },
+            err => console.error(err),
+            () => console.log('done loading seasons')
+        );
+    }
 
-  filterData() {
-    this.filteredGames = this.games.filter(x => x.week == this.selectedWeek);
-  }
+    getHead2Head(): void {
+        this.gamesService.getGames().subscribe(
+            data => {
+                this.games = data;
+            },
+            err => console.error(err),
+            () => console.log('done loading head2head')
+        );
+    }
+
+    filterData() {
+        this.filteredGames = this.games.filter(x => x.week == this.selectedWeek);
+    }
 }

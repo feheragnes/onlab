@@ -1,49 +1,49 @@
 <h1>Defense stats</h1>
 <mat-form-field>
-  <mat-label>Season</mat-label>
-  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
-    <mat-option *ngFor="let season of seasons" [value]="season">
-      {{ season }}
-    </mat-option>
-  </mat-select>
+    <mat-label>Season</mat-label>
+    <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+        <mat-option *ngFor="let season of seasons" [value]="season">
+            {{ season }}
+        </mat-option>
+    </mat-select>
 </mat-form-field>
 
 <div style="display: block">
-  <canvas
-    baseChart
-    [datasets]="sacksChartData"
-    [labels]="sacksChartLabels"
-    [options]="barChartOptions"
-    [plugins]="barChartPlugins"
-    [legend]="barChartLegend"
-    [chartType]="barChartType"
-    [colors]="barChartColors"
-  >
-  </canvas>
+    <canvas
+            baseChart
+            [datasets]="sacksChartData"
+            [labels]="sacksChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors"
+    >
+    </canvas>
 </div>
 <div style="display: block">
-  <canvas
-    baseChart
-    [datasets]="tacklesChartData"
-    [labels]="tacklesChartLabels"
-    [options]="barChartOptions"
-    [plugins]="barChartPlugins"
-    [legend]="barChartLegend"
-    [chartType]="barChartType"
-    [colors]="barChartColors"
-  >
-  </canvas>
+    <canvas
+            baseChart
+            [datasets]="tacklesChartData"
+            [labels]="tacklesChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors"
+    >
+    </canvas>
 </div>
 <div style="display: block">
-  <canvas
-    baseChart
-    [datasets]="interceptionsChartData"
-    [labels]="interceptionsChartLabels"
-    [options]="barChartOptions"
-    [plugins]="barChartPlugins"
-    [legend]="barChartLegend"
-    [chartType]="barChartType"
-    [colors]="barChartColors"
-  >
-  </canvas>
+    <canvas
+            baseChart
+            [datasets]="interceptionsChartData"
+            [labels]="interceptionsChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors"
+    >
+    </canvas>
 </div>

@@ -1,24 +1,24 @@
 <h1>Thirddown</h1>
 <mat-form-field>
-  <mat-label>Season</mat-label>
-  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
-    <mat-option *ngFor="let season of seasons" [value]="season">
-      {{ season }}
-    </mat-option>
-  </mat-select>
+    <mat-label>Season</mat-label>
+    <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+        <mat-option *ngFor="let season of seasons" [value]="season">
+            {{ season }}
+        </mat-option>
+    </mat-select>
 </mat-form-field>
 
 <!-- <div *ngIf="barChartLabels && barChartLabels.length" style="display: block"> -->
 <div style="display: block">
-  <canvas
-    baseChart
-    [datasets]="barChartData"
-    [labels]="barChartLabels"
-    [options]="barChartOptions"
-    [plugins]="barChartPlugins"
-    [legend]="barChartLegend"
-    [chartType]="barChartType"
-    [colors]="barChartColors"
-  >
-  </canvas>
+    <canvas
+            baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="barChartColors"
+    >
+    </canvas>
 </div>

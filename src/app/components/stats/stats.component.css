@@ -1,19 +1,21 @@
 mat-drawer {
-  background: #1a237e;
+    background: #1a237e;
 }
+
 mat-nav-list * {
-  color: white;
+    color: white;
 }
+
 mat-drawer-content * {
-  margin-left: 20px;
-  margin-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .big {
-  background: #1a237e;
-  color: white;
+    background: #1a237e;
+    color: white;
 }
 
 mat-card {
-  opacity: 0.95;
+    opacity: 0.95;
 }

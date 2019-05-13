@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-stats',
-  templateUrl: './stats.component.html',
-  styleUrls: ['./stats.component.css']
+    selector: 'app-stats',
+    templateUrl: './stats.component.html',
+    styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
-  constructor() {}
+    constructor() {
+    }
 
-  public type = 'tdypg';
+    public type = 'tdypg';
 
-  ngOnInit() {}
+    ngOnInit() {
+    }
 
-  changeComponent(type: string) {
-    this.type = type;
-    console.log(type);
-  }
+    changeComponent(type: string) {
+        this.type = type;
+        console.log(type);
+    }
 }

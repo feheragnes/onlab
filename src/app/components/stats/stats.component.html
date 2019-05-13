@@ -1,49 +1,53 @@
 <mat-card class="big">
-  <mat-card-header><mat-card-title>Stats</mat-card-title></mat-card-header>
-  <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened
-      ><mat-nav-list>
-        <a mat-list-item (click)="changeComponent('tdypg')">TD-YPG</a>
-        <a mat-list-item (click)="changeComponent('thirddown')">Thirddown</a>
-        <a mat-list-item (click)="changeComponent('secondaries')"
-          >Secondaries</a
+    <mat-card-header>
+        <mat-card-title>Stats</mat-card-title>
+    </mat-card-header>
+    <mat-drawer-container class="example-container">
+        <mat-drawer mode="side" opened
         >
-        <a mat-list-item (click)="changeComponent('firstdown')">Firstdown</a>
-        <a mat-list-item (click)="changeComponent('dlines')">D-lines</a>
-        <a mat-list-item (click)="changeComponent('qb')">Qb stats</a>
-        <a mat-list-item (click)="changeComponent('wr')">Wr stats</a>
-        <a mat-list-item (click)="changeComponent('rb')">Rb stats</a>
-        <a mat-list-item (click)="changeComponent('defense')">Defense stats</a>
-      </mat-nav-list></mat-drawer
-    >
-    <mat-drawer-content>
-      <div *ngIf="type == 'tdypg'">
-        <app-td-ypg-chart></app-td-ypg-chart>
-      </div>
-      <div *ngIf="type == 'thirddown'">
-        <app-thirddown-chart></app-thirddown-chart>
-      </div>
-      <div *ngIf="type == 'secondaries'">
-        <app-secondaries-chart></app-secondaries-chart>
-      </div>
-      <div *ngIf="type == 'firstdown'">
-        <app-firstdown-chart></app-firstdown-chart>
-      </div>
-      <div *ngIf="type == 'dlines'">
-        <app-dlines-chart></app-dlines-chart>
-      </div>
-      <div *ngIf="type == 'qb'">
-        <app-qb-stats></app-qb-stats>
-      </div>
-      <div *ngIf="type == 'wr'">
-        <app-wr-stats></app-wr-stats>
-      </div>
-      <div *ngIf="type == 'rb'">
-        <app-rb-stats></app-rb-stats>
-      </div>
-      <div *ngIf="type == 'defense'">
-        <app-defense-stats></app-defense-stats>
-      </div>
-    </mat-drawer-content>
-  </mat-drawer-container>
+            <mat-nav-list>
+                <a mat-list-item (click)="changeComponent('tdypg')">TD-YPG</a>
+                <a mat-list-item (click)="changeComponent('thirddown')">Thirddown</a>
+                <a mat-list-item (click)="changeComponent('secondaries')"
+                >Secondaries</a
+                >
+                <a mat-list-item (click)="changeComponent('firstdown')">Firstdown</a>
+                <a mat-list-item (click)="changeComponent('dlines')">D-lines</a>
+                <a mat-list-item (click)="changeComponent('qb')">Qb stats</a>
+                <a mat-list-item (click)="changeComponent('wr')">Wr stats</a>
+                <a mat-list-item (click)="changeComponent('rb')">Rb stats</a>
+                <a mat-list-item (click)="changeComponent('defense')">Defense stats</a>
+            </mat-nav-list>
+        </mat-drawer
+        >
+        <mat-drawer-content>
+            <div *ngIf="type == 'tdypg'">
+                <app-td-ypg-chart></app-td-ypg-chart>
+            </div>
+            <div *ngIf="type == 'thirddown'">
+                <app-thirddown-chart></app-thirddown-chart>
+            </div>
+            <div *ngIf="type == 'secondaries'">
+                <app-secondaries-chart></app-secondaries-chart>
+            </div>
+            <div *ngIf="type == 'firstdown'">
+                <app-firstdown-chart></app-firstdown-chart>
+            </div>
+            <div *ngIf="type == 'dlines'">
+                <app-dlines-chart></app-dlines-chart>
+            </div>
+            <div *ngIf="type == 'qb'">
+                <app-qb-stats></app-qb-stats>
+            </div>
+            <div *ngIf="type == 'wr'">
+                <app-wr-stats></app-wr-stats>
+            </div>
+            <div *ngIf="type == 'rb'">
+                <app-rb-stats></app-rb-stats>
+            </div>
+            <div *ngIf="type == 'defense'">
+                <app-defense-stats></app-defense-stats>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
 </mat-card>
