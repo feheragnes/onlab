@@ -17,7 +17,9 @@
       </mat-nav-list></mat-drawer
     >
     <mat-drawer-content>
-      <div *ngIf="type == 'tdypg'"><app-td-ypg-chart></app-td-ypg-chart></div>
+      <div *ngIf="type == 'tdypg'">
+        <app-td-ypg-chart></app-td-ypg-chart>
+      </div>
       <div *ngIf="type == 'thirddown'">
         <app-thirddown-chart></app-thirddown-chart>
       </div>

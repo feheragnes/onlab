@@ -16,8 +16,8 @@ export class TeamService {
     return this.http.get<Team[]>(url);
   }
 
-  getTeam(ab: string): Observable<Team> {
-    const url = `${this.teamsUrl}/${ab}`;
+  getTeam(ab: string, season: number): Observable<Team> {
+    const url = `${this.teamsUrl}/${season}/${ab}`;
     return this.http.get<Team>(url);
   }
   getOneTeam(ab: string, season: number): Observable<Team> {

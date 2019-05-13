@@ -8,10 +8,12 @@ mat-card {
   margin-bottom: 10px;
   margin-top: 10px;
 }
-
-mat-chip-list {
-  float: right;
+mat-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+
 .graph {
   width: 50%;
   display: inline-block;
