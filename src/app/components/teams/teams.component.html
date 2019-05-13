@@ -1,4 +1,15 @@
 <div *ngIf="teams">
+  <mat-form-field>
+    <mat-label>Season</mat-label>
+    <mat-select
+      [value]="selectedSeason"
+      (valueChange)="onSeasonChanged($event)"
+    >
+      <mat-option *ngFor="let season of seasons" [value]="season">
+        {{ season }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
   <mat-card class="big">
     <mat-card-header><mat-card-title>NFC</mat-card-title></mat-card-header>
     <mat-card class="small">
@@ -7,7 +18,12 @@
       </mat-card-header>
       <mat-nav-list>
         <mat-list-item *ngFor="let team of nfcWestTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
+          <a
+            matLine
+            routerLink="/team-detail/{{ selectedSeason }}/{{
+              team.abbreviation
+            }}"
+          >
             {{ team.name }}
           </a>
         </mat-list-item>
@@ -18,7 +34,12 @@
         ><mat-card-title>NFC East</mat-card-title></mat-card-header
       ><mat-nav-list>
         <mat-list-item *ngFor="let team of nfcEastTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
+          <a
+            matLine
+            routerLink="/team-detail/{{ selectedSeason }}/{{
+              team.abbreviation
+            }}"
+          >
             {{ team.name }}
           </a>
         </mat-list-item>
@@ -29,7 +50,12 @@
         ><mat-card-title>NFC South</mat-card-title></mat-card-header
       ><mat-nav-list>
         <mat-list-item *ngFor="let team of nfcSouthTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
+          <a
+            matLine
+            routerLink="/team-detail/{{ selectedSeason }}/{{
+              team.abbreviation
+            }}"
+          >
             {{ team.name }}
           </a>
         </mat-list-item>
@@ -41,7 +67,12 @@
       >
       <mat-nav-list>
         <mat-list-item *ngFor="let team of nfcNorthTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
+          <a
+            matLine
+            routerLink="/team-detail/{{ selectedSeason }}/{{
+              team.abbreviation
+            }}"
+          >
             {{ team.name }}
           </a>
         </mat-list-item>
@@ -56,7 +87,12 @@
         ><mat-card-title>AFC West</mat-card-title></mat-card-header
       ><mat-nav-list>
         <mat-list-item *ngFor="let team of afcWestTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
+          <a
+            matLine
+            routerLink="/team-detail/{{ selectedSeason }}/{{
+              team.abbreviation
+            }}"
+          >
             {{ team.name }}
           </a>
         </mat-list-item>
@@ -68,7 +104,12 @@
       >
       <mat-nav-list>
         <mat-list-item *ngFor="let team of afcEastTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
+          <a
+            matLine
+            routerLink="/team-detail/{{ selectedSeason }}/{{
+              team.abbreviation
+            }}"
+          >
             {{ team.name }}
           </a>
         </mat-list-item>
@@ -80,7 +121,12 @@
       >
       <mat-nav-list>
         <mat-list-item *ngFor="let team of afcSouthTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
+          <a
+            matLine
+            routerLink="/team-detail/{{ selectedSeason }}/{{
+              team.abbreviation
+            }}"
+          >
             {{ team.name }}
           </a>
         </mat-list-item>
@@ -91,7 +137,12 @@
         ><mat-card-title>AFC North</mat-card-title></mat-card-header
       ><mat-nav-list>
         <mat-list-item *ngFor="let team of afcNorthTeams">
-          <a matLine href="/team-detail/{{ team.abbreviation }}">
+          <a
+            matLine
+            routerLink="/team-detail/{{ selectedSeason }}/{{
+              team.abbreviation
+            }}"
+          >
             {{ team.name }}
           </a>
         </mat-list-item>

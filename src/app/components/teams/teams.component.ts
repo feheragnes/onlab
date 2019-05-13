@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../../services/team.service';
+import { GamesService } from 'src/app/services/games.service';
 
 @Component({
   selector: 'app-teams',
@@ -16,15 +17,37 @@ export class TeamsComponent implements OnInit {
   public afcNorthTeams;
   public afcSouthTeams;
   public teams;
+  public selectedSeason = 2018;
   loading = true;
-  constructor(private teamService: TeamService) {}
+  seasons = [];
+
+  constructor(
+    private teamService: TeamService,
+    private gamesService: GamesService
+  ) {}
 
   ngOnInit() {
+    this.getSeasons();
+    this.getTeams();
+  }
+
+  getSeasons(): void {
+    this.gamesService.getSeasons().subscribe(
+      data => {
+        this.seasons = data;
+      },
+      err => console.error(err),
+      () => console.log('done loading seasons')
+    );
+  }
+
+  onSeasonChanged(season: number): void {
+    this.selectedSeason = season;
     this.getTeams();
   }
 
   getTeams(): void {
-    this.teamService.getTeams().subscribe(
+    this.teamService.getTeams(this.selectedSeason).subscribe(
       data => {
         this.nfcWestTeams = data.filter(x => x.division == 'NFC West');
         this.nfcEastTeams = data.filter(x => x.division == 'NFC East');

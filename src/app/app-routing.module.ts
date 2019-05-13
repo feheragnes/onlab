@@ -15,7 +15,7 @@ import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: 'players', component: PlayersComponent },
-  { path: 'team-detail/:ab', component: TeamDetailComponent },
+  { path: 'team-detail/:season/:ab', component: TeamDetailComponent },
   { path: 'teams', component: TeamsComponent },
   { path: 'games', component: GamesComponent },
   { path: 'head2head/:id', component: Head2headComponent },

@@ -72,6 +72,7 @@ export class TeamDetailComponent implements OnInit {
 
   selectedAllowedScored = 'allowed';
   selectedType = 'all';
+  season;
 
   @Input() team: Team;
 
@@ -89,8 +90,9 @@ export class TeamDetailComponent implements OnInit {
 
   getTeam(): void {
     const ab = this.route.snapshot.paramMap.get('ab');
+    this.season = this.route.snapshot.paramMap.get('season');
     console.log(ab);
-    this.teamService.getOneTeam(ab).subscribe(team => {
+    this.teamService.getOneTeam(ab, this.season).subscribe(team => {
       this.team = team;
       this.loading = false;
       this.lineChartDataTd[0].data = [];

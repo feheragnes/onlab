@@ -11,16 +11,17 @@ export class TeamService {
 
   constructor(private http: HttpClient) {}
 
-  getTeams(): Observable<Team[]> {
-    return this.http.get<Team[]>(this.teamsUrl);
+  getTeams(season: number): Observable<Team[]> {
+    const url = `${this.teamsUrl}/${season}`;
+    return this.http.get<Team[]>(url);
   }
 
   getTeam(ab: string): Observable<Team> {
     const url = `${this.teamsUrl}/${ab}`;
     return this.http.get<Team>(url);
   }
-  getOneTeam(ab: string): Observable<Team> {
-    const url = `https://apiv2dev.nkelemen.hu/oneteam//${ab}`;
+  getOneTeam(ab: string, season: number): Observable<Team> {
+    const url = `https://apiv2dev.nkelemen.hu/oneteam/${season}/${ab}`;
     return this.http.get<Team>(url);
   }
 }

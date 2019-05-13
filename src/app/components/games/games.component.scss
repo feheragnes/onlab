@@ -11,3 +11,8 @@ mat-spinner {
   background: #1a237e;
   color: white;
 }
+
+mat-panel-title,
+mat-panel-description {
+  flex-basis: 0;
+}
