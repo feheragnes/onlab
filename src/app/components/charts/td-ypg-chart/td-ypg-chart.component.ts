@@ -4,6 +4,7 @@ import { Label } from 'ng2-charts';
 import { ChartService } from 'src/app/services/chart.service';
 import { GamesService } from 'src/app/services/games.service';
 import { TdYpg } from 'src/app/interfaces/tdypg';
+import { Point } from 'src/app/interfaces/point';
 
 @Component({
   selector: 'app-td-ypg-chart',
@@ -77,6 +78,23 @@ export class TdYpgChartComponent implements OnInit {
   onSeasonChanged(season: number): void {
     this.selectedSeason = season;
     this.getTdYpg();
+  }
+
+  public chartClicked({
+    event,
+    active
+  }: {
+    event: MouseEvent;
+    active: Point[];
+  }): void {
+    if (active[0] != null) {
+      console.log(active);
+      const segment = active[0];
+      console.log(segment._model.backgroundColor);
+      segment._model.backgroundColor = 'rgb(1, 1, 1)';
+      segment._view.backgroundColor = 'rgb(1, 1, 1)';
+      segment._options.backgroundColor = 'rgb(1, 1, 1)';
+    }
   }
 
   onAllowedScoredChanged(value: string): void {
