@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
+import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -8,7 +10,7 @@ import {UserService} from '../../services/user.service';
     styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    constructor(private service: UserService) {
+    constructor(private service: UserService, private toastr: ToastrService, private router: Router) {
     }
 
     hide = true;
@@ -42,14 +44,20 @@ export class RegisterComponent implements OnInit {
         return body;
     }
 
-    sendRequest() {
+    sendRegisterRequest() {
         this.service.registerUser(this.getBody()).subscribe(
-            response => {
-                alert('Registration successful');
+            () => {
+                // noinspection JSIgnoredPromiseFromCall
+                this.router.navigateByUrl('/login');
+                this.toastr.success('Registration successful.', 'Wooah!');
             },
             err => {
-                if (err.error.error !== undefined) {
-                    alert(err.error.error);
+                if (err.statusCode === 'OK') {
+                    return;
+                }
+
+                if (err.error && err.error.error !== undefined) {
+                    this.toastr.warning(err.error.error, 'Registration failed!');
                 }
             });
     }

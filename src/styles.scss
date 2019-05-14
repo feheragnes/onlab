@@ -1,5 +1,7 @@
 @import "~@angular/material/theming";
 
+@import '~ngx-toastr/toastr';
+
 @include mat-core();
 
 $nfl-app-primary: mat-palette($mat-indigo, 900);

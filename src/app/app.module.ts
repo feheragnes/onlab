@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'; // <-- NgModel 
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ToastrModule} from 'ngx-toastr';
 
 import {
     MatBadgeModule,
@@ -22,7 +23,7 @@ import {
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,
-    MatToolbarModule
+    MatToolbarModule,
 } from '@angular/material';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -92,7 +93,13 @@ import {RegisterComponent} from './components/register/register.component';
         MatSliderModule,
         MatSidenavModule,
         MatInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ToastrModule.forRoot({
+            timeOut: 5000,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: false,
+            progressBar: true,
+        })
     ],
     providers: [],
     bootstrap: [AppComponent]
