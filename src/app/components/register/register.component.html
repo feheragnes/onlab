@@ -17,6 +17,16 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
+                    <mat-label>First name</mat-label>
+                    <input matInput [formControl]="firstName"/>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [formControl]="lastName"/>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput [type]="hide ? 'password' : 'text'" required [formControl]="password"/>
                     <mat-icon matSuffix (click)="hide = !hide">{{
@@ -30,16 +40,6 @@
                     <mat-icon matSuffix (click)="hide = !hide">{{
                         hide ? "visibility_off" : "visibility"
                         }}</mat-icon>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                    <mat-label>First name</mat-label>
-                    <input matInput [formControl]="firstName"/>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput [formControl]="lastName"/>
                 </mat-form-field>
 
             </mat-card-content>
