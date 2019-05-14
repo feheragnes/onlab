@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    api_URI: 'https://apiv2dev.nkelemen.hu/'
+    api_URI: 'https://apiv2dev.nkelemen.hu/',
 };
 
 /*
