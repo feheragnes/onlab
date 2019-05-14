@@ -1,20 +1,23 @@
 <h1>Firstdown</h1>
 <mat-form-field>
-    <mat-label>Season</mat-label>
-    <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
-        <mat-option *ngFor="let season of seasons" [value]="season">
-            {{ season }}
-        </mat-option>
-    </mat-select>
+  <mat-label>Season</mat-label>
+  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+    <mat-option *ngFor="let season of seasons" [value]="season">
+      {{ season }}
+    </mat-option>
+  </mat-select>
 </mat-form-field>
 
 <div style="display: block">
-    <canvas
-            baseChart
-            [datasets]="scatterChartData"
-            [options]="scatterChartOptions"
-            [labels]="scatterChartLabels"
-            [chartType]="scatterChartType"
-    >
-    </canvas>
+  <canvas
+    baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="barChartColors"
+  >
+  </canvas>
 </div>

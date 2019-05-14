@@ -1,57 +1,70 @@
 <h1>Wide Receiver stats</h1>
 <div class="filter">
-    <mat-form-field>
-        <mat-label>Season</mat-label>
-        <mat-select
-                [value]="selectedSeason"
-                (valueChange)="onSeasonChanged($event)"
-        >
-            <mat-option *ngFor="let season of seasons" [value]="season">
-                {{ season }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Team</mat-label>
-        <mat-select [value]="selectedTeam" (valueChange)="onTeamChanged($event)">
-            <mat-option *ngFor="let team of teams" [value]="team">
-                {{ team }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-label>Minimum games:</mat-label>
-    <mat-slider
-            thumbLabel
-            tickInterval="1"
-            [min]="minGames"
-            [max]="maxGames"
-            step="1"
-            [value]="selectedGames"
-            (input)="onGamesSliderChanged($event)"
-    ></mat-slider>
+  <mat-form-field>
+    <mat-label>Season</mat-label>
+    <mat-select
+      [value]="selectedSeason"
+      (valueChange)="onSeasonChanged($event)"
+    >
+      <mat-option *ngFor="let season of seasons" [value]="season">
+        {{ season }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Team</mat-label>
+    <mat-select [value]="selectedTeam" (valueChange)="onTeamChanged($event)">
+      <mat-option *ngFor="let team of teams" [value]="team">
+        {{ team }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-label>Minimum games:</mat-label>
+  <mat-slider
+    thumbLabel
+    tickInterval="1"
+    [min]="minGames"
+    [max]="maxGames"
+    step="1"
+    [value]="selectedGames"
+    (input)="onGamesSliderChanged($event)"
+  ></mat-slider>
 </div>
 
 <div class="chart" style="display: block">
-    <canvas
-            baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [plugins]="barChartPlugins"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            [colors]="barChartColors"
-    >
-    </canvas>
+  <canvas
+    baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="barChartColors"
+  >
+  </canvas>
+</div>
+<div class="chart" style="display: block">
+  <canvas
+    baseChart
+    [datasets]="barChartData2"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="barChartColors"
+  >
+  </canvas>
 </div>
 
 <div class="chart" style="display: block">
-    <canvas
-            baseChart
-            [datasets]="scatterChartData"
-            [options]="scatterChartOptions"
-            [labels]="scatterChartLabels"
-            [chartType]="scatterChartType"
-    >
-    </canvas>
+  <canvas
+    baseChart
+    [datasets]="scatterChartData"
+    [options]="scatterChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+  >
+  </canvas>
 </div>
