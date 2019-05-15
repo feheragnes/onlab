@@ -26,9 +26,9 @@ export class RegisterComponent implements OnInit {
 
     getErrorMessage() {
         return this.email.hasError('required')
-            ? 'You must enter a value'
+            ? 'Mező kitöltése kötelező'
             : this.email.hasError('email')
-                ? 'Not a valid email'
+                ? 'Érvénytelen email'
                 : '';
     }
 
@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
             () => {
                 // noinspection JSIgnoredPromiseFromCall
                 this.router.navigateByUrl('/login');
-                this.toastr.success('Registration successful.', 'Wooah!');
+                this.toastr.success('Sikeres regisztráció.', 'Wooah!');
             },
             err => {
                 if (err.statusCode === 'OK') {
@@ -57,7 +57,7 @@ export class RegisterComponent implements OnInit {
                 }
 
                 if (err.error && err.error.error !== undefined) {
-                    this.toastr.warning(err.error.error, 'Registration failed!');
+                    this.toastr.warning(err.error.error, 'Sikertelen regisztráció!');
                 }
             });
     }

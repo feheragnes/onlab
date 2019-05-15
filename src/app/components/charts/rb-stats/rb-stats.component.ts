@@ -25,7 +25,7 @@ export class RbStatsComponent implements OnInit {
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
+  public barChartLegend = false;
 
   public barChartData: ChartDataSets[] = [{ data: [], label: 'Yards/Carrys' }];
   public barChartData2: ChartDataSets[] = [{ data: [], label: 'Yards/Games' }];

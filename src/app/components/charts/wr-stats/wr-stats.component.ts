@@ -25,7 +25,8 @@ export class WrStatsComponent implements OnInit {
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
+  public barChartLegendA = true;
+  public barChartLegendB = false;
 
   public barChartData: ChartDataSets[] = [
     { data: [], label: 'Yards/Catches' },
@@ -61,7 +62,7 @@ export class WrStatsComponent implements OnInit {
   public scatterChartType: ChartType = 'scatter';
 
   public scatterChartLabels: Label[] = [];
-  public scatterChartLegend = true;
+  public scatterChartLegend = false;
 
   public touchdowns: number[] = [];
   public yards: number[] = [];

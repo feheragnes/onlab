@@ -43,7 +43,7 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
             catchError(error => {
                 if (error instanceof HttpErrorResponse) {
                     if (error.status === 401) {
-                        this.toastr.error('Login required', '401');
+                        this.toastr.error('Bejelentkezés szükséges', '401');
                         this.authenticationService.logout();
                         // noinspection JSIgnoredPromiseFromCall
                         this.router.navigateByUrl('/login');

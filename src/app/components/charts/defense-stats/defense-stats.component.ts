@@ -26,7 +26,7 @@ export class DefenseStatsComponent implements OnInit {
     public tacklesChartLabels: Label[] = [];
     public interceptionsChartLabels: Label[] = [];
     public barChartType: ChartType = 'bar';
-    public barChartLegend = true;
+    public barChartLegend = false;
 
     public sacksChartData: ChartDataSets[] = [{data: [], label: 'Sacks'}];
     public tacklesChartData: ChartDataSets[] = [{data: [], label: 'Tackles'}];

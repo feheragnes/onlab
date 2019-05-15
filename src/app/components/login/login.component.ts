@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
     sendLoginRequest() {
         this.service.loginUser(this.username.value, this.password.value).subscribe(
             response => {
-                this.toastr.success('Login successful.', 'Wooah!');
+                this.toastr.success('Sikeres bejelentkezés.', 'Wooah!');
                 this.toastr.info(
-                    'in ' + response.expires + ' minutes',
-                    'Token expires'
+                     response.expires + ' percen belül',
+                    'Token lejár'
                 );
 
                 // noinspection JSIgnoredPromiseFromCall
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
                 }
 
                 if (err.error && err.error.error !== undefined) {
-                    this.toastr.warning(err.error.error, 'Login failed');
+                    this.toastr.warning(err.error.error, 'Sikertelen bejelentkezés');
                 }
             }
         );
