@@ -1,6 +1,11 @@
 .main-app {
-  margin-left: 3rem;
-  margin-right: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 3rem;
+}
+
+nav.toolbar {
+  width: 100%;
+}
+
+nav.toolbar a.logout-button {
+  float: right;
 }

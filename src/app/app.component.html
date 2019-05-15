@@ -2,10 +2,11 @@
     <mat-toolbar color="primary">
         <span>{{ title }}</span>
 
-        <nav>
+        <nav class="toolbar" *ngIf="user">
             <a mat-button routerLink="/teams">Teams</a>
             <a mat-button routerLink="/games">Games</a>
             <a mat-button routerLink="/stats">Stats</a>
+            <a mat-button class="logout-button" (click)="logout()">Logout</a>
         </nav>
     </mat-toolbar>
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {UserService} from '../../services/user.service';
+import {AuthenticationService} from '../../services/authentication.service';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
 
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
     styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    constructor(private service: UserService, private toastr: ToastrService, private router: Router) {
+    constructor(private service: AuthenticationService, private toastr: ToastrService, private router: Router) {
     }
 
     hide = true;
