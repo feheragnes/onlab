@@ -27,12 +27,17 @@
     <mat-option value="rushing">Futott</mat-option>
   </mat-select>
 </mat-form-field>
+
 <mat-form-field>
   <mat-label>Csapat kiemelése</mat-label>
-  <mat-select [value]="selectedTeam" (valueChange)="teamClicked($event)">
-    <mat-option *ngFor="let team of teams" [value]="team">
-      {{ team }}
-    </mat-option>
+  <mat-select
+    [formControl]="teamsFC"
+    multiple
+    (valueChange)="teamClicked($event)"
+  >
+    <mat-option *ngFor="let team of teams" [value]="team">{{
+      team
+    }}</mat-option>
   </mat-select>
 </mat-form-field>
 

@@ -6,6 +6,8 @@ import { GamesService } from 'src/app/services/games.service';
 import { TdYpg } from 'src/app/interfaces/tdypg';
 import { Point } from 'src/app/interfaces/point';
 import { all } from 'q';
+import { FormControl } from '@angular/forms';
+import { hasLifecycleHook } from '@angular/compiler/src/lifecycle_reflector';
 
 @Component({
   selector: 'app-td-ypg-chart',
@@ -64,9 +66,10 @@ export class TdYpgChartComponent implements OnInit {
   selectedSeason = 2018;
   selectedAllowedScored = 'allowed';
   selectedType = 'all';
-  selectedTeam = 'Nincs';
+  selectedTeams = [];
   teams = [];
   allTeams = [];
+  teamsFC = new FormControl();
 
   @ViewChild(BaseChartDirective)
   public chart: BaseChartDirective;
@@ -189,7 +192,6 @@ export class TdYpgChartComponent implements OnInit {
         this.scoredReceivingYpg = d.map(x => x.scoredReceivingYpg);
         this.allTeams = d.map(x => x.team);
         this.teams = Array.from(new Set(d.map((item: any) => item.team)));
-        this.teams.push('Nincs');
       },
       err => console.error(err),
       () => {
@@ -203,22 +205,25 @@ export class TdYpgChartComponent implements OnInit {
     );
   }
 
-  teamClicked(team: string): void {
-    this.selectedTeam = team;
-    // this.colorChange(team, this.scatterChartData[0].pointBackgroundColor);
-    if (team != 'Nincs') {
+  teamClicked(teams: string[]): void {
+    this.selectedTeams = teams;
+    this.scatterChartData[0].pointBackgroundColor = [];
+    this.getColors(
+      this.scatterChartData[0].data.length,
+      this.scatterChartData[0].pointBackgroundColor
+    );
+    for (const t of teams) {
       this.allTeams.forEach((item, index) => {
-        if (item == team) {
-          this.scatterChartData[0].pointBackgroundColor[index] = '#A5121F';
+        if (item == t) {
+          if (
+            this.scatterChartData[0].pointBackgroundColor[index] == '#7986cb'
+          ) {
+            this.scatterChartData[0].pointBackgroundColor[index] = '#A5121F';
+          }
         }
       });
-      this.updateChart();
-    } else {
-      this.scatterChartData[0].pointBackgroundColor.forEach((item, index) => {
-        this.scatterChartData[0].pointBackgroundColor[index] = '#7986cb';
-      });
-      this.updateChart();
     }
+    this.updateChart();
   }
 
   updateChart() {
