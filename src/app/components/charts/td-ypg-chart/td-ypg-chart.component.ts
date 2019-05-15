@@ -97,8 +97,7 @@ export class TdYpgChartComponent implements OnInit {
     }
   }
 
-  onAllowedScoredChanged(value: string): void {
-    this.selectedAllowedScored = value;
+  changeData(): void {
     if (this.selectedAllowedScored == 'allowed' && this.selectedType == 'all') {
       this.scatterChartData[0].data = this.getScatter(
         this.allowedAllTd,
@@ -153,60 +152,14 @@ export class TdYpgChartComponent implements OnInit {
     }
   }
 
+  onAllowedScoredChanged(value: string): void {
+    this.selectedAllowedScored = value;
+    this.changeData();
+  }
+
   onTypeChanged(value: string): void {
     this.selectedType = value;
-    if (this.selectedAllowedScored == 'allowed' && this.selectedType == 'all') {
-      this.scatterChartData[0].data = this.getScatter(
-        this.allowedAllTd,
-        this.allowedAllYpg,
-        this.scatterChartData[0].data
-      );
-    } else if (
-      this.selectedAllowedScored == 'scored' &&
-      this.selectedType == 'all'
-    ) {
-      this.scatterChartData[0].data = this.getScatter(
-        this.scoredAllTd,
-        this.scoredAllYpg,
-        this.scatterChartData[0].data
-      );
-    } else if (
-      this.selectedAllowedScored == 'allowed' &&
-      this.selectedType == 'rushing'
-    ) {
-      this.scatterChartData[0].data = this.getScatter(
-        this.allowedRushingTd,
-        this.allowedRushingYpg,
-        this.scatterChartData[0].data
-      );
-    } else if (
-      this.selectedAllowedScored == 'scored' &&
-      this.selectedType == 'rushing'
-    ) {
-      this.scatterChartData[0].data = this.getScatter(
-        this.scoredRushingTd,
-        this.scoredRushingYpg,
-        this.scatterChartData[0].data
-      );
-    } else if (
-      this.selectedAllowedScored == 'allowed' &&
-      this.selectedType == 'receiving'
-    ) {
-      this.scatterChartData[0].data = this.getScatter(
-        this.allowedReceivingTd,
-        this.allowedReceivingYpg,
-        this.scatterChartData[0].data
-      );
-    } else if (
-      this.selectedAllowedScored == 'scored' &&
-      this.selectedType == 'receiving'
-    ) {
-      this.scatterChartData[0].data = this.getScatter(
-        this.scoredReceivingTd,
-        this.scoredReceivingYpg,
-        this.scatterChartData[0].data
-      );
-    }
+    this.changeData();
   }
 
   getScatter(
@@ -242,61 +195,7 @@ export class TdYpgChartComponent implements OnInit {
       err => console.error(err),
       () => {
         console.log('done loading tdypg');
-        if (
-          this.selectedAllowedScored == 'allowed' &&
-          this.selectedType == 'all'
-        ) {
-          this.scatterChartData[0].data = this.getScatter(
-            this.allowedAllTd,
-            this.allowedAllYpg,
-            this.scatterChartData[0].data
-          );
-        } else if (
-          this.selectedAllowedScored == 'scored' &&
-          this.selectedType == 'all'
-        ) {
-          this.scatterChartData[0].data = this.getScatter(
-            this.scoredAllTd,
-            this.scoredAllYpg,
-            this.scatterChartData[0].data
-          );
-        } else if (
-          this.selectedAllowedScored == 'allowed' &&
-          this.selectedType == 'rushing'
-        ) {
-          this.scatterChartData[0].data = this.getScatter(
-            this.allowedRushingTd,
-            this.allowedRushingYpg,
-            this.scatterChartData[0].data
-          );
-        } else if (
-          this.selectedAllowedScored == 'scored' &&
-          this.selectedType == 'rushing'
-        ) {
-          this.scatterChartData[0].data = this.getScatter(
-            this.scoredRushingTd,
-            this.scoredRushingYpg,
-            this.scatterChartData[0].data
-          );
-        } else if (
-          this.selectedAllowedScored == 'allowed' &&
-          this.selectedType == 'receiving'
-        ) {
-          this.scatterChartData[0].data = this.getScatter(
-            this.allowedReceivingTd,
-            this.allowedReceivingYpg,
-            this.scatterChartData[0].data
-          );
-        } else if (
-          this.selectedAllowedScored == 'scored' &&
-          this.selectedType == 'receiving'
-        ) {
-          this.scatterChartData[0].data = this.getScatter(
-            this.scoredReceivingTd,
-            this.scoredReceivingYpg,
-            this.scatterChartData[0].data
-          );
-        }
+        this.changeData();
       }
     );
   }

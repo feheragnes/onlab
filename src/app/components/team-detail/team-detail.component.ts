@@ -124,8 +124,7 @@ export class TeamDetailComponent implements OnInit {
     });
   }
 
-  onAllowedScoredChanged(value: string): void {
-    this.selectedAllowedScored = value;
+  changeData(): void {
     if (this.selectedAllowedScored == 'allowed' && this.selectedType == 'all') {
       this.lineChartDataTd[0].data = this.allowedAllTdsByMatch;
       this.lineChartDataYard[0].data = this.allowedAllYardsByMatch;
@@ -161,42 +160,13 @@ export class TeamDetailComponent implements OnInit {
       this.lineChartDataYard[0].data = this.scoredReceivingYardsByMatch;
     }
   }
+  onAllowedScoredChanged(value: string): void {
+    this.selectedAllowedScored = value;
+    this.changeData();
+  }
 
   onTypeChanged(value: string): void {
     this.selectedType = value;
-    if (this.selectedAllowedScored == 'allowed' && this.selectedType == 'all') {
-      this.lineChartDataTd[0].data = this.allowedAllTdsByMatch;
-      this.lineChartDataYard[0].data = this.allowedAllYardsByMatch;
-    } else if (
-      this.selectedAllowedScored == 'scored' &&
-      this.selectedType == 'all'
-    ) {
-      this.lineChartDataTd[0].data = this.scoredAllTdsByMatch;
-      this.lineChartDataYard[0].data = this.scoredAllYardsByMatch;
-    } else if (
-      this.selectedAllowedScored == 'allowed' &&
-      this.selectedType == 'rushing'
-    ) {
-      this.lineChartDataTd[0].data = this.allowedRushingTdsByMatch;
-      this.lineChartDataYard[0].data = this.allowedRushingYardsByMatch;
-    } else if (
-      this.selectedAllowedScored == 'scored' &&
-      this.selectedType == 'rushing'
-    ) {
-      this.lineChartDataTd[0].data = this.scoredRushingTdsByMatch;
-      this.lineChartDataYard[0].data = this.scoredRushingYardsByMatch;
-    } else if (
-      this.selectedAllowedScored == 'allowed' &&
-      this.selectedType == 'receiving'
-    ) {
-      this.lineChartDataTd[0].data = this.allowedReceivingTdsByMatch;
-      this.lineChartDataYard[0].data = this.allowedReceivingYardsByMatch;
-    } else if (
-      this.selectedAllowedScored == 'scored' &&
-      this.selectedType == 'receiving'
-    ) {
-      this.lineChartDataTd[0].data = this.scoredReceivingTdsByMatch;
-      this.lineChartDataYard[0].data = this.scoredReceivingYardsByMatch;
-    }
+    this.changeData();
   }
 }
