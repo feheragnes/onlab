@@ -10,7 +10,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class AppComponent {
     public title = 'NFL stats';
-    public user = true;
+    public user;
 
     constructor(private authenticationService: AuthenticationService, private router: Router, private toastr: ToastrService) {
         authenticationService.observableUser.subscribe(u => this.user = u);
@@ -19,8 +19,7 @@ export class AppComponent {
     logout() {
         this.authenticationService.logout();
         // noinspection JSIgnoredPromiseFromCall
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/login');
         this.toastr.success('Redirecting to Login.', 'Logout successful!');
     }
-
 }

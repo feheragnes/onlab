@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'; // <-- NgModel lives here
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
@@ -46,7 +46,8 @@ import {RbStatsComponent} from './components/charts/rb-stats/rb-stats.component'
 import {QbStatsComponent} from './components/charts/qb-stats/qb-stats.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import {WelcomeComponent} from './welcome/welcome.component';
+import {AuthHeaderInterceptor} from './interceptors/auth-header.interceptor';
 
 @NgModule({
     declarations: [
@@ -103,7 +104,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
             progressBar: true,
         })
     ],
-    providers: [],
+    providers: [{
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthHeaderInterceptor,
+        multi: true,
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule {

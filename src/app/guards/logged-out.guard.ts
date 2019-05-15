@@ -5,7 +5,7 @@ import {ToastrService} from 'ngx-toastr';
 
 
 @Injectable({providedIn: 'root'})
-export class AuthGuard implements CanActivate {
+export class LoggedOutGuard implements CanActivate {
     constructor(
         private router: Router,
         private authenticationService: AuthenticationService,
@@ -14,14 +14,13 @@ export class AuthGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (this.authenticationService.isTokenValid()) {
+        if (!this.authenticationService.isTokenValid()) {
             return true;
-        } else if (this.authenticationService.isTokenExpired()) {
-            this.toastr.error('You have to login again.', 'Token expired');
         }
 
         // redirect to login page
-        this.router.navigate(['/login'], {queryParams: {redirect_to: state.url}});
+        this.toastr.warning('This page is not available for logged in users!', 'You are already logged in!');
+        this.router.navigateByUrl('/');
         return false;
     }
 }
