@@ -46,6 +46,7 @@ import {RbStatsComponent} from './components/charts/rb-stats/rb-stats.component'
 import {QbStatsComponent} from './components/charts/qb-stats/qb-stats.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
     declarations: [
@@ -66,7 +67,8 @@ import {RegisterComponent} from './components/register/register.component';
         RbStatsComponent,
         QbStatsComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        WelcomeComponent
     ],
     imports: [
         BrowserModule,

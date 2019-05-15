@@ -1,16 +1,18 @@
 <div class="page mat-typography">
-    <mat-toolbar color="primary">
-        <span>{{ title }}</span>
+  <mat-toolbar color="primary">
+    <span>{{ title }}</span>
 
-        <nav class="toolbar" *ngIf="user">
-            <a mat-button routerLink="/teams">Teams</a>
-            <a mat-button routerLink="/games">Games</a>
-            <a mat-button routerLink="/stats">Stats</a>
-            <a mat-button class="logout-button" (click)="logout()">Logout</a>
-        </nav>
-    </mat-toolbar>
+    <nav class="toolbar" *ngIf="user">
+      <a mat-button routerLink="/teams">Teams</a>
+      <a mat-button routerLink="/games">Games</a>
+      <a mat-button routerLink="/stats">Stats</a>
+      <a mat-raised-button class="logout-button" (click)="logout()"
+        >Logout<mat-icon>arrow_right_alt</mat-icon></a
+      >
+    </nav>
+  </mat-toolbar>
 
-    <div class="main-app">
-        <router-outlet></router-outlet>
-    </div>
+  <div class="main-app">
+    <router-outlet></router-outlet>
+  </div>
 </div>
