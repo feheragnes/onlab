@@ -11,9 +11,6 @@ build:
       - dist
     expire_in: 7 days
   before_script:
-    - apt-get update -qq && apt-get install -y -qq sudo
-    - sudo chmod -R 777 /usr/local/lib/node_modules
-    - sudo npm install -g --unsafe-perm node-sass
     - npm install -g @angular/cli
     - npm install
   script:
