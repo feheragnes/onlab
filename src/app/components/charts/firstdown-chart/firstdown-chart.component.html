@@ -1,4 +1,6 @@
 <h1>Első kísérletek</h1>
+<i>Legördülő lista segítségével lehet a szezonok között váltani.</i><br><br>
+
 <mat-form-field>
   <mat-label>Szezon</mat-label>
   <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
@@ -6,8 +8,32 @@
       {{ season }}
     </mat-option>
   </mat-select>
-</mat-form-field>
+</mat-form-field><br>
 
+<i>Vízszintes tengely: Csapatok</i><br>
+<i>Függőleges tengely: Meccsenkénti átlagos első kísérletek száma</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Ha a támadó csapat megtette a szükséges 10 yardot, akkor first down-t értek el, ezáltal kaptak újabb 4
+        lehetőséget, hogy megtegyenek újabb 10 yardot, vagy, ha már olyan közel vannak a cél területhez, akkor pontokat
+        szerezzenek.</p>
+      <p>A diagramon láthatjuk a csapatok által meccsenként átlagosan elért first downok számát, melyekből könnyen lehet
+        következtetni a támadások sikerességére, mivel egy-egy pontszerzést általában legalább 4-5 first downnak meg
+        kell előznie.</p>
+      <p>Az első kísérletek száma alacsony meccsszám mellett torz képet is tud mutatni, mivel néhány meccsen
+        összejöhetnek nagy játékok, amikkel nagyon gyorsan lehet haladni és akár 40-50 yardot is meg tud tenni a csapat
+        egy passzkísérletből. Viszont az egész szezonra levetítve ezek a meccsek ki szokták egymást egyenlíteni a
+        csapatok között, így ezzel az adattal is viszonylag könnyen össze lehet hasonlítani támadó alakulatok
+        gördülékenységét, amiből sokszor lehet következtetni a sikerességre is.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br><br>
 <div style="display: block">
   <canvas
     baseChart

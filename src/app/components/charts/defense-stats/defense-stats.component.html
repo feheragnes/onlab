@@ -1,49 +1,103 @@
 <h1>Védó játékosok</h1>
+<i>Legördülő lista segítségével lehet a szezonok között váltani.</i><br>
 <mat-form-field>
-    <mat-label>Szezon</mat-label>
-    <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
-        <mat-option *ngFor="let season of seasons" [value]="season">
-            {{ season }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+  <mat-label>Szezon</mat-label>
+  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+    <mat-option *ngFor="let season of seasons" [value]="season">
+      {{ season }}
+    </mat-option>
+  </mat-select>
+</mat-form-field><br><br>
+
+<i>Vízszintes tengely: Játékosok</i><br>
+<i>Függőleges tengely: Sack-ek száma</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>A védőfalemberek legfontosabb mutatója a Sack-ek száma. Kis túlzással 1-2 év múlva, akkor emlékeznek ezekre a
+        játékosokra, ha hoznak legalább 10 sack-es szezonokat. Ennél persze sokkal árnyaltabb a dolog, mivel a
+        csapattársak rengeteget jelentenek. (Mégis mindenki ez alapján hasonlítja össze őket és a fizetésükön ez
+        látszódik meg.)</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
 
 <div style="display: block">
-    <canvas
-            baseChart
-            [datasets]="sacksChartData"
-            [labels]="sacksChartLabels"
-            [options]="barChartOptions"
-            [plugins]="barChartPlugins"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            [colors]="barChartColors"
-    >
-    </canvas>
+  <canvas
+    baseChart
+    [datasets]="sacksChartData"
+    [labels]="sacksChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="barChartColors"
+  >
+  </canvas>
 </div>
+
+<i>Vízszintes tengely: Játékosok</i><br>
+<i>Függőleges tengely: Szerelések száma</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Általában linebackerek állítják meg a futásokat, a kimagasló képességűek pedig kiveszik a részüket a
+        passzvédekezésből is. Ennek köszönhetően ők ütköznek, azaz szerelnek a legtöbbet a pályán. Az alábbi diagramon
+        is ők hoznak kiemelkedő számokat, hozzájuk csak néhány Defensive Back, általában „Boksz Safety” -k érnek fel,
+        akik szintén ott vannak a futások közelében és nagyon sok kontaktot kell felvállalniuk.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
+
 <div style="display: block">
-    <canvas
-            baseChart
-            [datasets]="tacklesChartData"
-            [labels]="tacklesChartLabels"
-            [options]="barChartOptions"
-            [plugins]="barChartPlugins"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            [colors]="barChartColors"
-    >
-    </canvas>
+  <canvas
+    baseChart
+    [datasets]="tacklesChartData"
+    [labels]="tacklesChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="barChartColors"
+  >
+  </canvas>
 </div>
+
+<i>Vízszintes tengely: Játékosok</i><br>
+<i>Függőleges tengely: Interception-ök száma</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Interception, azaz labdaszerzés. Ha lehet fordulópontot megnevezni 1-1 meccsen, akkor általában egy
+        interception-t szoktak hozni a szakértők. Hihetetlen különbséget tud eredményezni, ha olyan játékosok vannak egy
+        csapat védelmében, akik tudnak meccsről-meccsre villanni és el-elcsenni néhány labdát. Ezek a játékosok
+        szezonokat tudnak megmenteni és az igazán kimagaslókat szinte lehetetlen pótolni.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
+
 <div style="display: block">
-    <canvas
-            baseChart
-            [datasets]="interceptionsChartData"
-            [labels]="interceptionsChartLabels"
-            [options]="barChartOptions"
-            [plugins]="barChartPlugins"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            [colors]="barChartColors"
-    >
-    </canvas>
+  <canvas
+    baseChart
+    [datasets]="interceptionsChartData"
+    [labels]="interceptionsChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="barChartColors"
+  >
+  </canvas>
 </div>

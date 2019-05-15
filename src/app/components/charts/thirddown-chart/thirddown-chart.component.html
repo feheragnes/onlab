@@ -1,4 +1,6 @@
 <h1>Harmadik kísérletek</h1>
+<i>Legördülő lista segítségével lehet a szezonok között váltani.</i><br><br>
+
 <mat-form-field>
   <mat-label>Szezon</mat-label>
   <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
@@ -6,7 +8,30 @@
       {{ season }}
     </mat-option>
   </mat-select>
-</mat-form-field>
+</mat-form-field><br>
+
+<i>Vízszintes tengely: Csapatok</i><br>
+<i>Függőleges tengely: Harmadik kísérletek sikeressége százalékban</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>A harmadik down-os kísérletek megoldása kulcsfontosságú az amerikai futballban, mivel 4 kísérletből kell a
+        csapatoknak 10 yardot megtenni, különben elveszítik a labdabirtoklás jogát. Mégis azért szokták a 3.
+        kísérleteket sokkal nagyobb figyelemmel kísérni, mert az utolsó lehetőségre általában elrúgják (puntolják) a
+        labdát a csapatok, hogy az ellenfélnek sokkal nagyobb távot kelljen megtennie a pontszerzéshez.</p>
+      <p>Ezek alapján mindenki érezheti már, hogy ezek a százalékok mutatják meg legjobban, hogy nehéz szituációkban
+        mennyire tud az adott támadósor koncentrált és pontos maradni.</p>
+      <p>Minden évben megfigyelhető, hogy azok az alakulatok, akik a rájátszás végére (, akár a döntőre is) odaérnek
+        általában nagyon magabiztosan tudják ezeket az akadályokat venni. Ilyen szituációkon labdabirtoklások, sokszor
+        meccsek, rosszabb esetben teljes bajnoki szezonok mehetnek el.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br><br>
 
 <div style="display: block">
   <canvas

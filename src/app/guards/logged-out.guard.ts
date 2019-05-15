@@ -19,7 +19,7 @@ export class LoggedOutGuard implements CanActivate {
         }
 
         // redirect to login page
-        this.toastr.warning('This page is not available for logged in users!', 'You are already logged in!');
+        this.toastr.warning('Ez az oldal nem elérhető!', 'Már be vagy jelentkezve!');
         this.router.navigateByUrl('/');
         return false;
     }

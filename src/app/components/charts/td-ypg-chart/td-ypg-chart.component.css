@@ -10,3 +10,7 @@
 .example-item {
   height: 30px;
 }
+
+mat-expansion-panel-header.chart-description h3 {
+  margin-bottom: 0;
+}

@@ -21,6 +21,6 @@ export class AppComponent {
         this.authenticationService.logout();
         // noinspection JSIgnoredPromiseFromCall
         this.router.navigateByUrl('/login');
-        this.toastr.success('Redirecting to Login.', 'Sikeres kijelentkezés!');
+        this.toastr.success('Átirányítás a bejelentkezéshez.', 'Sikeres kijelentkezés!');
     }
 }

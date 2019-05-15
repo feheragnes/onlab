@@ -1,7 +1,11 @@
 .chart {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .filter * {
-    margin-right: 15px;
+  margin-right: 15px;
+}
+
+mat-expansion-panel-header.chart-description h3 {
+  margin-bottom: 0;
 }

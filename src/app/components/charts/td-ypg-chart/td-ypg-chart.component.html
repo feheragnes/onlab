@@ -1,4 +1,6 @@
 <h1>TD/Yardok</h1>
+<i>Legördülő listák segítségével lehet kiválasztani a megjelenítendő adatok tulajdonságait.</i><br><br>
+
 <mat-form-field>
   <mat-label>Szezon</mat-label>
   <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
@@ -37,9 +39,37 @@
   >
     <mat-option *ngFor="let team of teams" [value]="team">{{
       team
-    }}</mat-option>
+      }}</mat-option>
   </mat-select>
 </mat-form-field>
+<br>
+
+<i>Vízszintes tengely: Touchdownok</i><br>
+<i>Függőleges tengely: Meccsenkénti átlagos yard mennyiség</i><br><br>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Az ábrán látható szezonokra lebontva a csapatok egyik legfontosabb mutatója, azaz a szerzett és engedett
+        yardok.
+        Többféle szűrési feltétel meghatározásával tekinthetjük meg a különböző adatokat. A megtett vagy épp engedett
+        yardokon kívül még megfigyelhető a touchdownok (TD-k) száma.</p>
+      <p>Ezekből az adatokból könnyen lehet következtetni a csapatok védekezési és támadási stratégiájukra és
+        legfőképpen az
+        eredményességükre.</p>
+      <p>Megfigyelhető, hogy egyik csapat sem tud kiemelkedni egyszerre támadásban és védekezésben is, többen
+        megpróbálnak
+        átlagos teljesítményt nyújtani mind a kettő oldalon, de vannak, akik az egyik csapatrész hiányosságait, a másik
+        erősítésével kompenzálják.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<br><br>
 
 <div style="display: block">
   <canvas

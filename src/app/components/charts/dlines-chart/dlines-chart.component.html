@@ -1,25 +1,52 @@
 <h1>Védőfalak</h1>
-<mat-form-field>
-    <mat-label>Szezon</mat-label>
-    <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
-        <mat-option *ngFor="let season of seasons" [value]="season">
-            {{ season }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+<i>Legördülő lista segítségével lehet a szezonok között váltani.</i><br><br>
 
-<div>
+<mat-form-field>
+  <mat-label>Szezon</mat-label>
+  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+    <mat-option *ngFor="let season of seasons" [value]="season">
+      {{ season }}
+    </mat-option>
+  </mat-select>
+</mat-form-field><br>
+
+<i>Vízszintes tengely: Sack-ek száma</i><br>
+<i>Függőleges tengely: „Irányító ütések” száma</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
     <div>
-        <div style="display: block">
-            <canvas
-                    baseChart
-                    [datasets]="scatterChartData"
-                    [options]="scatterChartOptions"
-                    [labels]="scatterChartLabels"
-                    [chartType]="scatterChartType"
-                    [legend]="scatterChartLegend"
-            >
-            </canvas>
-        </div>
+      <p>A meccseket a falaknál kell megnyerni – állítja sok edző, ezért is fektet sok csapat kiemelten sok figyelmet és
+        pénzt a védőfalak megerősítésére. Nagyon nehéz elit egységet ezen a téren összeállítani, ezért is lehet 1-1
+        igazolásnak hatalmas hatása a teljes csapat mérlegére. Futás ellen a védőfalak teljesítményét nagyon nehéz
+        mérni, ott inkább csapatstatisztikákat szoktak figyelembe venni. A mostani passz-orientált futballban sokkal
+        jelentősebb a futásokkal szemben a passz játék megállítása, melynek legfontosabb eleme az irányítóra helyezett
+        nyomás.</p>
+      <p>Ezt a nyomást kettő szám nagyon jól tükrözi az NFL-ben, a legfontosabb a Sack-ek (zsákolások) száma, mely az
+        irányító labdával együttes földre vitelét jelenti, 1-1 ilyen megmozdulással egy teljes támadássorozatot képes a
+        védelem ellehetetleníteni. Másik fontos mérőszám a QB hit-ek (irányító ütések) száma, ez azokat a mozdulatokat
+        takarja, amikor a védőfalemberek már odaértek az irányítóhoz, de csak pont akkor, amikor ő már passzolja a
+        labdát. Ez könnyen eredményezhet pontatlan passzt, melyből akár Interception is lehet, vagy csak simán nem tudja
+        a QB a legjobb döntést meghozni az idő rövidsége és a nagy nyomás miatt.</p>
     </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br><br>
+<div>
+  <div>
+    <div style="display: block">
+      <canvas
+        baseChart
+        [datasets]="scatterChartData"
+        [options]="scatterChartOptions"
+        [labels]="scatterChartLabels"
+        [chartType]="scatterChartType"
+        [legend]="scatterChartLegend"
+      >
+      </canvas>
+    </div>
+  </div>
 </div>

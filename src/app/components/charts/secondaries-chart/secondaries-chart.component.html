@@ -1,21 +1,46 @@
 <h1>Secondary-k</h1>
-<mat-form-field>
-    <mat-label>Szezon</mat-label>
-    <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
-        <mat-option *ngFor="let season of seasons" [value]="season">
-            {{ season }}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+<i>Legördülő lista segítségével lehet a szezonok között váltani.</i><br><br>
 
+<mat-form-field>
+  <mat-label>Szezon</mat-label>
+  <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
+    <mat-option *ngFor="let season of seasons" [value]="season">
+      {{ season }}
+    </mat-option>
+  </mat-select>
+</mat-form-field><br>
+
+<i>Vízszintes tengely: Interception-ök száma</i><br>
+<i>Függőleges tengely: Fumble-ök száma</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>A Secondary, azaz a Safety és Cornerback pozícióban lévő játékosok meccset eldöntő megmozdulásai lehetnek az
+        Interception szerzések (az ellenfél által passzolt labda elkapása a levegőben) és a Fumble-ök kiharcolása (a
+        futó játékos kezében lévő labda kiütése, majd annak megszerzése). Azért is kell ezeknek a szituációknak nagy
+        jelentőséget tulajdonítani, mivel ezzel át is veszik a csapatok a labdabirtoklás jogát, így extra lehetőséget
+        teremtve a pontszerzésre.</p>
+      <p>A fent említett esetek azért kulcsfontosságúak, mert nagyon sokszor egy potenciális pontszerzés lehetőségét
+        veszik el az ellenfél csapatból, vagy épp a saját csapatukat hozzák szinte kihagyhatatlan helyzetben.</p>
+      <p>Nem mellesleg ezekkel a játékokkal a védelmek gyorsabban le tudnak jönni a pályáról és többet tudnak pihenni,
+        mint az ellenfél védekező egysége. Ezek az apróságok pedig a meccs végi szoros pillanatokban döntő fontosságúak
+        szoktak lenni.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br><br>
 <div style="display: block">
-    <canvas
-            baseChart
-            [datasets]="scatterChartData"
-            [options]="scatterChartOptions"
-            [labels]="scatterChartLabels"
-            [chartType]="scatterChartType"
-            [legend]="scatterChartLegend"
-    >
-    </canvas>
+  <canvas
+    baseChart
+    [datasets]="scatterChartData"
+    [options]="scatterChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+    [legend]="scatterChartLegend"
+  >
+  </canvas>
 </div>

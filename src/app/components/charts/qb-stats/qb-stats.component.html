@@ -1,68 +1,138 @@
 <h1>Irányítók</h1>
+<i>Legördülő listák segítségével lehet a szezonok között váltani, valamint a csapatokra szűrni.</i><br>
+<i>Csúszka segítségével pedig a minimálisan lejátszott meccsek számát lehet meghatározni.</i><br><br>
+
+
 <div class="filter">
-    <mat-form-field>
-        <mat-label>Szezon</mat-label>
-        <mat-select
-                [value]="selectedSeason"
-                (valueChange)="onSeasonChanged($event)"
-        >
-            <mat-option *ngFor="let season of seasons" [value]="season">
-                {{ season }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Csapat</mat-label>
-        <mat-select [value]="selectedTeam" (valueChange)="onTeamChanged($event)">
-            <mat-option *ngFor="let team of teams" [value]="team">
-                {{ team }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-label>Minimálisan lejátszott mérkőzések:</mat-label>
-    <mat-slider
-            thumbLabel
-            tickInterval="1"
-            [min]="minGames"
-            [max]="maxGames"
-            step="1"
-            [value]="selectedGames"
-            (input)="onGamesSliderChanged($event)"
-    ></mat-slider>
+  <mat-form-field>
+    <mat-label>Szezon</mat-label>
+    <mat-select
+      [value]="selectedSeason"
+      (valueChange)="onSeasonChanged($event)"
+    >
+      <mat-option *ngFor="let season of seasons" [value]="season">
+        {{ season }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Csapat</mat-label>
+    <mat-select [value]="selectedTeam" (valueChange)="onTeamChanged($event)">
+      <mat-option *ngFor="let team of teams" [value]="team">
+        {{ team }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-label>Minimálisan lejátszott mérkőzések:</mat-label>
+  <mat-slider
+    thumbLabel
+    tickInterval="1"
+    [min]="minGames"
+    [max]="maxGames"
+    step="1"
+    [value]="selectedGames"
+    (input)="onGamesSliderChanged($event)"
+  ></mat-slider>
 </div>
 
-<div class="chart" style="display: block">
-    <canvas
-            baseChart
-            [datasets]="piChartData"
-            [options]="piChartOptions"
-            [labels]="scatterChartLabels"
-            [chartType]="scatterChartType"
-            [legend]="scatterChartLegend"
-    >
-    </canvas>
-</div>
+<i>Vízszintes tengely: Passzolt TD-k száma</i><br>
+<i>Függőleges tengely: Interception-ök száma</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Egy irányító meccsét, ha kettő számmal kellene felírni mindenképpen dobott Touchdownok (TD-k) és az
+        Interceptionök (INT-ek) száma lenne az. Mint sok statisztika 1-1 meccsen még csalóka lehet, mivel lehet az egész
+        pályát végig passzolni és a végén egy futással TD szerezni, vagy épp egy utolsó másodperces 50 yardos passzt
+        elrontani. Ezek mind-mind eltolják valamilyen irányba ezeknek a mutatóknak az értékét és mivel nagyon sok
+        irányító meccsenként dob 1-2-3 TD-t és 1-2 INT-et így már egy labdának is nagy szerepe lehet ebben a
+        statisztikában.</p>
+      <p>Viszont, ha ezeket a számokat teljes szezonra nézzük, akkor sokkal kisebb eltéréseket okoz 1-2 rosszul pattanó
+        labda és szépen szétválnak a labdabiztos elit irányítók és a gyengébb esetleg tapasztalatlanabb irányítók.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
 
 <div class="chart" style="display: block">
-    <canvas
-            baseChart
-            [datasets]="ppChartData"
-            [options]="ppChartOptions"
-            [labels]="scatterChartLabels"
-            [chartType]="scatterChartType"
-            [legend]="scatterChartLegend"
-    >
-    </canvas>
+  <canvas
+    baseChart
+    [datasets]="piChartData"
+    [options]="piChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+    [legend]="scatterChartLegend"
+  >
+  </canvas>
 </div>
 
+<i>Vízszintes tengely: Passzolt yardok</i><br>
+<i>Függőleges tengely: Passzpontosság</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>A passzpontosság az egyik legfontosabb dolog, ha stabilitást akarsz adni a támadóegységednek. Ezért is vannak
+        nagyon megbecsülve a ligákban a kifejezetten pontos irányítók, és ezért nem tudják sokáig húzni, azok, akik sok
+        labdát dobálnak rossz helyre. Az NFL-ben látszólag nagyon közel vannak egymáshoz a passzpontosságok, de ezek az
+        apró százalékok jelenthetik a különbséget egy átlagos és egy elit vagy éppen egy rossz irányító között. Bár
+        aprónak tűnhet a különbség, de egy 5%-os pontossági differencia már 30-40 pontos vagy épp pontatlan passzt
+        eredményez egy szezonban, így már nem is tűnik, olyan elhanyagolhatónak (, viszonyításképp ennyit passzol egy
+        átlagos irányító egy átlagos meccsen).</p>
+      <p>Másik tengelyen figyelhetjük meg a szezonban elért passzolt yardok összegét, ebbe beletartozik az is, amit az
+        elkapó az elkapás után megtesz labdával a kezében. Ez van, aki szerint nagyon hasznos szám, mivel a jó
+        helyzetben lévő elkapót találta meg, de van, aki szerint ez már nem csak az irányító képességeit tartalmazza.
+        Akármelyik állítás tükrözi a valóságot a TD/INT számok mellett ez szokott az egyik legtöbbször feltüntetett
+        érték lenni egy QB neve mellett.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
+
 <div class="chart" style="display: block">
-    <canvas
-            baseChart
-            [datasets]="ayChartData"
-            [options]="ayChartOptions"
-            [labels]="scatterChartLabels"
-            [chartType]="scatterChartType"
-            [legend]="scatterChartLegend"
-    >
-    </canvas>
+  <canvas
+    baseChart
+    [datasets]="ppChartData"
+    [options]="ppChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+    [legend]="scatterChartLegend"
+  >
+  </canvas>
+</div>
+
+<i>Vízszintes tengely: Air Yards</i><br>
+<i>Függőleges tengely: Passzonkénti átlagos yard mennyiség</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Az előző diagrammal szemben, itt az Air Yards, azaz csak a labda által levegőben töltött távolságok összege van
+        feltüntetve. Ez ténylegesen csak a dobást jellemzi, nem tükröz semmilyen információt sem az elkapó elkapás utáni
+        képességeiről, sem az elkapó helyzetéről.</p>
+      <p>A függőleges tengely pedig a kísérletenkénti átlagos passzolt yard mennyiséget mutatja meg. Ez a csapatok
+        támadófelfogásából származó különbséget, egy futás-orientált csapatban is lehet hozni jó YPA (Yards/Attempt)
+        számokat, habár azért csodát ne várjunk, ha valakinek van egy nagyon jó irányítója, akkor őt fogja passzoltatni
+        is és ezáltal a többi száma is kimagasló lesz.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
+
+<div class="chart" style="display: block">
+  <canvas
+    baseChart
+    [datasets]="ayChartData"
+    [options]="ayChartOptions"
+    [labels]="scatterChartLabels"
+    [chartType]="scatterChartType"
+    [legend]="scatterChartLegend"
+  >
+  </canvas>
 </div>

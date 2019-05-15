@@ -1,4 +1,10 @@
 <h1>Elkapók</h1>
+
+<i>Legördülő listák segítségével lehet a szezonok között váltani, valamint a csapatokra szűrni.</i><br>
+<i>Csúszka segítségével pedig a minimálisan lejátszott meccsek számát lehet meghatározni.</i><br>
+<i>A jelmagyarázatokra kattintva lehet ki- és bekapcsolni a különböző mutatókat.</i><br><br>
+
+
 <div class="filter">
   <mat-form-field>
     <mat-label>Szezon</mat-label>
@@ -31,6 +37,24 @@
   ></mat-slider>
 </div>
 
+<i>Vízszintes tengely: Játékosok</i><br>
+<i>Függőleges tengely: Yardok</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>A (jó) elkapókhoz lehet megtekinteni az elkapásonkénti yardok mennyiséget és a meccsenkénti átlagot is. Az
+        előbbi a játékos útvonalaiból is következik, mégis eléggé jól tükrözi általában a képességeit. Utóbbinál nagyon
+        lényeges a csapattársak szerepe, mivel, ha több jó elkapóval vagy egy csapatban, akkor nem lesz kimagasló a
+        meccsenkénti elkapásaid száma és ebből következően a meccsenkénti yardok száma sem. Habár illik megemlíteni,
+        hogy az elit elkapók szűk társasága képes komoly konkurencia mellett is top számokat hozni.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
+
 <div class="chart" style="display: block">
   <canvas
     baseChart
@@ -44,6 +68,24 @@
   >
   </canvas>
 </div>
+
+<i>Vízszintes tengely: Játékosok</i><br>
+<i>Függőleges tengely: Elkapás utána yardok</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Yards After Catch, azaz elkapás utáni yardok, hihetetlenül fontos szám az elkapók (és az elkapni tudó
+        futók/tight endek) körében. Lényegében azt mutatja meg, hogy mennyi yardot tud még egy sikeres passzra tenni az
+        adott játékos, nagyon sokszor ezek már csak az elkapó érdemei, ilyenkor már nincs felrajzolt játék amire tudna
+        támaszkodni.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
+
 <div class="chart" style="display: block">
   <canvas
     baseChart
@@ -57,6 +99,29 @@
   >
   </canvas>
 </div>
+
+<i>Vízszintes tengely: Elkapott yardok</i><br>
+<i>Függőleges tengely: Elkapott TD-k</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>A két legfontosabb érték egy elkapónál, a szerzett TD-k, valamint a yardok száma. Megfigyelhető, hogy vannak
+        olyan játékosok, akik az átlaghoz képest jelentősen több TD-t szereznek, míg vannak, akik a yardok termelik elit
+        mennyiségben. Rajtuk kívül megtalálható az eléggé szellős elit, ahova csak a kiemelkedő csapatok 1-1 játékosa
+        fér be.</p>
+      <p>Végül érdekességnek megfigyelhető, hogy vannak olyan játékosok, akik annak ellenére, hogy vagy nem, vagy csak
+        nagyon kevés TD-t szereztek, mégis viszonylag sok yardot sikerült összeszorgoskodniuk. Ezekből a statisztikákból
+        könnyen lehet arra következtetni, hogy őket akkor tartják a pályán, amikor még nincsenek a célterület közelében,
+        mivel nekik nagyobb sebességük van, így viszonylag nagy területre van szükségük az útvonalak megfutásához. Ezzel
+        ellentétben, akik kevés yarddal és sok TD-vel állnak, ők viszonylag fizikálisabb játékosok, akik nagyon jó
+        célpontok az End Zone területén.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
 
 <div class="chart" style="display: block">
   <canvas

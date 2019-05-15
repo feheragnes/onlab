@@ -20,6 +20,15 @@ export class TeamDetailComponent implements OnInit {
           return label + ': ' + tooltipItem.yLabel;
         }
       }
+    },
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
     }
   };
 
@@ -58,7 +67,7 @@ export class TeamDetailComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     responsive: true,
     scales: {
-      xAxes: [
+      yAxes: [
         {
           ticks: {
             beginAtZero: true
@@ -67,7 +76,7 @@ export class TeamDetailComponent implements OnInit {
       ]
     }
   };
-  public barChartLabels: Label[] = ['Win', 'Lose', 'Draw'];
+  public barChartLabels: Label[] = ['Győzelem', 'Vereség', 'Döntetlen'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = false;
   public barChartColors = [
@@ -125,36 +134,36 @@ export class TeamDetailComponent implements OnInit {
   }
 
   changeData(): void {
-    if (this.selectedAllowedScored == 'allowed' && this.selectedType == 'all') {
+    if (this.selectedAllowedScored === 'allowed' && this.selectedType === 'all') {
       this.lineChartDataTd[0].data = this.allowedAllTdsByMatch;
       this.lineChartDataYard[0].data = this.allowedAllYardsByMatch;
     } else if (
-      this.selectedAllowedScored == 'scored' &&
-      this.selectedType == 'all'
+      this.selectedAllowedScored === 'scored' &&
+      this.selectedType === 'all'
     ) {
       this.lineChartDataTd[0].data = this.scoredAllTdsByMatch;
       this.lineChartDataYard[0].data = this.scoredAllYardsByMatch;
     } else if (
-      this.selectedAllowedScored == 'allowed' &&
-      this.selectedType == 'rushing'
+      this.selectedAllowedScored === 'allowed' &&
+      this.selectedType === 'rushing'
     ) {
       this.lineChartDataTd[0].data = this.allowedRushingTdsByMatch;
       this.lineChartDataYard[0].data = this.allowedRushingYardsByMatch;
     } else if (
-      this.selectedAllowedScored == 'scored' &&
-      this.selectedType == 'rushing'
+      this.selectedAllowedScored === 'scored' &&
+      this.selectedType === 'rushing'
     ) {
       this.lineChartDataTd[0].data = this.scoredRushingTdsByMatch;
       this.lineChartDataYard[0].data = this.scoredRushingYardsByMatch;
     } else if (
-      this.selectedAllowedScored == 'allowed' &&
-      this.selectedType == 'receiving'
+      this.selectedAllowedScored === 'allowed' &&
+      this.selectedType === 'receiving'
     ) {
       this.lineChartDataTd[0].data = this.allowedReceivingTdsByMatch;
       this.lineChartDataYard[0].data = this.allowedReceivingYardsByMatch;
     } else if (
-      this.selectedAllowedScored == 'scored' &&
-      this.selectedType == 'receiving'
+      this.selectedAllowedScored === 'scored' &&
+      this.selectedType === 'receiving'
     ) {
       this.lineChartDataTd[0].data = this.scoredReceivingTdsByMatch;
       this.lineChartDataYard[0].data = this.scoredReceivingYardsByMatch;

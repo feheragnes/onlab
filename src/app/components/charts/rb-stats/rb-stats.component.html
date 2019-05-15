@@ -1,4 +1,7 @@
 <h1>Futók</h1>
+<i>Legördülő listák segítségével lehet a szezonok között váltani, valamint a csapatokra szűrni.</i><br>
+<i>Csúszkák segítségével pedig a minimálisan lejátszott meccsek és futási kísérletek számát lehet meghatározni.</i><br>
+<br>
 
 <div class="filter">
   <mat-form-field>
@@ -43,6 +46,26 @@
   ></mat-slider>
 </div>
 
+<i>Vízszintes tengely: Játékosok</i><br>
+<i>Függőleges tengely: Yardok</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Yards/Carry, azaz labdacipelésenkénti átlagos yardok száma. Nagyon hasonló az elkapók Yards/Catch mutatójához,
+        csak itt nem elkapás van, hanem az egész útvonalat a játékos labdával a kezében teszi meg. A különbségek itt se
+        tűnnek jelentősnek, de egy jó és átlagos játékos között a különbség 1-2 yard lehet minden kísérletnél. Fontos
+        megemlíteni, hogy ezt a számot nagyon sokszor fel tudja húzni 1-1 30-40 yardos futás, mivel, ha elérik a futók a
+        megfelelő sebességet, akkor nagyon nehéz már őket megállítani/utolérni. De, mint a legtöbb statisztikának az
+        egymással szembeni összevetésnél ezek nem okoznak nagy különbséget, mivel a jó futóknak általában közel azonos
+        nagy játékaik szoktak lenni.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
+
 <div class="chart" style="display: block">
   <canvas
     baseChart
@@ -56,6 +79,27 @@
   >
   </canvas>
 </div>
+
+<i>Vízszintes tengely: Játékosok</i><br>
+<i>Függőleges tengely: Meccsenkénti átlagos yard mennyiség</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Meccsenként szerzett yardok száma nagyon fontos a futóknál nagyon fontos, mivel ez több tulajdonságát is
+        felfedi a játékosnak. Nem csak az 1-1 szituáció megoldása látszódik ebben a mutatóban, hanem többek között a
+        játékos alkalmazkodóképessége, mivel, ha több támadási sémába is beleillik, akkor jelentősen több lehetőséget is
+        kaphat. Ezen felül a futó terhelhetősége is nagyon fontos egy csapatnak és egy futó akkor lehet igazán
+        kiemelkedő, ha a jó teljesítményét tudja a teljes meccsen, vagy akár teljes szezonon keresztül hozni.</p>
+      <p>Sajnos ennek a mutatónak is van árnyoldala, mivel egy passz-orientált csapatban, lehet jó egy futó játékos, ha
+        épp folyamatosan passzol a csapat, ezzel elég szépen le lehet rontani a Yards/Game mutatót.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
+
 <div class="chart" style="display: block">
   <canvas
     baseChart
@@ -69,6 +113,24 @@
   >
   </canvas>
 </div>
+
+<i>Vízszintes tengely: Futott yardok</i><br>
+<i>Függőleges tengely: Futott TD-k</i><br><br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="right-aligned-header chart-description" collapsedHeight="40px">
+      <h3>Leírás</h3>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Természetesen itt sem lehet kihagyni a klasszikus TD/Yard párost. A futókat is (, kicsit felszínesen), de erről
+        a mutatóról könnyen be lehet kategorizálni. Itt is megfigyelhető, hogy igazán elit játékos csak nagyon kevés
+        van, ők szereznek sok yardot és TD-t is. De meg kell említeni a tipikusan rövid yardos szituációkat megoldó
+        játékosokat, akik az átlag futóhoz képest több TD-vel, viszont kevesebb yarddal rendelkeznek. Ezt általában az
+        okozza, hogy ők kapják meg azokat a labdákat, amiket csak 1-2 yardról kell bevinni a célterületre.</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br><br>
 
 <div class="chart" style="display: block">
   <canvas
