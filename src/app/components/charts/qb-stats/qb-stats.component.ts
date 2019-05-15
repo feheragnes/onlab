@@ -66,7 +66,7 @@ export class QbStatsComponent implements OnInit {
     public scatterChartType: ChartType = 'scatter';
 
     public scatterChartLabels: Label[] = [];
-    public scatterChartLegend = true;
+    public scatterChartLegend = false;
 
     public passTouchdowns: number[] = [];
     public interceptions: number[] = [];

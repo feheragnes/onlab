@@ -32,7 +32,7 @@ export class DlinesChartComponent implements OnInit {
   public scatterChartType: ChartType = 'scatter';
 
   public scatterChartLabels: Label[] = [];
-  public scatterChartLegend = true;
+  public scatterChartLegend = false;
 
   public sacks: number[] = [];
   public qbhits: number[] = [];

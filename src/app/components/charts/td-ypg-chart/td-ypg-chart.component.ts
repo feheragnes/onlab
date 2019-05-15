@@ -29,7 +29,7 @@ export class TdYpgChartComponent implements OnInit {
   public scatterChartType: ChartType = 'scatter';
 
   public scatterChartLabels: Label[] = [];
-  public scatterChartLegend = true;
+  public scatterChartLegend = false;
 
   allowedAllTd: number[] = [];
   scoredAllTd: number[] = [];

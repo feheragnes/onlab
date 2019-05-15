@@ -32,7 +32,7 @@ export class SecondariesChartComponent implements OnInit {
   public scatterChartType: ChartType = 'scatter';
 
   public scatterChartLabels: Label[] = [];
-  public scatterChartLegend = true;
+  public scatterChartLegend = false;
 
   public interceptions: number[] = [];
   public fumbles: number[] = [];

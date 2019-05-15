@@ -28,7 +28,7 @@ export class FirstdownChartComponent implements OnInit {
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
+  public barChartLegend = false;
 
   public barChartData: ChartDataSets[] = [{ data: [], label: 'Firstdown' }];
 

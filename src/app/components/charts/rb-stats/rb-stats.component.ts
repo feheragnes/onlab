@@ -56,7 +56,7 @@ export class RbStatsComponent implements OnInit {
   public scatterChartType: ChartType = 'scatter';
 
   public scatterChartLabels: Label[] = [];
-  public scatterChartLegend = true;
+  public scatterChartLegend = false;
 
   public touchdowns: number[] = [];
   public yards: number[] = [];
