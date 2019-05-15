@@ -27,6 +27,14 @@
     <mat-option value="rushing">Futott</mat-option>
   </mat-select>
 </mat-form-field>
+<mat-form-field>
+  <mat-label>Csapat kiemelése</mat-label>
+  <mat-select [value]="selectedTeam" (valueChange)="teamClicked($event)">
+    <mat-option *ngFor="let team of teams" [value]="team">
+      {{ team }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 
 <div style="display: block">
   <canvas
@@ -36,7 +44,6 @@
     [labels]="scatterChartLabels"
     [chartType]="scatterChartType"
     [legend]="scatterChartLegend"
-    (chartClick)="chartClicked($event)"
   >
   </canvas>
 </div>

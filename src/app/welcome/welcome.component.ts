@@ -25,9 +25,7 @@ export class WelcomeComponent implements OnInit {
         this.week = this.game.week;
       },
       err => console.error(err),
-      () => {
-        console.log(this.game);
-      }
+      () => console.log('done loading game')
     );
   }
 
@@ -39,7 +37,6 @@ export class WelcomeComponent implements OnInit {
       err => console.error(err),
       () => {
         this.maxseason = Math.max.apply(null, this.seasons);
-        console.log(this.maxseason);
         this.getGame();
       }
     );

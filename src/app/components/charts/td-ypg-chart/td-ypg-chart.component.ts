@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Label, BaseChartDirective } from 'ng2-charts';
 import { ChartService } from 'src/app/services/chart.service';
 import { GamesService } from 'src/app/services/games.service';
 import { TdYpg } from 'src/app/interfaces/tdypg';
 import { Point } from 'src/app/interfaces/point';
+import { all } from 'q';
 
 @Component({
   selector: 'app-td-ypg-chart',
@@ -12,6 +13,10 @@ import { Point } from 'src/app/interfaces/point';
   styleUrls: ['./td-ypg-chart.component.css']
 })
 export class TdYpgChartComponent implements OnInit {
+  constructor(
+    private chartService: ChartService,
+    private gamesService: GamesService
+  ) {}
   public scatterChartOptions: ChartOptions = {
     responsive: true,
     tooltips: {
@@ -47,9 +52,10 @@ export class TdYpgChartComponent implements OnInit {
   public scatterChartData = [
     {
       data: [],
+      pointBackgroundColor: [],
+      pointBorderColor: [],
       pointRadius: 7,
-      label: 'TD-YPG',
-      backgroundColor: '#7986cb'
+      label: 'TD-YPG'
     }
   ];
 
@@ -58,11 +64,12 @@ export class TdYpgChartComponent implements OnInit {
   selectedSeason = 2018;
   selectedAllowedScored = 'allowed';
   selectedType = 'all';
+  selectedTeam = 'Nincs';
+  teams = [];
+  allTeams = [];
 
-  constructor(
-    private chartService: ChartService,
-    private gamesService: GamesService
-  ) {}
+  @ViewChild(BaseChartDirective)
+  public chart: BaseChartDirective;
 
   ngOnInit() {
     this.gamesService.getSeasons().subscribe(
@@ -78,23 +85,6 @@ export class TdYpgChartComponent implements OnInit {
   onSeasonChanged(season: number): void {
     this.selectedSeason = season;
     this.getTdYpg();
-  }
-
-  public chartClicked({
-    event,
-    active
-  }: {
-    event: MouseEvent;
-    active: Point[];
-  }): void {
-    if (active[0] != null) {
-      console.log(active);
-      const segment = active[0];
-      console.log(segment._model.backgroundColor);
-      segment._model.backgroundColor = 'rgb(1, 1, 1)';
-      segment._view.backgroundColor = 'rgb(1, 1, 1)';
-      segment._options.backgroundColor = 'rgb(1, 1, 1)';
-    }
   }
 
   changeData(): void {
@@ -174,6 +164,12 @@ export class TdYpgChartComponent implements OnInit {
     return scatterdata;
   }
 
+  getColors(length: number, pointColor: string[]): void {
+    for (let _i = 0; _i < length; _i++) {
+      pointColor.push('#7986cb');
+    }
+  }
+
   getTdYpg(): void {
     this.chartService.getTdYpg(this.selectedSeason).subscribe(
       d => {
@@ -191,12 +187,41 @@ export class TdYpgChartComponent implements OnInit {
         this.scoredRushingYpg = d.map(x => x.scoredRushingYpg);
         this.allowedReceivingYpg = d.map(x => x.allowedReceivingYpg);
         this.scoredReceivingYpg = d.map(x => x.scoredReceivingYpg);
+        this.allTeams = d.map(x => x.team);
+        this.teams = Array.from(new Set(d.map((item: any) => item.team)));
+        this.teams.push('Nincs');
       },
       err => console.error(err),
       () => {
         console.log('done loading tdypg');
         this.changeData();
+        this.getColors(
+          this.scatterChartData[0].data.length,
+          this.scatterChartData[0].pointBackgroundColor
+        );
       }
     );
+  }
+
+  teamClicked(team: string): void {
+    this.selectedTeam = team;
+    // this.colorChange(team, this.scatterChartData[0].pointBackgroundColor);
+    if (team != 'Nincs') {
+      this.allTeams.forEach((item, index) => {
+        if (item == team) {
+          this.scatterChartData[0].pointBackgroundColor[index] = '#A5121F';
+        }
+      });
+      this.updateChart();
+    } else {
+      this.scatterChartData[0].pointBackgroundColor.forEach((item, index) => {
+        this.scatterChartData[0].pointBackgroundColor[index] = '#7986cb';
+      });
+      this.updateChart();
+    }
+  }
+
+  updateChart() {
+    this.chart.chart.update(); // This re-renders the canvas element.
   }
 }
