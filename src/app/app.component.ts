@@ -9,7 +9,7 @@ import {ToastrService} from 'ngx-toastr';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    public title = 'NFL stats';
+    public title = 'NFL statisztikák';
     public user;
 
     constructor(private authenticationService: AuthenticationService, private router: Router, private toastr: ToastrService) {

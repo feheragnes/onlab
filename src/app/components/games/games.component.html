@@ -1,11 +1,11 @@
 <div *ngIf="games">
   <mat-card class="big">
     <mat-card-header>
-      <mat-card-title>Games</mat-card-title>
+      <mat-card-title>Meccsek</mat-card-title>
     </mat-card-header>
     <mat-card class="small">
       <mat-form-field>
-        <mat-label>Season</mat-label>
+        <mat-label>Szezon</mat-label>
         <mat-select
           [value]="selectedSeason"
           (valueChange)="onSeasonChanged($event)"
@@ -16,7 +16,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Week</mat-label>
+        <mat-label>Forduló</mat-label>
         <mat-select
           [value]="selectedWeek"
           (valueChange)="onWeekChanged($event)"
@@ -43,10 +43,10 @@
           </mat-expansion-panel-header>
           <div class="list">
             <mat-list dense>
-              <mat-list-item> Home Score: {{ game.homeScore }} </mat-list-item>
-              <mat-list-item> Away Score: {{ game.awayScore }} </mat-list-item>
-              <mat-list-item> Home Yards: {{ game.homeYards }} </mat-list-item>
-              <mat-list-item> Away Yards: {{ game.awayYards }} </mat-list-item>
+              <mat-list-item> Hazai pontszám: {{ game.homeScore }} </mat-list-item>
+              <mat-list-item> Vendég pontszám: {{ game.awayScore }} </mat-list-item>
+              <mat-list-item> Hazai csapat által szezett yardok: {{ game.homeYards }} </mat-list-item>
+              <mat-list-item> Vendég csapat által szerzett yardok: {{ game.awayYards }} </mat-list-item>
             </mat-list>
           </div>
           <div class="head2head" *ngIf="selectedWeek != 1">

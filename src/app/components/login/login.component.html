@@ -1,18 +1,18 @@
 <mat-card class="big">
     <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
+        <mat-card-title>Bejelentkezás</mat-card-title>
     </mat-card-header>
     <mat-card class="small">
         <form (ngSubmit)="sendLoginRequest()">
             <mat-card-content>
 
                 <mat-form-field appearance="outline">
-                    <mat-label>Username</mat-label>
+                    <mat-label>Felhasználó név</mat-label>
                     <input matInput required [formControl]="username"/>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
-                    <mat-label>Password</mat-label>
+                    <mat-label>Jelszó</mat-label>
                     <input matInput [type]="hide ? 'password' : 'text'" required [formControl]="password"/>
                     <mat-icon matSuffix (click)="hide = !hide">{{
                         hide ? "visibility_off" : "visibility"
@@ -22,9 +22,9 @@
             </mat-card-content>
             <mat-card-actions>
                 <a class="register" mat-button color="primary" routerLink="/register">
-                    Register here!
+                    Regisztráció!
                 </a>
-                <button class="login" mat-raised-button color="primary">Login</button>
+                <button class="login" mat-raised-button color="primary">Bejelentkezés</button>
             </mat-card-actions>
         </form>
     </mat-card>

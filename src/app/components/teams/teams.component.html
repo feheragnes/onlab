@@ -1,11 +1,11 @@
 <div *ngIf="teams">
     <mat-card class="big">
         <mat-card-header>
-            <mat-card-title>Teams</mat-card-title>
+            <mat-card-title>Csapatok</mat-card-title>
         </mat-card-header>
         <mat-card class="medium">
             <mat-form-field>
-                <mat-label>Season</mat-label>
+                <mat-label>Szezon</mat-label>
                 <mat-select
                         [value]="selectedSeason"
                         (valueChange)="onSeasonChanged($event)"

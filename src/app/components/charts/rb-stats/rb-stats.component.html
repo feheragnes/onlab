@@ -1,8 +1,8 @@
-<h1>Running Back stats</h1>
+<h1>Futók</h1>
 
 <div class="filter">
   <mat-form-field>
-    <mat-label>Season</mat-label>
+    <mat-label>Szezon</mat-label>
     <mat-select
       [value]="selectedSeason"
       (valueChange)="onSeasonChanged($event)"
@@ -13,14 +13,15 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Team</mat-label>
+    <mat-label>Csapat</mat-label>
     <mat-select [value]="selectedTeam" (valueChange)="onTeamChanged($event)">
       <mat-option *ngFor="let team of teams" [value]="team">
         {{ team }}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-label>Minimum rush attempts:</mat-label>
+  <br>
+  <mat-label>Minimális futási kísérletek:</mat-label>
   <mat-slider
     thumbLabel
     tickInterval="1"
@@ -30,7 +31,7 @@
     [value]="selectedRushAttempts"
     (input)="onRaSliderChanged($event)"
   ></mat-slider>
-  <mat-label>Minimum games:</mat-label>
+  <mat-label>Minimálisan lejátszott mérkőzések:</mat-label>
   <mat-slider
     thumbLabel
     tickInterval="1"

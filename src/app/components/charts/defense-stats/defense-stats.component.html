@@ -1,6 +1,6 @@
-<h1>Defense stats</h1>
+<h1>Védó játékosok</h1>
 <mat-form-field>
-    <mat-label>Season</mat-label>
+    <mat-label>Szezon</mat-label>
     <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
         <mat-option *ngFor="let season of seasons" [value]="season">
             {{ season }}

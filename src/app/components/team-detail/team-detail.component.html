@@ -12,15 +12,15 @@
     <mat-card class="data">
       <mat-list>
         <mat-list-item>
-          Allowed Average Points: {{ team.allowedAvgPoints }}
+          Átlagos engedett pontok: {{ team.allowedAvgPoints }}
         </mat-list-item>
         <mat-list-item>
-          Scored Average Points: {{ team.scoredAvgPoints }}
+          Átlagos szerzett pontok: {{ team.scoredAvgPoints }}
         </mat-list-item>
         <mat-list-item>
-          Allowed All Ypg: {{ team.allowedAllYpg }}
+          Átlagos engedett yardok: {{ team.allowedAllYpg }}
         </mat-list-item>
-        <mat-list-item> Scored All Ypg: {{ team.scoredAllYpg }} </mat-list-item>
+        <mat-list-item> Átlagos szerzett yardok: {{ team.scoredAllYpg }} </mat-list-item>
       </mat-list>
       <div class="chart" style="display: block; width: 300px;">
         <canvas
@@ -39,43 +39,43 @@
 
     <mat-card>
       <mat-list>
-        <h3 matSubheader>Quarter Backs</h3>
+        <h3 matSubheader>Irányító(k)</h3>
         <mat-list-item *ngFor="let qb of team.quarterBacks">
           <h4 mat-line>{{ qb.name }}</h4>
-          <h6 mat-line>Yards: {{ qb.passYards }}</h6>
-          <h6 mat-line>Tds: {{ qb.passTds }}</h6>
+          <h6 mat-line>Passzolt yardok: {{ qb.passYards }}</h6>
+          <h6 mat-line>Passzolt TD-k: {{ qb.passTds }}</h6>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <h3 matSubheader>RunningBacks</h3>
+        <h3 matSubheader>Futó(k)</h3>
         <mat-list-item *ngFor="let rb of team.runningBacks">
           <h4 mat-line>{{ rb.name }}</h4>
-          <h6 mat-line>Yards: {{ rb.rushYards }}</h6>
-          <h6 mat-line>Tds: {{ rb.rushTds }}</h6>
+          <h6 mat-line>Futott yardok: {{ rb.rushYards }}</h6>
+          <h6 mat-line>Futott TD-k: {{ rb.rushTds }}</h6>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <h3 matSubheader>WideReceivers</h3>
+        <h3 matSubheader>Elkapó(k)</h3>
         <mat-list-item *ngFor="let wr of team.wideReceivers">
           <h4 mat-line>{{ wr.name }}</h4>
-          <h6 mat-line>Yards: {{ wr.recYards }}</h6>
-          <h6 mat-line>Tds: {{ wr.recTds }}</h6>
+          <h6 mat-line>Elkapott yardok: {{ wr.recYards }}</h6>
+          <h6 mat-line>Elkapott TD-k: {{ wr.recTds }}</h6>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <h3 matSubheader>Top Sacks</h3>
+        <h3 matSubheader>Legtöbb sack</h3>
         <mat-list-item *ngFor="let ts of team.topSacks">
           <h4 mat-line>{{ ts.name }}</h4>
-          <h6 mat-line>Sacks: {{ ts.sacks }}</h6>
+          <h6 mat-line>Sack-ek: {{ ts.sacks }}</h6>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <h3 matSubheader>Top Tackles</h3>
+        <h3 matSubheader>Legtöbb szerelés</h3>
         <mat-list-item *ngFor="let tt of team.topTackles">
           <h4 mat-line>{{ tt.name }}</h4>
-          <h6 mat-line>Tackles: {{ tt.tackles }}</h6>
+          <h6 mat-line>Szerelések: {{ tt.tackles }}</h6>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <h3 matSubheader>Top Interceptions</h3>
+        <h3 matSubheader>Legtöbb interception</h3>
         <mat-list-item *ngFor="let ti of team.topInterceptions">
           <h4 mat-line>{{ ti.name }}</h4>
-          <h6 mat-line>Interceptions: {{ ti.interceptions }}</h6>
+          <h6 mat-line>Interception-ök: {{ ti.interceptions }}</h6>
         </mat-list-item>
       </mat-list>
     </mat-card>
@@ -86,8 +86,8 @@
           [value]="selectedAllowedScored"
           (valueChange)="onAllowedScoredChanged($event)"
         >
-          <mat-option value="allowed">Allowed</mat-option>
-          <mat-option value="scored">Scored</mat-option>
+          <mat-option value="allowed">Engedett</mat-option>
+          <mat-option value="scored">Szerzett</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
@@ -95,9 +95,9 @@
           [value]="selectedType"
           (valueChange)="onTypeChanged($event)"
         >
-          <mat-option value="all">All</mat-option>
-          <mat-option value="receiving">Receiving</mat-option>
-          <mat-option value="rushing">Rushing</mat-option>
+          <mat-option value="all">Össz</mat-option>
+          <mat-option value="receiving">Passzolt</mat-option>
+          <mat-option value="rushing">Futott</mat-option>
         </mat-select>
       </mat-form-field>
       <p></p>

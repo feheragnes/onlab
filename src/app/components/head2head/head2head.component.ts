@@ -33,7 +33,7 @@ export class Head2headComponent implements OnInit {
     };
     public barChartLabels: Label[] = [];
     public barChartType: ChartType = 'horizontalBar';
-    public barChartLegend = true;
+    public barChartLegend = false;
     public barChartColors = [
         {
             backgroundColor: ['#1a237e', '#5c6bc0']

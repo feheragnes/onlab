@@ -1,6 +1,6 @@
-<h1>TD-YPG</h1>
+<h1>TD/Yardok</h1>
 <mat-form-field>
-  <mat-label>Season</mat-label>
+  <mat-label>Szezon</mat-label>
   <mat-select [value]="selectedSeason" (valueChange)="onSeasonChanged($event)">
     <mat-option *ngFor="let season of seasons" [value]="season">
       {{ season }}
@@ -14,17 +14,17 @@
     [value]="selectedAllowedScored"
     (valueChange)="onAllowedScoredChanged($event)"
   >
-    <mat-option value="allowed">Allowed</mat-option>
-    <mat-option value="scored">Scored</mat-option>
+    <mat-option value="allowed">Engedett</mat-option>
+    <mat-option value="scored">Szerzett</mat-option>
   </mat-select>
 </mat-form-field>
 
 <mat-form-field>
   <!-- <mat-label>Season</mat-label> -->
   <mat-select [value]="selectedType" (valueChange)="onTypeChanged($event)">
-    <mat-option value="all">All</mat-option>
-    <mat-option value="receiving">Receiving</mat-option>
-    <mat-option value="rushing">Rushing</mat-option>
+    <mat-option value="all">Összes</mat-option>
+    <mat-option value="receiving">Passzolt</mat-option>
+    <mat-option value="rushing">Futott</mat-option>
   </mat-select>
 </mat-form-field>
 

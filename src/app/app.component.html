@@ -3,11 +3,11 @@
     <span>{{ title }}</span>
 
     <nav class="toolbar" *ngIf="user">
-      <a mat-button routerLink="/teams">Teams</a>
-      <a mat-button routerLink="/games">Games</a>
-      <a mat-button routerLink="/stats">Stats</a>
+      <a mat-button routerLink="/teams">Csapatok</a>
+      <a mat-button routerLink="/games">Meccsek</a>
+      <a mat-button routerLink="/stats">Statisztikák</a>
       <a mat-raised-button class="logout-button" (click)="logout()"
-        >Logout<mat-icon>arrow_right_alt</mat-icon></a
+        >Kijelentkezés<mat-icon>arrow_right_alt</mat-icon></a
       >
     </nav>
   </mat-toolbar>
