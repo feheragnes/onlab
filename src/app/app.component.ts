@@ -9,6 +9,7 @@ import {ToastrService} from 'ngx-toastr';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+    static excludeInterceptor = false;
     public title = 'NFL statisztikák';
     public user;
 

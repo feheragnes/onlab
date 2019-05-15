@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 import {User} from '../interfaces/user';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {ExcludeAuthInterceptorHelper} from './exclude-auth-interceptor-helper.service';
 
 @Injectable({
     providedIn: 'root'
@@ -63,12 +64,13 @@ export class AuthenticationService {
 
         const url = environment.api_URI + 'user/login';
         const options = {
-            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
         };
         const body = new URLSearchParams();
         body.set('username', username);
         body.set('password', password);
 
+        ExcludeAuthInterceptorHelper.excludeAuthInterceptor = true;
         return this.http.post<User>(url, body.toString(), options).pipe(map(response => {
 
             if (response.token && response.expires) {
@@ -90,6 +92,7 @@ export class AuthenticationService {
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         };
 
+        ExcludeAuthInterceptorHelper.excludeAuthInterceptor = true;
         return this.http.put(url, body.toString(), options);
     }
 

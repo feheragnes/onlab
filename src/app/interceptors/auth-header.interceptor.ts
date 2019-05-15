@@ -5,9 +5,11 @@ import {AuthenticationService} from '../services/authentication.service';
 import {catchError} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
+import {ExcludeAuthInterceptorHelper} from '../services/exclude-auth-interceptor-helper.service';
 
 @Injectable()
 export class AuthHeaderInterceptor implements HttpInterceptor {
+
 
     private user;
 
@@ -19,6 +21,13 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+
+        if (ExcludeAuthInterceptorHelper.excludeAuthInterceptor) {
+            ExcludeAuthInterceptorHelper.excludeAuthInterceptor = false;
+            return next.handle(req);
+        }
+
 
         if (this.user && this.user.token) {
             req = req.clone({
