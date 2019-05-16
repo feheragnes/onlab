@@ -20,7 +20,9 @@
         <mat-list-item>
           Átlagos engedett yardok: {{ team.allowedAllYpg }}
         </mat-list-item>
-        <mat-list-item> Átlagos szerzett yardok: {{ team.scoredAllYpg }} </mat-list-item>
+        <mat-list-item>
+          Átlagos szerzett yardok: {{ team.scoredAllYpg }}
+        </mat-list-item>
       </mat-list>
       <div class="chart" style="display: block; width: 300px;">
         <canvas
@@ -95,7 +97,7 @@
           [value]="selectedType"
           (valueChange)="onTypeChanged($event)"
         >
-          <mat-option value="all">Össz</mat-option>
+          <mat-option value="all">Összes</mat-option>
           <mat-option value="receiving">Passzolt</mat-option>
           <mat-option value="rushing">Futott</mat-option>
         </mat-select>
