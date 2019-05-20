@@ -1,76 +1,69 @@
 <div *ngIf="head2head">
-  <h2 align="center">Eddigi meccsek alapján</h2>
-    <mat-grid-list cols="2" rowHeight="200px">
-        <mat-grid-tile
+  <h3 align="center">Eddigi meccsek alapján</h3>
+  <mat-grid-list cols="2" rowHeight="200px">
+    <mat-grid-tile>
+      <h5>Engedett átlag pontok</h5>
+      <div style="display: block; width: 300px; height: 150px">
+        <canvas
+          baseChart
+          [datasets]="allowedPointsData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="barChartColors"
         >
-          <div>Engedett átlag pontok</div>
-            <div style="display: block; width: 300px; height: 150px">
-                <canvas
-                        baseChart
-                        [datasets]="allowedPointsData"
-                        [labels]="barChartLabels"
-                        [options]="barChartOptions"
-                        [plugins]="barChartPlugins"
-                        [legend]="barChartLegend"
-                        [chartType]="barChartType"
-                        [colors]="barChartColors"
-                >
-                </canvas>
-            </div
-            >
-        </mat-grid-tile>
-        <mat-grid-tile
+        </canvas>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <h5>Szerzett átlag pontok</h5>
+      <div style="display: block; width: 300px; height: 150px">
+        <canvas
+          baseChart
+          [datasets]="scoredPointsData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="barChartColors"
         >
-          <div>Szerzett átlag pontok</div>
-            <div style="display: block; width: 300px; height: 150px">
-                <canvas
-                        baseChart
-                        [datasets]="scoredPointsData"
-                        [labels]="barChartLabels"
-                        [options]="barChartOptions"
-                        [plugins]="barChartPlugins"
-                        [legend]="barChartLegend"
-                        [chartType]="barChartType"
-                        [colors]="barChartColors"
-                >
-                </canvas>
-            </div
-            >
-        </mat-grid-tile>
-        <mat-grid-tile
+        </canvas>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <h5>Engedett átlag yardok</h5>
+      <div style="display: block; width: 300px; height: 150px">
+        <canvas
+          baseChart
+          [datasets]="allowedYardsData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="barChartColors"
         >
-          <div>Engedett átlag yardok</div>
-            <div style="display: block; width: 300px; height: 150px">
-                <canvas
-                        baseChart
-                        [datasets]="allowedYardsData"
-                        [labels]="barChartLabels"
-                        [options]="barChartOptions"
-                        [plugins]="barChartPlugins"
-                        [legend]="barChartLegend"
-                        [chartType]="barChartType"
-                        [colors]="barChartColors"
-                >
-                </canvas>
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile
+        </canvas>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <h5>Szerzett átlag yardok</h5>
+      <div style="display: block; width: 300px; height: 150px">
+        <canvas
+          baseChart
+          [datasets]="scoredYardsData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="barChartColors"
         >
-          <div>Szerzett átlag yardok</div>
-            <div style="display: block; width: 300px; height: 150px">
-                <canvas
-                        baseChart
-                        [datasets]="scoredYardsData"
-                        [labels]="barChartLabels"
-                        [options]="barChartOptions"
-                        [plugins]="barChartPlugins"
-                        [legend]="barChartLegend"
-                        [chartType]="barChartType"
-                        [colors]="barChartColors"
-                >
-                </canvas>
-            </div
-            >
-        </mat-grid-tile>
-    </mat-grid-list>
+        </canvas>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

@@ -8,23 +8,20 @@ import { ToastrModule } from 'ngx-toastr';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 
 import {
-  MatBadgeModule,
   MatButtonModule,
   MatCardModule,
   MatChipsModule,
   MatExpansionModule,
   MatFormFieldModule,
-  MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
-  MatMenuModule,
-  MatPaginatorModule,
   MatProgressSpinnerModule,
   MatSelectModule,
   MatSidenavModule,
   MatSliderModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatGridListModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -83,20 +80,17 @@ import { AuthHeaderInterceptor } from './interceptors/auth-header.interceptor';
     MatButtonModule,
     MatListModule,
     MatIconModule,
-    MatBadgeModule,
     MatExpansionModule,
     MatSelectModule,
     MatFormFieldModule,
     MatChipsModule,
-    MatPaginatorModule,
     NgbModule,
-    MatGridListModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatMenuModule,
     MatSliderModule,
     MatSidenavModule,
     MatInputModule,
+    MatGridListModule,
     ScrollDispatchModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
